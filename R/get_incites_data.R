@@ -1,0 +1,26 @@
+#' .. content for \description{} (no empty lines) ..
+#'
+#' .. content for \details{} ..
+#'
+#' @title
+#' @param peer_reviewed
+get_incites_data <- function(peer_reviewed) {
+  uts <- peer_reviewed %>%
+    tidyr::drop_na(annote) %>%
+    dplyr::pull(annote)
+
+  incites_data <- wosr::pull_incites(uts)
+
+  incites_data <-
+    incites_data %>%
+    as_tibble() %>%
+    select(ut, tot_cites, impact_factor, percentile, nci, hot_paper) %>%
+    left_join(
+      select(peer_reviewed, annote, issued),
+      by = c("ut" = "annote")
+    ) %>%
+    mutate(year = as.Date(issued)) %>%
+    select(-issued)
+
+  return(incites_data)
+}
