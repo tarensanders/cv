@@ -40,3 +40,5 @@ _targets/
 
 # html
 *.html
+
+.DS_Store
