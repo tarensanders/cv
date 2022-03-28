@@ -40,6 +40,3 @@ _targets/
 
 # html
 *.html
-
-# renv via capsule
-renv/
