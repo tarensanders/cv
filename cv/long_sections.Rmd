@@ -1,0 +1,147 @@
+# Research Funding
+
+```{r funding}
+funding %>%
+  mutate(
+    Amount = gsub("$", "\\$", scales::dollar(Amount), fixed = TRUE),
+    Scheme = if_else(
+      !is.na(Scheme),
+      stringr::str_c("--- ", Scheme),
+      NA_character_
+    )
+  ) %>%
+  detailed_entries(
+    what = glue("{Role} {Scheme} {Details}",
+      "\\newline {Title}",
+      .na = ""
+    ),
+    when = glue("{Start}--{Finish}"),
+    with = Funder,
+    where = Amount,
+    .protect = FALSE
+  )
+```
+
+# Awards
+
+```{r awards, eval = params$long}
+brief_entries(
+  awards,
+  when = Year,
+  what = glue("\\textbf{<Award>} <Org>. <Details>",
+    .na = "", .open = "<", .close = ">"
+  ),
+  .protect = FALSE
+)
+```
+
+# Students
+
+## Doctor of Philosophy
+
+```{r students-phd}
+students %>%
+  dplyr::filter(Degree == "PhD") %>%
+  brief_entries(
+    what = Name,
+    when = glue("{Start}--{Finish}", .na = ""),
+    with = Role
+  )
+```
+
+## Honours
+
+```{r students-honours}
+students %>%
+  dplyr::filter(Degree == "Honours") %>%
+  brief_entries(
+    what = Name,
+    when = glue("{Start}--{Finish}", .na = ""),
+    with = Role
+  )
+```
+
+# Conference Presentations
+
+(Presenting author presentations listed only)
+
+```{r}
+conferences %>%
+  arrange(desc(issued))
+```
+
+# Invited Talks
+
+```{r}
+brief_entries(
+  invited_talks,
+  when = Year,
+  what = glue("\\textbf{<Org>}. <Talk>. <Location>",
+    .na = "", .open = "<", .close = ">"
+  ),
+  .protect = FALSE
+)
+```
+
+# Selected Software
+
+For a complete list of the software I have developed or contributed to, please see my [Github page](https://github.com/tarensanders).
+
+```{r sofware}
+software <-
+  software %>%
+  rowwise() %>%
+  mutate(Location = commonmark::markdown_latex(glue("[{Location}]({Link})")))
+```
+
+## R Packages
+
+```{r software-R}
+software %>%
+  dplyr::filter(Language == "R") %>%
+  detailed_entries(
+    with = Package,
+    where = Location,
+    what = Desc,
+    why = Details,
+    .protect = FALSE
+  )
+```
+
+## Python Packages
+
+```{r software-Python}
+software %>%
+  dplyr::filter(Language == "Python") %>%
+  detailed_entries(
+    with = Package,
+    where = Location,
+    what = Desc,
+    why = Details,
+    .protect = FALSE
+  )
+```
+
+# Service
+
+```{r service}
+detailed_entries(
+  service,
+  with = Type,
+  what = Desc,
+  why = Details
+)
+```
+
+# Self-Development
+
+```{r development}
+brief_entries(
+  development,
+  when = Year,
+  what = glue("\\textbf{<Course>.} <Location>",
+    .na = "", .open = "<", .close = ">"
+  ),
+  .protect = FALSE
+)
+```
