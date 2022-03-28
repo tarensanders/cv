@@ -152,19 +152,6 @@ funding %>%
   )
 ```
 
-# Awards
-
-```{r awards}
-brief_entries(
-  awards,
-  when = Year,
-  what = glue("\\textbf{<Award>} <Org>. <Details>",
-    .na = "", .open = "<", .close = ">"
-  ),
-  .protect = FALSE
-)
-```
-
 # Publications
 
 ## Peer-Reviewed Publications
@@ -181,6 +168,19 @@ peer_reviewed_citations %>%
 ```{r bookchapters}
 book_chapters %>%
   arrange(desc(issued))
+```
+
+# Awards
+
+```{r awards}
+brief_entries(
+  awards,
+  when = Year,
+  what = glue("\\textbf{<Award>} <Org>. <Details>",
+    .na = "", .open = "<", .close = ">"
+  ),
+  .protect = FALSE
+)
 ```
 
 # Students
