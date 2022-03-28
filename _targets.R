@@ -4,7 +4,8 @@ source("./packages.R")
 ## Load R files
 lapply(list.files("./R", full.names = TRUE), source)
 
-auth_datasources()
+googlesheets4::gs4_deauth()
+googledrive::drive_deauth()
 
 data_sheet <- "1eglf3B_N1yv-RH-48NBzriIslqSLkh30V2kxbxlWCfE"
 
