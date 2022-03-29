@@ -52,7 +52,7 @@ jobs:
           sudo apt-get install libcurl4-openssl-dev
           sudo apt-get install libssl-dev
           sudo apt-get install libzmq3-dev
-          sudo apt-get install install texlive-xetex
+          sudo apt-get install texlive-xetex
 
       - name: Cache packages
         uses: actions/cache@v1
