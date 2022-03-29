@@ -68,7 +68,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Run targets pipeline
-        run: renv::activate(prompt = FALSE);targets::tar_make()
+        run: renv::activate();targets::tar_make()
         shell: Rscript {0}
 
       - name: Identify files that the targets pipeline produced
