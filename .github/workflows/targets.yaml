@@ -36,7 +36,6 @@ name: targets
 jobs:
   targets:
     runs-on: ubuntu-latest
-    container: tarensanders/cv:latest
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
