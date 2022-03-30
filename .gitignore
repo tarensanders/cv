@@ -38,4 +38,7 @@ rsconnect/
 # html
 *.html
 
+# Targets
+_targets
+
 .DS_Store
