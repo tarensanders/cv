@@ -112,6 +112,17 @@ jobs:
           done
           git commit -am "Run pipeline"
           git push origin targets-runs
+          
+      - name: Update CVs in main
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git fetch                         
+          git checkout main
+          git checkout targets-runs -- cv/cv.pdf cv/cv_short.pdf # copy files from the source branch
+          git add -A
+          git diff-index --quiet HEAD ||  git commit -am "deploy files"
+          git push origin main
 
       - name: Prepare failure artifact
         if: failure()
