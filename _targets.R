@@ -44,17 +44,15 @@ tar_plan(
   tar_target(book_chapters, bibliography_entries(book_chapters_file)),
   tar_target(conferences, bibliography_entries(conferences_file)),
   # Profiles
-  tar_target(
+  tar_age(
     gscholar_profile,
     scholar::get_profile("8KNzhS4AAAAJ"),
-    cue = tarchetypes::tar_cue_age(
-      name = gscholar_profile, age = as.difftime(7, units = "days")
-    )
+    age = as.difftime(7, units = "days")
   ),
-  tar_target(incites_data, get_incites_data(peer_reviewed),
-    cue = tarchetypes::tar_cue_age(
-      name = incites_data, age = as.difftime(7, units = "days")
-    )
+  tar_age(
+    incites_data,
+    get_incites_data(peer_reviewed),
+    age = as.difftime(7, units = "days")
   ),
   tar_target(short_cv_pubs, short_pubs),
   tar_target(
