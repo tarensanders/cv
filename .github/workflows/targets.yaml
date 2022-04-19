@@ -29,7 +29,7 @@ on:
       - main
       - master
   schedule:
-    - cron: '0 13 * * *'
+    - cron: '0 13 * * 0,2,4'
 
 name: targets
 
