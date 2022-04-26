@@ -44,7 +44,7 @@ jobs:
       INCITES_KEY: ${{ secrets.INCITES_KEY }}
       LANG: en_US.UTF-8 # https://github.com/jgm/citeproc/issues/26
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Cache packages
         uses: actions/cache@v2
