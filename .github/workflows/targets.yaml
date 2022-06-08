@@ -113,7 +113,7 @@ jobs:
             git add $file -f
           done
           git commit -am "Run pipeline"
-          git push origin targets-runs
+          git push origin targets-runs --force
           
       - name: Update CVs in main
         run: |
@@ -125,7 +125,7 @@ jobs:
           git add -A
           git diff-index --quiet HEAD ||  git commit -am "deploy files"
           git pull origin main
-          git push origin main --force
+          git push origin main
 
       - name: Prepare failure artifact
         if: failure()
