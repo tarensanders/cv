@@ -125,7 +125,7 @@ jobs:
           git add -A
           git diff-index --quiet HEAD ||  git commit -am "deploy files"
           git pull origin main
-          git push origin main
+          git push origin main --force
 
       - name: Prepare failure artifact
         if: failure()
