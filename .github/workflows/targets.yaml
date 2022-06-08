@@ -124,6 +124,7 @@ jobs:
           git checkout targets-runs -- cv/cv.pdf cv/cv_short.pdf # copy files from the source branch
           git add -A
           git diff-index --quiet HEAD ||  git commit -am "deploy files"
+          git pull origin main
           git push origin main
 
       - name: Prepare failure artifact
