@@ -116,6 +116,7 @@ jobs:
           git push origin targets-runs --force
           
       - name: Update CVs in main
+        id: update-cvs
         run: |
           git config --global user.name 'GitHub Action'
           git config --global user.email 'action@github.com'
@@ -123,7 +124,7 @@ jobs:
           git checkout main
           git checkout targets-runs -- cv/cv.pdf cv/cv_short.pdf # copy files from the source branch
           git add -A
-          git diff-index --quiet HEAD ||  git commit -am "deploy files"
+          git diff-index --quiet HEAD ||  git commit -am "[Beep boop] Update CVs"
           git pull origin main
           git push origin main
 
@@ -137,3 +138,10 @@ jobs:
         with:
           name: ${{ runner.os }}-r${{ matrix.config.r }}-results
           path: .
+
+      - name: Send Teams alert
+        if: steps.update-cvs.outcome == 'success'
+        uses: skitionek/notify-microsoft-teams@master
+        with:
+          webhook_url: ${{ secrets.MSTEAMS_URL }}
+          overwrite: "{title: '[Beep boop] Automatically updated your CV'}"
