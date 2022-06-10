@@ -145,3 +145,6 @@ jobs:
         with:
           webhook_url: ${{ secrets.MSTEAMS_URL }}
           overwrite: "{title: '[Beep boop] Automatically updated your CV'}"
+          job: ${{ toJson(job) }}
+          steps: ${{ toJson(steps) }}
+          needs: ${{ toJson(needs) }}
