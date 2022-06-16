@@ -28,6 +28,10 @@ on:
     branches:
       - main
       - master
+  pull_request:
+    branches:
+      - main
+      - master
   schedule:
     - cron: '0 13 * * 0,2,4'
 
@@ -37,7 +41,7 @@ jobs:
   targets:
     runs-on: ubuntu-latest
     container:
-      image: rocker/verse:4.1.1
+      image: tarensanders/cv:latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       RENV_PATHS_ROOT: ~/.local/share/renv
@@ -59,18 +63,20 @@ jobs:
           if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
           renv::restore()
 
-      - name: Check if previous runs exists
-        id: runs-exist
-        run: git ls-remote --exit-code --heads origin targets-runs
-        continue-on-error: true
+#       - name: Check if previous runs exists
+#         id: runs-exist
+#         run: git ls-remote --exit-code --heads origin targets-runs
+#         continue-on-error: true
 
       - name: Checkout previous run
-        if: steps.runs-exist.outcome == 'success'
-        uses: actions/checkout@v2
+        id: runs-exist
+#         if: steps.runs-exist.outcome == 'success'
+        uses: actions/checkout@v3
         with:
           ref: targets-runs
           fetch-depth: 1
           path: .targets-runs
+        continue-on-error: true
 
       - name: Restore output files from the previous run
         if: steps.runs-exist.outcome == 'success'
@@ -117,6 +123,7 @@ jobs:
           
       - name: Update CVs in main
         id: update-cvs
+        if: github.event_name != 'pull_request'
         run: |
           git config --global user.name 'GitHub Action'
           git config --global user.email 'action@github.com'
