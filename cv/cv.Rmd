@@ -73,7 +73,7 @@ employment <-
     list(
       "Work with Institute Executive Management to support academic and professional staff to complete their duties.",
       "Developed and implemented new project management processes within the program, including making agile management strategies standard practice.",
-      "Acting Progam Leader Feb---March 2022."
+      "Acting Progam Leader Feb---Dec 2023."
     ),
     "Research Fellow", "2016", "Current",
     "Institute for Positive Psychology and Education, Australian Catholic University",
