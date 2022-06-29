@@ -68,12 +68,18 @@ employment <-
   tribble(
     ~role, ~start, ~end, ~org, ~details,
     # nolint start
-    "Deputy Program Leader", "2017", "Current",
+    "Program Leader", "2021", "Current",
     "Institute for Positive Psychology and Education, Australian Catholic University",
     list(
-      "Work with Institute Executive Management to support academic and professional staff to complete their duties.",
-      "Developed and implemented new project management processes within the program, including making agile management strategies standard practice.",
-      "Acting Progam Leader Feb---Dec 2023."
+      "Drive the strategic direction and focus of the research program",
+      "Support academic and professional staff, as well as higher-degree students, within the program",
+      "Provide input as a member of the Institute Executive Management Committee on the priorities of the institute, and advocate for my research program",
+      "Developed and implemented new project management processes within the program, including making agile management strategies standard practice."
+    ),
+    "Deputy Program Leader", "2017", "2021",
+    "Institute for Positive Psychology and Education, Australian Catholic University",
+    list(
+      "Supported Program Leader to manage the research program"
     ),
     "Research Fellow", "2016", "Current",
     "Institute for Positive Psychology and Education, Australian Catholic University",
