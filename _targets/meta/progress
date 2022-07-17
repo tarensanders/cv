@@ -19,6 +19,9 @@ peer_reviewed|stem|peer_reviewed|0|skipped
 conferences|stem|conferences|0|skipped
 incites_data|stem|incites_data|0|skipped
 peer_reviewed_citations|stem|peer_reviewed_citations|0|skipped
-research_profile|stem|research_profile|0|skipped
-cv_short|stem|cv_short|0|skipped
-cv|stem|cv|0|skipped
+research_profile|stem|research_profile|0|started
+research_profile|stem|research_profile|0|built
+cv_short|stem|cv_short|0|started
+cv_short|stem|cv_short|0|built
+cv|stem|cv|0|started
+cv|stem|cv|0|built
