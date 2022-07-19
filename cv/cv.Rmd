@@ -73,8 +73,8 @@ employment <-
     list(
       "Drive the strategic direction and focus of the research program",
       "Support academic and professional staff, as well as higher-degree students, within the program",
-      "Provide input as a member of the Institute Executive Management Committee on the priorities of the institute, and advocate for my research program",
-      "Developed and implemented new project management processes within the program, including making agile management strategies standard practice."
+      "Provide input as a member of the Institute Executive Management Committee on Institute priorities, and advocate for my research program",
+      "Developed and implemented new project management processes, including making agile management strategies standard practice."
     ),
     "Deputy Program Leader", "2017", "2021",
     "Institute for Positive Psychology and Education, Australian Catholic University",
@@ -85,7 +85,7 @@ employment <-
     "Institute for Positive Psychology and Education, Australian Catholic University",
     list(
       "Conduct original, high-impact, and translational research in the areas of health, education, and psychology.",
-      "Overseen the development and evaluation of multiple large-scale school-based research projects, including iPLAY (145 schools) and Transform-Us! (20 schools in NSW). Intervention content I created has been delivered to more than 2,500 teachers and impacted more than 40,000 students.",
+      "Overseen the development and evaluation of multiple large-scale school-based research projects, including iPLAY (145 schools) and Transform-Us! (20 schools in NSW). Intervention content I created has been delivered to more than 3,000 teachers and impacted more than 50,000 students.",
       "Conducted analyses of primary and secondary data, and provided statistical support to colleagues including statistics workshops.",
       "Worked with industry partners (NSW Department of Education, NSW Health, Sport Australia) to provide project updates and seek input.",
       "Author and co-author academic outputs, including book chapters, journal articles, and grant applications, as well as non-academic outputs such as stakeholder reports and data visualisations.",
@@ -125,7 +125,7 @@ tribble(
   # nolint start
   "Programming Languages", "R, Python, Stata, Julia",
   "Software Development", "R packages (including CRAN submission), Python packages",
-  "Statistical Methods", "Machine learning (incl. computer vision), multilevel modelling, intervention evaluation, growth curve modelling",
+  "Statistical Methods", "Machine learning, multilevel modelling, intervention evaluation, meta-analyses",
   "Research Methods", "Study design, intervention development, ethics and recruitment"
   # nolint end
 ) %>%
