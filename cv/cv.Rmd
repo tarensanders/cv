@@ -1,6 +1,6 @@
 ---
 name: Taren Sanders
-position: Researcher & Data Scientist
+position: Academic Researcher & Data Scientist
 address: "Institute for Positive Psychology and Education, Australian Catholic University"
 phone: 0412 278 640
 #www: 
@@ -46,9 +46,10 @@ tribble(
   # nolint start
   ~Degree, ~University, ~Date, ~Details,
   "Doctor of Philosophy", "Western Sydney University", 2016,
-  "Thesis title: Investigating Associations Between Neighbourhood Green Space and Weight Status: A Longitudinal Study of Australian Children Aged 4 to 13 Years Old.",
+  "Thesis: Investigating associations between neighbourhood green space and weight status: A longitudinal study of Australian children aged 4 to 13 years old.",
+  "Master of Data Science (Applied)", "Adelaide University", 2022, NA,
   "Bachelor of Health Science (Honours; First Class)", "Western Sydney University", 2012,
-  "Thesis title: Measuring adolescent boys’ physical activity: Bout length and the influence of accelerometer epoch length.",
+  "Thesis: Measuring adolescent boys’ physical activity: Bout length and the influence of accelerometer epoch length.",
   "Bachelor of Health Science (PDHPE)", "Western Sydney University", 2011, NA
   # nolint end
 ) %>%
@@ -85,10 +86,10 @@ employment <-
     "Institute for Positive Psychology and Education, Australian Catholic University",
     list(
       "Conduct original, high-impact, and translational research in the areas of health, education, and psychology.",
-      "Overseen the development and evaluation of multiple large-scale school-based research projects, including iPLAY (145 schools) and Transform-Us! (20 schools in NSW). Intervention content I created has been delivered to more than 3,000 teachers and impacted more than 50,000 students.",
-      "Conducted analyses of primary and secondary data, and provided statistical support to colleagues including statistics workshops.",
-      "Worked with industry partners (NSW Department of Education, NSW Health, Sport Australia) to provide project updates and seek input.",
-      "Author and co-author academic outputs, including book chapters, journal articles, and grant applications, as well as non-academic outputs such as stakeholder reports and data visualisations.",
+      "Oversee the development, evaluation, and management of multiple large-scale school-based research projects (e.g., iPLAY; 180 schools).",
+      "Conduct analyses of primary and secondary data, and provided statistical support to colleagues including statistics workshops.",
+      "Work with industry partners (NSW Department of Education, NSW Health, Sport Australia) to provide project updates and seek input.",
+      "Author academic and non-academic outputs, including journal articles, grant applications, stakeholder reports, and data visualisations.",
       "Mentor doctoral and honours students, including reviewing and evaluating their analyses and writing."
     )
     # nolint end
