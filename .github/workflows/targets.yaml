@@ -50,24 +50,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Cache packages
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.RENV_PATHS_ROOT }}
-          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
-          restore-keys: ${{ runner.os }}-renv-
-
-      - name: Restore packages
-        shell: Rscript {0}
-        run: |
-          if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
-          renv::restore()
-
-#       - name: Check if previous runs exists
-#         id: runs-exist
-#         run: git ls-remote --exit-code --heads origin targets-runs
-#         continue-on-error: true
-
       - name: Checkout previous run
         id: runs-exist
 #         if: steps.runs-exist.outcome == 'success'
