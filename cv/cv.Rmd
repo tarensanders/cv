@@ -13,7 +13,8 @@ date: "`r format(Sys.time(), '%B %Y')`"
 headcolor: "000000"
 csl: "apa-cv.csl"
 params:
-  long: true
+  two_page: false
+  five_page: false
 output: 
   vitae::awesomecv:
     pandoc_args: ["--lua-filter=strong.lua"] 
@@ -138,17 +139,17 @@ tribble(
 
 \newpage
 
-`r if (params$long) {"# Publications"} else {"# Selected Publications"}`
+`r if (!params$two_page && !params$five_page) {"# Publications"} else {"# Selected Publications"}`
 
-`r if (!params$long) {"For a full list of publications see my full CV ([bit.ly/SandersCV](https://bit.ly/SandersCV))."}`
+`r if (params$two_page || params$five_page) {"For a full list of publications see my full CV ([bit.ly/SandersCV](https://bit.ly/SandersCV))."}`
 
 ## Peer-Reviewed Publications
 
-`r if (params$long) {"*Note*: In health and medicine the last author is considered the 'senior' author.\nCitations from Web of Science; JIF = [Journal Impact Factor](http://help.prod-incites.com/inCites2Live/indicatorsGroup/aboutHandbook/usingCitationIndicatorsWisely/jif.html); CNCI = [Category Normalised Citation Index](http://help.prod-incites.com/inCites2Live/indicatorsGroup/aboutHandbook/usingCitationIndicatorsWisely/normalizedCitationImpact.html)."}`
+`r if (!params$two_page && !params$five_page) {"*Note*: In health and medicine the last author is considered the 'senior' author.\nCitations from Web of Science; JIF = [Journal Impact Factor](http://help.prod-incites.com/inCites2Live/indicatorsGroup/aboutHandbook/usingCitationIndicatorsWisely/jif.html); CNCI = [Category Normalised Citation Index](http://help.prod-incites.com/inCites2Live/indicatorsGroup/aboutHandbook/usingCitationIndicatorsWisely/normalizedCitationImpact.html)."}`
 
 ```{r publications}
 peer_reviewed_citations %>%
-  dplyr::filter(if (!params$long) short_cv else TRUE) %>%
+  dplyr::filter(if (params$two_page || params$five_page) short_cv else TRUE) %>%
   arrange(desc(issued))
 ```
 
@@ -159,5 +160,8 @@ book_chapters %>%
   arrange(desc(issued))
 ```
 
-```{r long-sections, child=if(params$long) 'cv/long_sections.Rmd'}
+```{r five-page-sections, child=if(params$five_page || (!params$two_page && !params$five_page)) 'cv/five_page_sections.Rmd'}
+```
+
+```{r other-sections, child=if(!params$two_page && !params$five_page) 'cv/other_sections.Rmd'}
 ```

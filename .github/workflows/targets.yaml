@@ -124,7 +124,7 @@ jobs:
           git config --global user.email 'action@github.com'
           git fetch                         
           git checkout main
-          git checkout targets-runs -- cv/cv.pdf cv/cv_short.pdf # copy files from the source branch
+          git checkout targets-runs -- "cv/CV - Dr Taren Sanders.pdf" "cv/CV - Dr Taren Sanders (Short).pdf" "cv/CV - Dr Taren Sanders (5 page).pdf" # copy files from the source branch
           git add -A
           git diff-index --quiet HEAD ||  git commit -am "[Beep boop] Update CVs"
           git pull origin main

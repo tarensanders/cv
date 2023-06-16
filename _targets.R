@@ -11,16 +11,16 @@ data_sheet <- "1eglf3B_N1yv-RH-48NBzriIslqSLkh30V2kxbxlWCfE"
 
 # Pubs to include in short CV
 short_pubs <- c(
-  "WOS:000620749700001",
-  "WOS:000712220800001",
-  "WOS:000648645400006",
-  "WOS:000627077400001",
-  "WOS:000667241100005",
-  "WOS:000660894000001",
-  "WOS:000530217600006",
-  "WOS:000501313400002",
-  "WOS:000491218300022",
-  "WOS:000361938100001"
+  "WOS:000892975800001", # Lubans, IJBNPA, 2022
+  "WOS:000648645400006", # Lonsdale, JAMA Peds, 2021
+  "WOS:000620749700001", # Noetel, RER, 2021
+  "WOS:000712220800001", # Noetel, RER, 2021
+  "WOS:000627077400001", # Lee, RER, 2021
+  "WOS:000667241100005", # Hartwig, BJSM, 2021
+  "WOS:000660894000001", # Antczak, IJBNPA, 2021
+  "WOS:000501313400002", # Sanders, IJBNPA, 2020
+  "WOS:000530217600006", # Antczak, Sleep Med Rev, 2020
+  "WOS:000361938100001" # Sanders, IJBNPA, 2015
 )
 
 tar_plan(
@@ -86,11 +86,15 @@ tar_plan(
     get_sheet(data_sheet, "InvitedTalks", modified_date)
   ),
   tar_render(cv, here::here("cv", "cv.Rmd"),
-    params = list(long = TRUE),
-    output_file = here::here("cv", "cv.pdf")
+    params = list(two_page = FALSE, five_page = FALSE),
+    output_file = here::here("cv", "CV - Dr Taren Sanders.pdf")
   ),
-  tar_render(cv_short, here::here("cv", "cv.Rmd"),
-    params = list(long = FALSE),
-    output_file = here::here("cv", "cv_short.pdf")
+  tar_render(cv_two_page, here::here("cv", "cv.Rmd"),
+    params = list(two_page = TRUE),
+    output_file = here::here("cv", "CV - Dr Taren Sanders (Short).pdf")
+  ),
+  tar_render(cv_five_page, here::here("cv", "cv.Rmd"),
+    params = list(two_page = TRUE),
+    output_file = here::here("cv", "CV - Dr Taren Sanders (5 page).pdf")
   )
 )
