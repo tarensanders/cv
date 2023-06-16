@@ -1,4 +1,4 @@
-FROM rocker/verse:4.2.1
+FROM rocker/verse:4.3.0
 
 # These are all the latex packages that GitHub Actions tries to install
 RUN tlmgr update --self && \
