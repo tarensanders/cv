@@ -141,7 +141,7 @@ tribble(
 
 `r if (!params$two_page && !params$five_page) {"# Publications"} else {"# Selected Publications"}`
 
-`r if (params$two_page || params$five_page) {"For a full list of publications see my full CV ([bit.ly/SandersCV](https://bit.ly/SandersCV))."}`
+`r if (params$two_page || params$five_page) {"For a full list of publications see my full CV ([bit.ly/TarenSanders](https://bit.ly/TarenSanders))."}`
 
 ## Peer-Reviewed Publications
 
