@@ -160,6 +160,8 @@ book_chapters %>%
   arrange(desc(issued))
 ```
 
+`r if (params$five_page) {"\\newpage"}`
+
 ```{r five-page-sections, child=if(params$five_page || (!params$two_page && !params$five_page)) 'cv/five_page_sections.Rmd'}
 ```
 

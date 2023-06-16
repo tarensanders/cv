@@ -94,7 +94,7 @@ tar_plan(
     output_file = here::here("cv", "CV - Dr Taren Sanders (Short).pdf")
   ),
   tar_render(cv_five_page, here::here("cv", "cv.Rmd"),
-    params = list(two_page = TRUE),
+    params = list(two_page = FALSE, five_page = TRUE),
     output_file = here::here("cv", "CV - Dr Taren Sanders (5 page).pdf")
   )
 )
