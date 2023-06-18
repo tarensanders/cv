@@ -11,16 +11,20 @@ get_incites_data <- function(peer_reviewed) {
 
   incites_data <- wosr::pull_incites(uts)
 
-  incites_data <-
+  incites_data_joined <-
     incites_data %>%
     as_tibble() %>%
     select(ut, tot_cites, impact_factor, percentile, nci, hot_paper) %>%
     left_join(
-      select(peer_reviewed, annote, issued),
+      select(peer_reviewed, annote, issued, `container-title`),
       by = c("ut" = "annote")
     ) %>%
     mutate(year = as.Date(issued)) %>%
-    select(-issued)
+    arrange(desc(impact_factor)) %>%
+    group_by(`container-title`) %>%
+    tidyr::fill(impact_factor) %>%
+    ungroup() %>%
+    select(-issued, -`container-title`)
 
-  return(incites_data)
+  return(incites_data_joined)
 }
