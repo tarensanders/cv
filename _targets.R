@@ -23,6 +23,14 @@ short_pubs <- c(
   "WOS:000361938100001" # Sanders, IJBNPA, 2015
 )
 
+top_five <- c(
+  "WOS:000892975800001", # Lubans, IJBNPA, 2022
+  "WOS:000648645400006", # Lonsdale, JAMA Peds, 2021
+  "WOS:000620749700001", # Noetel, RER, 2021
+  "WOS:000667241100005", # Hartwig, BJSM, 2021
+  "WOS:000501313400002" # Sanders, IJBNPA, 2020
+)
+
 tar_plan(
   # Bib files
   tar_target(
@@ -49,15 +57,21 @@ tar_plan(
     scholar::get_profile("8KNzhS4AAAAJ"),
     cue = tar_cue(mode = "always")
   ),
+  tar_age(sjr_data, get_sjr_data(),
+    age = as.difftime(4, units = "weeks")
+  ),
   tar_age(
     incites_data,
-    get_incites_data(peer_reviewed),
+    get_incites_data(peer_reviewed, sjr_data),
     age = as.difftime(7, units = "days")
   ),
   tar_target(short_cv_pubs, short_pubs),
+  tar_target(topfive_cv_pubs, top_five),
   tar_target(
     peer_reviewed_citations,
-    update_peer_reviewed(peer_reviewed, incites_data, short_cv_pubs)
+    update_peer_reviewed(
+      peer_reviewed, incites_data, short_cv_pubs, topfive_cv_pubs
+    )
   ),
   tar_target(
     research_profile,

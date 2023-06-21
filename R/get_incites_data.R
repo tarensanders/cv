@@ -4,7 +4,7 @@
 #'
 #' @title
 #' @param peer_reviewed
-get_incites_data <- function(peer_reviewed) {
+get_incites_data <- function(peer_reviewed, sjr_data) {
   uts <- peer_reviewed %>%
     tidyr::drop_na(annote) %>%
     dplyr::pull(annote)
@@ -19,12 +19,22 @@ get_incites_data <- function(peer_reviewed) {
       select(peer_reviewed, annote, issued, `container-title`),
       by = c("ut" = "annote")
     ) %>%
-    mutate(year = as.Date(issued)) %>%
+    mutate(year = as.Date(issued))
+
+  journals <-
+    incites_data_joined %>%
     arrange(desc(impact_factor)) %>%
+    distinct(`container-title`, .keep_all = TRUE) %>%
+    select(`container-title`, impact_factor)
+
+  incites_data_joined_updated <-
+    incites_data_joined %>%
+    select(-impact_factor) %>%
+    left_join(journals, by = "container-title") %>%
     group_by(`container-title`) %>%
     tidyr::fill(impact_factor) %>%
     ungroup() %>%
     select(-issued, -`container-title`)
 
-  return(incites_data_joined)
+  return(incites_data_joined_updated)
 }

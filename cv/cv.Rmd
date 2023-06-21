@@ -121,7 +121,7 @@ tribble(
 
 # Technical Skills
 
-```{r}
+```{r skills}
 tribble(
   ~Category, ~Skill,
   # nolint start
@@ -141,16 +141,39 @@ tribble(
 
 `r if (!params$two_page && !params$five_page) {"# Publications"} else {"# Selected Publications"}`
 
-`r if (params$two_page || params$five_page) {"For a full list of publications see my full CV ([bit.ly/TarenSanders](https://bit.ly/TarenSanders))."}`
+`r if (params$two_page) {"For a full list of publications see my full CV ([bit.ly/TarenSanders](https://bit.ly/TarenSanders))."}`
 
-## Peer-Reviewed Publications
+`r if (params$five_page) {"## Top Five Publications"}`
+
+```{r top-five-publications, eval = params$five_page}
+if (params$five_page) {
+  peer_reviewed_citations %>%
+    dplyr::filter(top_five) %>%
+    arrange(desc(issued))
+}
+```
+
+`r if (params$five_page) {"## Other Peer-Reviewed Publications"} else {"## Peer-Reviewed Publications"}`
 
 `r if (!params$two_page && !params$five_page) {"*Note*: In health and medicine the last author is considered the 'senior' author.\nCitations from Web of Science; JIF = [Journal Impact Factor](http://help.prod-incites.com/inCites2Live/indicatorsGroup/aboutHandbook/usingCitationIndicatorsWisely/jif.html); CNCI = [Category Normalised Citation Index](http://help.prod-incites.com/inCites2Live/indicatorsGroup/aboutHandbook/usingCitationIndicatorsWisely/normalizedCitationImpact.html)."}`
 
 ```{r publications}
-peer_reviewed_citations %>%
-  dplyr::filter(if (params$two_page || params$five_page) short_cv else TRUE) %>%
-  arrange(desc(issued))
+if (params$two_page) {
+  peer_reviewed_citations %>%
+    dplyr::filter(short_cv) %>%
+    arrange(desc(issued))
+}
+
+if (params$five_page) {
+  peer_reviewed_citations %>%
+    dplyr::filter(!top_five) %>%
+    arrange(desc(issued))
+}
+
+if (!params$two_page && !params$five_page) {
+  peer_reviewed_citations %>%
+    arrange(desc(issued))
+}
 ```
 
 ## Book Chapters

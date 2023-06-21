@@ -1,3 +1,29 @@
+# Students
+
+## Doctor of Philosophy
+
+```{r students-phd}
+students %>%
+  dplyr::filter(Degree == "PhD") %>%
+  brief_entries(
+    what = Name,
+    when = glue("{Start}--{Finish}", .na = ""),
+    with = Role
+  )
+```
+
+## Honours
+
+```{r students-honours}
+students %>%
+  dplyr::filter(Degree == "Honours") %>%
+  brief_entries(
+    what = Name,
+    when = glue("{Start}--{Finish}", .na = ""),
+    with = Role
+  )
+```
+
 # Research Funding
 
 ```{r funding}
@@ -33,91 +59,4 @@ brief_entries(
   ),
   .protect = FALSE
 )
-```
-
-# Students
-
-## Doctor of Philosophy
-
-```{r students-phd}
-students %>%
-  dplyr::filter(Degree == "PhD") %>%
-  brief_entries(
-    what = Name,
-    when = glue("{Start}--{Finish}", .na = ""),
-    with = Role
-  )
-```
-
-## Honours
-
-```{r students-honours}
-students %>%
-  dplyr::filter(Degree == "Honours") %>%
-  brief_entries(
-    what = Name,
-    when = glue("{Start}--{Finish}", .na = ""),
-    with = Role
-  )
-```
-
-# Invited Talks
-
-```{r}
-brief_entries(
-  invited_talks,
-  when = Year,
-  what = glue("\\textbf{<Org>}. <Talk>. <Location>",
-    .na = "", .open = "<", .close = ">"
-  ),
-  .protect = FALSE
-)
-```
-
-# Conference Presentations
-
-(Presenting author presentations listed only)
-
-```{r}
-conferences %>%
-  arrange(desc(issued))
-```
-
-# Selected Software
-
-For a complete list of the software I have developed or contributed to, please see my [Github page](https://github.com/tarensanders).
-
-```{r sofware}
-software <-
-  software %>%
-  rowwise() %>%
-  mutate(Location = commonmark::markdown_latex(glue("[{Location}]({Link})")))
-```
-
-## R Packages
-
-```{r software-R}
-software %>%
-  dplyr::filter(Language == "R") %>%
-  detailed_entries(
-    with = Package,
-    where = Location,
-    what = Desc,
-    why = Details,
-    .protect = FALSE
-  )
-```
-
-## Python Packages
-
-```{r software-Python}
-software %>%
-  dplyr::filter(Language == "Python") %>%
-  detailed_entries(
-    with = Package,
-    where = Location,
-    what = Desc,
-    why = Details,
-    .protect = FALSE
-  )
 ```
