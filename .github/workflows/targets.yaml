@@ -44,18 +44,10 @@ jobs:
       image: tarensanders/cv:latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      RENV_PATHS_ROOT: ~/.local/share/renv
       INCITES_KEY: ${{ secrets.INCITES_KEY }}
       LANG: en_US.UTF-8 # https://github.com/jgm/citeproc/issues/26
     steps:
       - uses: actions/checkout@v3
-
-      - name: Cache packages
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.RENV_PATHS_ROOT }}
-          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
-          restore-keys: ${{ runner.os }}-renv-
 
       - name: Restore packages
         shell: Rscript {0}
