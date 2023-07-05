@@ -47,6 +47,9 @@ jobs:
       INCITES_KEY: ${{ secrets.INCITES_KEY }}
       LANG: en_US.UTF-8 # https://github.com/jgm/citeproc/issues/26
     steps:      
+      - name: Test dir
+        run: pwd
+
       - uses: actions/checkout@v3
 
       - name: Check if previous runs exists
