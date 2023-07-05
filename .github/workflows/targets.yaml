@@ -53,15 +53,18 @@ jobs:
       
       - uses: actions/checkout@v3
 
-      - name: Checkout previous run
+      - name: Check if previous runs exists
         id: runs-exist
-#         if: steps.runs-exist.outcome == 'success'
+        run: git ls-remote --exit-code --heads origin targets-runs
+        continue-on-error: true
+
+      - name: Checkout previous run
+        if: steps.runs-exist.outcome == 'success'
         uses: actions/checkout@v3
         with:
           ref: targets-runs
           fetch-depth: 1
           path: .targets-runs
-        continue-on-error: true
 
       - name: Restore output files from the previous run
         if: steps.runs-exist.outcome == 'success'
@@ -101,10 +104,10 @@ jobs:
           git add --all -- ':!renv'
           for file in $(git ls-files -mo --exclude=renv)
           do
-            git add $file -f
+            git add --force $file
           done
           git commit -am "Run pipeline"
-          git push origin targets-runs --force
+          git push origin targets-runs
           
       - name: Update CVs in main
         id: update-cvs
