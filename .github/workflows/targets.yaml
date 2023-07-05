@@ -50,6 +50,11 @@ jobs:
       - name: Test dir
         run: pwd
 
+      - name: test restore
+        shell: Rscript {0}
+        run: |
+          renv::restore()
+
       - uses: actions/checkout@v3
 
       - name: Test dir again
