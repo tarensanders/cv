@@ -50,18 +50,14 @@ jobs:
       - name: test restore
         shell: Rscript {0}
         run: |
-          options(renv.config.install.verbose = TRUE)
           renv::install("dplyr")
-
-      - name: debugging
-        run: git config --global --add safe.directory /__w/cv/cv
 
       - uses: actions/checkout@v3
 
       - name: test restore again
         shell: Rscript {0}
         run: |
-          options(renv.config.install.verbose = TRUE)
+          Sys.setenv(RENV_PATHS_LIBRARY = "/renv/library")
           renv::install("dplyr")
 
       - name: Check if previous runs exists
