@@ -1,0 +1,192 @@
+---
+name: Taren Sanders
+position: Academic Researcher & Data Scientist
+address: "Institute for Positive Psychology and Education, Australian Catholic University"
+phone: 0412 278 640
+#www: 
+email: Taren.Sanders@acu.edu.au
+twitter: tarensanders
+github: tarensanders
+orcid: "0000-0002-4504-6008"
+aboutme: ""
+date: "`r format(Sys.time(), '%B %Y')`"
+headcolor: "000000"
+csl: "apa-cv.csl"
+params:
+  two_page: false
+  five_page: false
+output: 
+  vitae::awesomecv:
+    pandoc_args: ["--lua-filter=strong.lua"] 
+    keep_tex: false
+    includes:
+      in_header: header.tex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+# target knits Rmds in their own session, so load libraries here.
+# source(here::here("packages.R")) # nolint
+# if you want access to the functions you've written
+# lapply(list.files(here::here("./R"), full.names = TRUE), source) # nolint
+```
+
+```{r load-targets, include=FALSE}
+tar_load(c(
+  funding, students, awards, book_chapters,
+  conferences, peer_reviewed_citations,
+  research_profile, invited_talks, service,
+  development, software
+))
+```
+
+# Education
+
+```{r education}
+tribble(
+  # nolint start
+  ~Degree, ~University, ~Date, ~Details,
+  "Doctor of Philosophy", "Western Sydney University", 2016,
+  "Thesis: Investigating associations between neighbourhood green space and weight status: A longitudinal study of Australian children aged 4 to 13 years old.",
+  "Master of Data Science (Applied)", "Adelaide University", 2022, NA,
+  "Bachelor of Health Science (Honours; First Class)", "Western Sydney University", 2012,
+  "Thesis: Measuring adolescent boys’ physical activity: Bout length and the influence of accelerometer epoch length.",
+  "Bachelor of Health Science (PDHPE)", "Western Sydney University", 2011, NA
+  # nolint end
+) %>%
+  detailed_entries(
+    what = University,
+    when = Date,
+    with = Degree,
+    why = Details,
+    .protect = FALSE
+  )
+```
+
+# Employment History
+
+```{r employment}
+employment <-
+  tribble(
+    ~role, ~start, ~end, ~org, ~details,
+    # nolint start
+    "Program Leader", "2021", "Current",
+    "Institute for Positive Psychology and Education, Australian Catholic University",
+    list(
+      "Drive the strategic direction and focus of the research program",
+      "Support academic and professional staff, as well as higher-degree students, within the program",
+      "Provide input as a member of the Institute Executive Management Committee on Institute priorities, and advocate for my research program",
+      "Developed and implemented new project management processes, including making agile management strategies standard practice."
+    ),
+    "Deputy Program Leader", "2017", "2021",
+    "Institute for Positive Psychology and Education, Australian Catholic University",
+    list(
+      "Supported Program Leader to manage the research program"
+    ),
+    "Research Fellow", "2016", "Current",
+    "Institute for Positive Psychology and Education, Australian Catholic University",
+    list(
+      "Conduct original, high-impact, and translational research in the areas of health, education, and psychology.",
+      "Oversee the development, evaluation, and management of multiple large-scale school-based research projects (e.g., iPLAY; 180 schools).",
+      "Conduct analyses of primary and secondary data, and provided statistical support to colleagues including statistics workshops.",
+      "Work with industry partners (NSW Department of Education, NSW Health, Sport Australia) to provide project updates and seek input.",
+      "Author academic and non-academic outputs, including journal articles, grant applications, stakeholder reports, and data visualisations.",
+      "Mentor doctoral and honours students, including reviewing and evaluating their analyses and writing."
+    )
+    # nolint end
+  )
+
+detailed_entries(
+  employment,
+  what = org,
+  when = glue("{start}--{end}"),
+  with = role,
+  why = details
+)
+```
+
+# Research Summary
+
+```{r}
+tribble(
+  # nolint start
+  ~Publications, ~Citations, ~"h-Index", ~"Mean CNCI", ~"Mean Impact Factor", ~Funding,
+  research_profile$pubs, research_profile$cites, research_profile$h_index, research_profile$mean_cnci, research_profile$mean_jif, "> $1 million"
+  # nolint end
+) %>%
+  knitr::kable(format = "latex", align = rep("c", 5)) %>%
+  kableExtra::row_spec(0, bold = TRUE) %>%
+  kableExtra::kable_minimal(latex_options = "hold_position", full_width = TRUE)
+```
+
+# Technical Skills
+
+```{r skills}
+tribble(
+  ~Category, ~Skill,
+  # nolint start
+  "Programming Languages", "R, Python, Stata, Julia",
+  "Software Development", "R packages (including CRAN submission), Python packages",
+  "Statistical Methods", "Machine learning, multilevel modelling, intervention evaluation, meta-analyses",
+  "Research Methods", "Study design, intervention development, ethics and recruitment"
+  # nolint end
+) %>%
+  detailed_entries(
+    with = Category,
+    what = Skill
+  )
+```
+
+\newpage
+
+`r if (!params$two_page && !params$five_page) {"# Publications"} else {"# Selected Publications"}`
+
+`r if (params$two_page) {"For a full list of publications see my full CV ([bit.ly/TarenSanders](https://bit.ly/TarenSanders))."}`
+
+`r if (params$five_page) {"## Top Five Publications"}`
+
+```{r top-five-publications, eval = params$five_page}
+if (params$five_page) {
+  peer_reviewed_citations %>%
+    dplyr::filter(top_five) %>%
+    arrange(desc(issued))
+}
+```
+
+`r if (params$five_page) {"## Other Peer-Reviewed Publications"} else {"## Peer-Reviewed Publications"}`
+
+`r if (!params$two_page && !params$five_page) {"*Note*: In health and medicine the last author is considered the 'senior' author.\nCitations from Web of Science; JIF = [Journal Impact Factor](http://help.prod-incites.com/inCites2Live/indicatorsGroup/aboutHandbook/usingCitationIndicatorsWisely/jif.html); CNCI = [Category Normalised Citation Index](http://help.prod-incites.com/inCites2Live/indicatorsGroup/aboutHandbook/usingCitationIndicatorsWisely/normalizedCitationImpact.html)."}`
+
+```{r publications}
+if (params$two_page) {
+  peer_reviewed_citations %>%
+    dplyr::filter(short_cv) %>%
+    arrange(desc(issued))
+}
+
+if (params$five_page) {
+  peer_reviewed_citations %>%
+    dplyr::filter(!top_five) %>%
+    arrange(desc(issued))
+}
+
+if (!params$two_page && !params$five_page) {
+  peer_reviewed_citations %>%
+    arrange(desc(issued))
+}
+```
+
+## Book Chapters
+
+```{r bookchapters}
+book_chapters %>%
+  arrange(desc(issued))
+```
+
+`r if (params$five_page) {"\\newpage"}`
+
+```{r five-page-sections, child=if(params$five_page || (!params$two_page && !params$five_page)) 'cv/five_page_sections.Rmd'}
+```
+
+```{r other-sections, child=if(!params$two_page && !params$five_page) 'cv/other_sections.Rmd'}
+```

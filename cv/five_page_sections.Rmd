@@ -1,0 +1,62 @@
+# Students
+
+## Doctor of Philosophy
+
+```{r students-phd}
+students %>%
+  dplyr::filter(Degree == "PhD") %>%
+  brief_entries(
+    what = Name,
+    when = glue("{Start}--{Finish}", .na = ""),
+    with = Role
+  )
+```
+
+## Honours
+
+```{r students-honours}
+students %>%
+  dplyr::filter(Degree == "Honours") %>%
+  brief_entries(
+    what = Name,
+    when = glue("{Start}--{Finish}", .na = ""),
+    with = Role
+  )
+```
+
+# Research Funding
+
+```{r funding}
+funding %>%
+  mutate(
+    Amount = gsub("$", "\\$", scales::dollar(Amount), fixed = TRUE),
+    Scheme = if_else(
+      !is.na(Scheme),
+      stringr::str_c("--- ", Scheme),
+      NA_character_
+    )
+  ) %>%
+  detailed_entries(
+    what = glue("{Role} {Scheme} {Details}",
+      "\\newline {Title}",
+      .na = ""
+    ),
+    when = glue("{Start}--{Finish}"),
+    with = Funder,
+    where = Amount,
+    .protect = FALSE
+  )
+```
+
+# Awards
+
+```{r awards, eval = params$long}
+brief_entries(
+  awards,
+  when = Year,
+  what = glue("\\textbf{<Award>} <Org>. <Details>",
+    .na = "", .open = "<", .close = ">"
+  ),
+  .protect = FALSE
+)
+```
