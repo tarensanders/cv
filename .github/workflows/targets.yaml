@@ -53,6 +53,9 @@ jobs:
           options(renv.config.install.verbose = TRUE)
           renv::install("dplyr")
 
+      - name: debugging
+        run: git config --global --add safe.directory /__w/cv/cv
+
       - uses: actions/checkout@v3
 
       - name: test restore again
