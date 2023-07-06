@@ -58,6 +58,7 @@ jobs:
             .
             /*
             !renv/
+            !.Rprofile
 
       - name: test restore again
         shell: Rscript {0}
