@@ -47,22 +47,19 @@ jobs:
       INCITES_KEY: ${{ secrets.INCITES_KEY }}
       LANG: en_US.UTF-8 # https://github.com/jgm/citeproc/issues/26
     steps:      
-      - name: Test dir
-        run: |
-          pwd
-          ls
-
       - name: test restore
         shell: Rscript {0}
         run: |
-          renv::restore()
+          options(renv.config.install.verbose = TRUE)
+          renv::install("dplyr")
 
       - uses: actions/checkout@v3
 
-      - name: Test dir again
+      - name: test restore again
+        shell: Rscript {0}
         run: |
-          pwd
-          ls
+          options(renv.config.install.verbose = TRUE)
+          renv::install("dplyr")
 
       - name: Check if previous runs exists
         id: runs-exist
