@@ -47,11 +47,6 @@ jobs:
       INCITES_KEY: ${{ secrets.INCITES_KEY }}
       LANG: en_US.UTF-8 # https://github.com/jgm/citeproc/issues/26
     steps:      
-      - name: test restore
-        shell: Rscript {0}
-        run: |
-          renv::install("dplyr")
-
       - uses: actions/checkout@v3
         with:
           sparse-checkout: |
@@ -59,12 +54,6 @@ jobs:
             /*
             !renv/
             !.Rprofile
-
-      - name: test restore again
-        shell: Rscript {0}
-        run: |
-          Sys.setenv(RENV_PATHS_LIBRARY = "/renv/library")
-          renv::install("dplyr")
 
       - name: Check if previous runs exists
         id: runs-exist
@@ -92,9 +81,9 @@ jobs:
       - name: Run targets pipeline
         shell: Rscript {0}
         run: |
+          Sys.setenv(RENV_PATHS_LIBRARY = "/renv/library")
           renv::restore()
           targets::tar_make()
-        
 
       - name: Identify files that the targets pipeline produced
         run: |
