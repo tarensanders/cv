@@ -53,6 +53,11 @@ jobs:
           renv::install("dplyr")
 
       - uses: actions/checkout@v3
+        with:
+          sparse-checkout: |
+            .
+            /*
+            !renv/
 
       - name: test restore again
         shell: Rscript {0}
