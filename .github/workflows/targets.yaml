@@ -58,6 +58,7 @@ jobs:
       - name: Check if previous runs exists
         id: runs-exist
         run: |
+          git config --global --add safe.directory /__w/cv/cv
           git remote add origin https://github.com/tarensanders/cv.git
           git ls-remote --exit-code --heads origin targets-runs
         continue-on-error: true
@@ -89,7 +90,6 @@ jobs:
 
       - name: Identify files that the targets pipeline produced
         run: |
-          git config --global --add safe.directory /__w/cv/cv
           git ls-files -mo --exclude=renv > .targets-files
 
       - name: Create the runs branch if it does not already exist
