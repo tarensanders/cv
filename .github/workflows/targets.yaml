@@ -59,7 +59,6 @@ jobs:
         id: runs-exist
         run: |
           git config --global --add safe.directory /__w/cv/cv
-          git remote add origin https://github.com/tarensanders/cv.git
           git ls-remote --exit-code --heads origin targets-runs
         continue-on-error: true
 
