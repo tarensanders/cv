@@ -6,6 +6,7 @@
 #' @param peer_reviewed
 get_incites_data <- function(peer_reviewed, sjr_data) {
   uts <- peer_reviewed %>%
+    dplyr::filter(grepl("WOS", annote)) %>%
     tidyr::drop_na(annote) %>%
     dplyr::pull(annote)
 
