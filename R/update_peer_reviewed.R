@@ -26,7 +26,7 @@ update_peer_reviewed <- function(
           ),
         !is.na(impact_factor) ~
           glue::glue("\\\ | JIF: {round(impact_factor,1)}"),
-        TRUE ~ NA_character_
+        TRUE ~ paste0(" ", annote)
       )
     ) %>%
     select(DOI:issue, short_cv, top_five)
