@@ -31,5 +31,17 @@ update_peer_reviewed <- function(
     ) %>%
     select(DOI:issue, short_cv, top_five)
 
+  updated_peer_reviewed$issued <-
+    purrr::modify_depth(updated_peer_reviewed$issued, 1, replace_x)
+
   return(updated_peer_reviewed)
+}
+
+# https://github.com/mitchelloharawild/vitae/issues/227
+replace_x <- function(x, replacement = NA_character_) {
+  if (length(x) == 0 || length(x[[1]]) == 0) {
+    replacement
+  } else {
+    x
+  }
 }
