@@ -11,7 +11,9 @@ update_peer_reviewed <- function(
     peer_reviewed, incites_data, short_pubs, top_five) {
   updated_peer_reviewed <-
     peer_reviewed %>%
-    left_join(incites_data, by = c("annote" = "ut")) %>%
+    left_join(incites_data,
+      by = c("annote" = "ut", "container-title" = "container-title")
+    ) %>%
     mutate(
       short_cv = annote %in% short_pubs,
       top_five = annote %in% top_five,
