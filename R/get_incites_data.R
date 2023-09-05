@@ -4,7 +4,7 @@
 #'
 #' @title
 #' @param peer_reviewed
-get_incites_data <- function(peer_reviewed, sjr_data) {
+get_incites_data <- function(peer_reviewed, jifs) {
   uts <- peer_reviewed %>%
     dplyr::filter(grepl("WOS", annote)) %>%
     tidyr::drop_na(annote) %>%
@@ -16,26 +16,20 @@ get_incites_data <- function(peer_reviewed, sjr_data) {
     incites_data %>%
     as_tibble() %>%
     select(ut, tot_cites, impact_factor, percentile, nci, hot_paper) %>%
-    left_join(
+    full_join(
       select(peer_reviewed, annote, issued, `container-title`),
       by = c("ut" = "annote")
     ) %>%
     mutate(year = as.Date(issued))
 
-  journals <-
-    incites_data_joined %>%
-    arrange(desc(impact_factor)) %>%
-    distinct(`container-title`, .keep_all = TRUE) %>%
-    select(`container-title`, impact_factor)
-
   incites_data_joined_updated <-
     incites_data_joined %>%
     select(-impact_factor) %>%
-    left_join(journals, by = "container-title") %>%
-    group_by(`container-title`) %>%
-    tidyr::fill(impact_factor) %>%
-    ungroup() %>%
-    select(-issued, -`container-title`)
+    left_join(
+      dplyr::rename(jifs, impact_factor = "Impact Factor"),
+      by = c("container-title" = "Journal")
+    ) %>%
+    select(-issued)
 
   return(incites_data_joined_updated)
 }

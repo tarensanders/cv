@@ -7,7 +7,7 @@ lapply(list.files("./R", full.names = TRUE), source)
 googlesheets4::gs4_deauth()
 googledrive::drive_deauth()
 
-data_sheet <- "1eglf3B_N1yv-RH-48NBzriIslqSLkh30V2kxbxlWCfE"
+sheet <- "1eglf3B_N1yv-RH-48NBzriIslqSLkh30V2kxbxlWCfE"
 
 # Pubs to include in short CV
 short_pubs <- c(
@@ -57,12 +57,9 @@ tar_plan(
     scholar::get_profile("8KNzhS4AAAAJ"),
     cue = tar_cue(mode = "always")
   ),
-  tar_age(sjr_data, get_sjr_data(),
-    age = as.difftime(4, units = "weeks")
-  ),
   tar_age(
     incites_data,
-    get_incites_data(peer_reviewed, sjr_data),
+    get_incites_data(peer_reviewed, jifs),
     age = as.difftime(7, units = "days")
   ),
   tar_target(short_cv_pubs, short_pubs),
@@ -79,26 +76,17 @@ tar_plan(
   ),
   # Google Sheets Files
   tar_target(
-    modified_date,
-    get_date_modified(data_sheet),
+    modified_date, get_date_modified(sheet),
     cue = tar_cue(mode = "always")
   ),
-  tar_target(funding, get_sheet(data_sheet, "Funding", modified_date)),
-  tar_target(students, get_sheet(data_sheet, "Students", modified_date)),
-  tar_target(awards, get_sheet(data_sheet, "Awards", modified_date)),
-  tar_target(service, get_sheet(data_sheet, "Service", modified_date)),
-  tar_target(
-    development,
-    get_sheet(data_sheet, "SelfDevelopment", modified_date)
-  ),
-  tar_target(
-    software,
-    get_sheet(data_sheet, "Software", modified_date)
-  ),
-  tar_target(
-    invited_talks,
-    get_sheet(data_sheet, "InvitedTalks", modified_date)
-  ),
+  tar_target(jifs, get_sheet(sheet, "JIFs", modified_date)),
+  tar_target(funding, get_sheet(sheet, "Funding", modified_date)),
+  tar_target(students, get_sheet(sheet, "Students", modified_date)),
+  tar_target(awards, get_sheet(sheet, "Awards", modified_date)),
+  tar_target(service, get_sheet(sheet, "Service", modified_date)),
+  tar_target(development, get_sheet(sheet, "SelfDevelopment", modified_date)),
+  tar_target(software, get_sheet(sheet, "Software", modified_date)),
+  tar_target(invited_talks, get_sheet(sheet, "InvitedTalks", modified_date)),
   tar_render(cv, here::here("cv", "cv.Rmd"),
     params = list(two_page = FALSE, five_page = FALSE),
     output_file = here::here("cv", "CV - Dr Taren Sanders.pdf")
