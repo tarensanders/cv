@@ -1,0 +1,8 @@
+# Conference Presentations
+
+(Presenting author presentations listed only)
+
+```{r}
+conferences %>%
+  arrange(desc(issued))
+```

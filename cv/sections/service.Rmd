@@ -1,0 +1,10 @@
+# Service
+
+```{r service}
+detailed_entries(
+  service,
+  with = Type,
+  what = Desc,
+  why = Details
+)
+```

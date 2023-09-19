@@ -1,26 +1,3 @@
-# Invited Talks
-
-```{r}
-brief_entries(
-  invited_talks,
-  when = Year,
-  what = glue("\\textbf{<Org>}. <Talk>. <Location>",
-    .na = "", .open = "<", .close = ">"
-  ),
-  .protect = FALSE
-)
-```
-
-
-# Conference Presentations
-
-(Presenting author presentations listed only)
-
-```{r}
-conferences %>%
-  arrange(desc(issued))
-```
-
 # Selected Software
 
 For a complete list of the software I have developed or contributed to, please see my [Github page](https://github.com/tarensanders).
@@ -58,28 +35,4 @@ software %>%
     why = Details,
     .protect = FALSE
   )
-```
-
-# Service
-
-```{r service}
-detailed_entries(
-  service,
-  with = Type,
-  what = Desc,
-  why = Details
-)
-```
-
-# Self-Development
-
-```{r development}
-brief_entries(
-  development,
-  when = Year,
-  what = glue("\\textbf{<Course>.} <Location>",
-    .na = "", .open = "<", .close = ">"
-  ),
-  .protect = FALSE
-)
 ```

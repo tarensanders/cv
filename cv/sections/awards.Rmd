@@ -1,0 +1,12 @@
+# Awards
+
+```{r awards}
+brief_entries(
+  awards,
+  when = Year,
+  what = glue("\\textbf{<Award>} <Org>. <Details>",
+    .na = "", .open = "<", .close = ">"
+  ),
+  .protect = FALSE
+)
+```
