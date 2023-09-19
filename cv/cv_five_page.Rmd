@@ -30,10 +30,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```{r load-targets, include=FALSE}
 tar_load(c(
-  funding, students, awards, book_chapters,
-  conferences, peer_reviewed_citations,
-  research_profile, invited_talks, service,
-  development, software, cv_sections
+  funding, awards, book_chapters, peer_reviewed_citations,
+  research_profile, cv_sections
 ))
 ```
 
@@ -42,9 +40,9 @@ tar_load(c(
 
 \newpage
 
-# Publications
+# Selected Publications
 
-## Peer-Reviewed Publications
+## Top Five Publications
 
 \addtocounter{footnote}{-1}
 \def\thefootnote{}\footnotetext{
@@ -53,8 +51,17 @@ tar_load(c(
   Citations from Web of Science; JIF =  \href{http://help.prod-incites.com/inCites2Live/indicatorsGroup/aboutHandbook/usingCitationIndicatorsWisely/jif.html}{Journal Impact Factor}; CNCI = \href{http://help.prod-incites.com/inCites2Live/indicatorsGroup/aboutHandbook/usingCitationIndicatorsWisely/normalizedCitationImpact.html}{Category Normalised Citation Index}.
 }
 
+```{r top-five-publications}
+peer_reviewed_citations %>%
+  dplyr::filter(top_five) %>%
+  arrange(desc(issued))
+```
+
+## Other Peer-Reviewed Publications
+
 ```{r publications}
 peer_reviewed_citations %>%
+  dplyr::filter(!top_five) %>%
   arrange(desc(issued))
 ```
 
@@ -65,5 +72,5 @@ book_chapters %>%
   arrange(desc(issued))
 ```
 
-```{r, child=c("cv/sections/students.Rmd", "cv/sections/funding.Rmd", "cv/sections/awards.Rmd", "cv/sections/talks.Rmd", "cv/sections/conferences.Rmd", "cv/sections/software.Rmd", "cv/sections/service.Rmd", "cv/sections/self-development.Rmd")}
+```{r, child=c("cv/sections/funding.Rmd", "cv/sections/awards.Rmd")}
 ```

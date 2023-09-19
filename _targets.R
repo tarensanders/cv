@@ -87,16 +87,16 @@ tar_plan(
   tar_target(development, get_sheet(sheet, "SelfDevelopment", modified_date)),
   tar_target(software, get_sheet(sheet, "Software", modified_date)),
   tar_target(invited_talks, get_sheet(sheet, "InvitedTalks", modified_date)),
+  tar_target(cv_sections, list.files("./cv/sections", full.names = TRUE),
+    format = "file"
+  ),
   tar_render(cv, here::here("cv", "cv.Rmd"),
-    params = list(two_page = FALSE, five_page = FALSE),
     output_file = here::here("cv", "CV - Dr Taren Sanders.pdf")
   ),
-  tar_render(cv_two_page, here::here("cv", "cv.Rmd"),
-    params = list(two_page = TRUE),
+  tar_render(cv_two_page, here::here("cv", "cv_two_page.Rmd"),
     output_file = here::here("cv", "CV - Dr Taren Sanders (Short).pdf")
   ),
-  tar_render(cv_five_page, here::here("cv", "cv.Rmd"),
-    params = list(two_page = FALSE, five_page = TRUE),
+  tar_render(cv_five_page, here::here("cv", "cv_five_page.Rmd"),
     output_file = here::here("cv", "CV - Dr Taren Sanders (5 page).pdf")
   )
 )

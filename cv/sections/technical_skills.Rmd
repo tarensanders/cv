@@ -1,0 +1,17 @@
+# Technical Skills
+
+```{r skills}
+tribble(
+  ~Category, ~Skill,
+  # nolint start
+  "Programming Languages", "R, Python, Stata, Julia",
+  "Software Development", "R packages (including CRAN submission), Python packages",
+  "Statistical Methods", "Machine learning, multilevel modelling, intervention evaluation, meta-analyses",
+  "Research Methods", "Study design, intervention development, ethics and recruitment"
+  # nolint end
+) %>%
+  detailed_entries(
+    with = Category,
+    what = Skill
+  )
+```
