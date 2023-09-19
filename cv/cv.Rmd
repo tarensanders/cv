@@ -155,7 +155,8 @@ if (params$five_page) {
 
 `r if (params$five_page) {"## Other Peer-Reviewed Publications"} else {"## Peer-Reviewed Publications"}`
 
-`r if (!params$two_page && !params$five_page) {"*Note*: In health and medicine the last author is considered the 'senior' author.\nCitations from Web of Science; JIF = [Journal Impact Factor](http://help.prod-incites.com/inCites2Live/indicatorsGroup/aboutHandbook/usingCitationIndicatorsWisely/jif.html); CNCI = [Category Normalised Citation Index](http://help.prod-incites.com/inCites2Live/indicatorsGroup/aboutHandbook/usingCitationIndicatorsWisely/normalizedCitationImpact.html)."}`
+\addtocounter{footnote}{-1}
+`r if (!params$two_page && !params$five_page) {"\\def\\thefootnote{}\\footnotetext{\\textbf{Note}: In health and medicine the last author is considered the 'senior' author.\nCitations from Web of Science; JIF =  \\href{http://help.prod-incites.com/inCites2Live/indicatorsGroup/aboutHandbook/usingCitationIndicatorsWisely/jif.html}{Journal Impact Factor}; CNCI = \\href{http://help.prod-incites.com/inCites2Live/indicatorsGroup/aboutHandbook/usingCitationIndicatorsWisely/normalizedCitationImpact.html}{Category Normalised Citation Index}.}"}`
 
 ```{r publications}
 if (params$two_page) {
