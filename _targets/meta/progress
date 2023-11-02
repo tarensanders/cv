@@ -3,12 +3,14 @@ book_chapters_file|stem|book_chapters_file|0|skipped
 cv_sections|stem|cv_sections|0|skipped
 gscholar_profile|stem|gscholar_profile|0|started
 gscholar_profile|stem|gscholar_profile|0|built
-topfive_cv_pubs|stem|topfive_cv_pubs|0|skipped
+topfive_cv_pubs|stem|topfive_cv_pubs|0|started
+topfive_cv_pubs|stem|topfive_cv_pubs|0|built
 modified_date|stem|modified_date|0|started
 modified_date|stem|modified_date|0|built
 peer_reviewed_file|stem|peer_reviewed_file|0|skipped
 conferences_file|stem|conferences_file|0|skipped
-short_cv_pubs|stem|short_cv_pubs|0|skipped
+short_cv_pubs|stem|short_cv_pubs|0|started
+short_cv_pubs|stem|short_cv_pubs|0|built
 book_chapters|stem|book_chapters|0|skipped
 jifs|stem|jifs|0|skipped
 development|stem|development|0|skipped
@@ -21,7 +23,8 @@ service|stem|service|0|skipped
 peer_reviewed|stem|peer_reviewed|0|skipped
 conferences|stem|conferences|0|skipped
 incites_data|stem|incites_data|0|skipped
-peer_reviewed_citations|stem|peer_reviewed_citations|0|skipped
+peer_reviewed_citations|stem|peer_reviewed_citations|0|started
+peer_reviewed_citations|stem|peer_reviewed_citations|0|built
 research_profile|stem|research_profile|0|started
 research_profile|stem|research_profile|0|built
 cv_two_page_full_pubs|stem|cv_two_page_full_pubs|0|started
