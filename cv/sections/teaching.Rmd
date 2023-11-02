@@ -1,0 +1,15 @@
+# Teaching
+
+```{r teaching}
+teaching %>%
+  mutate(
+    Year = if_else(is.na(Start), as.character(End), glue("{Start}-{End}")),
+    Units = strsplit(Unit, "\n")
+  ) %>%
+  detailed_entries(
+    with = Role,
+    when = Year,
+    what = Org,
+    why = Units
+  )
+```
