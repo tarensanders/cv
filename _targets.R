@@ -11,6 +11,7 @@ sheet <- "1eglf3B_N1yv-RH-48NBzriIslqSLkh30V2kxbxlWCfE"
 
 # Pubs to include in short CV
 short_pubs <- c(
+  "Accepted: 2023-09-02", # Sanders, NHB, 2023
   "WOS:000892975800001", # Lubans, IJBNPA, 2022
   "WOS:000648645400006", # Lonsdale, JAMA Peds, 2021
   "WOS:000620749700001", # Noetel, RER, 2021
@@ -19,12 +20,11 @@ short_pubs <- c(
   "WOS:000667241100005", # Hartwig, BJSM, 2021
   "WOS:000660894000001", # Antczak, IJBNPA, 2021
   "WOS:000501313400002", # Sanders, IJBNPA, 2020
-  "WOS:000530217600006", # Antczak, Sleep Med Rev, 2020
-  "WOS:000361938100001" # Sanders, IJBNPA, 2015
+  "WOS:000530217600006" # Antczak, Sleep Med Rev, 2020
 )
 
 top_five <- c(
-  "WOS:000892975800001", # Lubans, IJBNPA, 2022
+  "Accepted: 2023-09-02", # Sanders, NHB, 2023
   "WOS:000648645400006", # Lonsdale, JAMA Peds, 2021
   "WOS:000620749700001", # Noetel, RER, 2021
   "WOS:000667241100005", # Hartwig, BJSM, 2021
@@ -99,7 +99,8 @@ tar_plan(
   tar_render(cv_five_page, here::here("cv", "cv_five_page.Rmd"),
     output_file = here::here("cv", "CV - Dr Taren Sanders (5 page).pdf")
   ),
-  tar_render(cv_two_page_full_pubs, here::here("cv", "cv_two_page_full_pubs.Rmd"),
+  tar_render(
+    cv_two_page_full_pubs, here::here("cv", "cv_two_page_full_pubs.Rmd"),
     output_file = here::here(
       "cv",
       "CV - Dr Taren Sanders (2 page with publications).pdf"
