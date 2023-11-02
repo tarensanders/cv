@@ -87,6 +87,7 @@ tar_plan(
   tar_target(development, get_sheet(sheet, "SelfDevelopment", modified_date)),
   tar_target(software, get_sheet(sheet, "Software", modified_date)),
   tar_target(invited_talks, get_sheet(sheet, "InvitedTalks", modified_date)),
+  tar_target(teaching, get_sheet(sheet, "Teaching", modified_date)),
   tar_target(cv_sections, list.files("./cv/sections", full.names = TRUE),
     format = "file"
   ),

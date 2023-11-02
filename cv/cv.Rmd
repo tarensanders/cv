@@ -33,7 +33,7 @@ tar_load(c(
   funding, students, awards, book_chapters,
   conferences, peer_reviewed_citations,
   research_profile, invited_talks, service,
-  development, software, cv_sections
+  development, software, teaching, cv_sections
 ))
 ```
 
@@ -65,5 +65,5 @@ book_chapters %>%
   arrange(desc(issued))
 ```
 
-```{r, child=c("cv/sections/students.Rmd", "cv/sections/funding.Rmd", "cv/sections/awards.Rmd", "cv/sections/talks.Rmd", "cv/sections/conferences.Rmd", "cv/sections/software.Rmd", "cv/sections/service.Rmd", "cv/sections/self-development.Rmd")}
+```{r, child=c("cv/sections/students.Rmd", "cv/sections/funding.Rmd", "cv/sections/teaching.Rmd", "cv/sections/awards.Rmd", "cv/sections/talks.Rmd", "cv/sections/conferences.Rmd", "cv/sections/software.Rmd", "cv/sections/service.Rmd", "cv/sections/self-development.Rmd")}
 ```
