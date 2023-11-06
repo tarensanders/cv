@@ -1,12 +1,13 @@
 # Awards
 
 ```{r awards}
-brief_entries(
-  awards,
-  when = Year,
-  what = glue("\\textbf{<Award>} <Org>. <Details>",
-    .na = "", .open = "<", .close = ">"
-  ),
-  .protect = FALSE
-)
+awards %>%
+  mutate(Year = arrange(desc(Year))) %>%
+  brief_entries(
+    when = Year,
+    what = glue("\\textbf{<Award>} <Org>. <Details>",
+      .na = "", .open = "<", .close = ">"
+    ),
+    .protect = FALSE
+  )
 ```
