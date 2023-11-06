@@ -2,7 +2,7 @@
 
 ```{r awards}
 awards %>%
-  mutate(Year = arrange(desc(Year))) %>%
+  arrange(desc(Year)) %>%
   brief_entries(
     when = Year,
     what = glue("\\textbf{<Award>} <Org>. <Details>",
