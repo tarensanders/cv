@@ -52,15 +52,15 @@ tar_plan(
   tar_target(book_chapters, bibliography_entries(book_chapters_file)),
   tar_target(conferences, bibliography_entries(conferences_file)),
   # Profiles
-  tar_age(
+  tar_target(
     gscholar_profile,
     scholar::get_profile("8KNzhS4AAAAJ"),
-    age = as.difftime(7, units = "days")
+    cue = tar_cue(mode = "always")
   ),
-  tar_age(
+  tar_target(
     incites_data,
     get_incites_data(peer_reviewed, jifs),
-    age = as.difftime(7, units = "days")
+    cue = tar_cue(mode = "always")
   ),
   tar_target(short_cv_pubs, short_pubs),
   tar_target(topfive_cv_pubs, top_five),
