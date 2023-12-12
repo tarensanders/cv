@@ -26,7 +26,11 @@ incites_data|stem|incites_data|0|built
 peer_reviewed_citations|stem|peer_reviewed_citations|0|skipped
 research_profile|stem|research_profile|0|started
 research_profile|stem|research_profile|0|built
-cv_two_page_full_pubs|stem|cv_two_page_full_pubs|0|skipped
-cv_two_page|stem|cv_two_page|0|skipped
-cv_five_page|stem|cv_five_page|0|skipped
-cv|stem|cv|0|skipped
+cv_two_page_full_pubs|stem|cv_two_page_full_pubs|0|started
+cv_two_page_full_pubs|stem|cv_two_page_full_pubs|0|built
+cv_two_page|stem|cv_two_page|0|started
+cv_two_page|stem|cv_two_page|0|built
+cv_five_page|stem|cv_five_page|0|started
+cv_five_page|stem|cv_five_page|0|built
+cv|stem|cv|0|started
+cv|stem|cv|0|built
