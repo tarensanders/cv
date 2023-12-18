@@ -55,7 +55,7 @@ tar_load(c(
 
 ```{r publications}
 peer_reviewed_citations %>%
-  arrange(desc(issued))
+  arrange(order)
 ```
 
 ## Book Chapters

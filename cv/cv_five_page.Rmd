@@ -54,7 +54,7 @@ tar_load(c(
 ```{r top-five-publications}
 peer_reviewed_citations %>%
   dplyr::filter(top_five) %>%
-  arrange(desc(issued))
+  arrange(order)
 ```
 
 ## Other Peer-Reviewed Publications
@@ -62,7 +62,7 @@ peer_reviewed_citations %>%
 ```{r publications}
 peer_reviewed_citations %>%
   dplyr::filter(!top_five) %>%
-  arrange(desc(issued))
+  arrange(order)
 ```
 
 ## Book Chapters
