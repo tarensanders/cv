@@ -14,6 +14,7 @@ update_peer_reviewed <- function(
     left_join(incites_data,
       by = c("annote" = "ut", "container-title" = "container-title")
     ) %>%
+    arrange(desc(format(year, "%Y")), desc(impact_factor)) %>%
     mutate(
       short_cv = annote %in% short_pubs,
       top_five = annote %in% top_five,
@@ -29,9 +30,10 @@ update_peer_reviewed <- function(
         !is.na(impact_factor) ~
           glue::glue("\\\ | JIF: {round(impact_factor,1)}"),
         TRUE ~ paste0(" ", annote)
-      )
+      ),
+      order = row_number()
     ) %>%
-    select(DOI:issue, short_cv, top_five)
+    select(DOI:issue, short_cv, top_five, order)
 
   updated_peer_reviewed$issued <-
     purrr::modify_depth(updated_peer_reviewed$issued, 1, replace_x)
@@ -47,3 +49,8 @@ replace_x <- function(x, replacement = NA_character_) {
     x
   }
 }
+
+
+updated_peer_reviewed %>% mutate(order = row_number(format(year, "%Y"), impact_factor))
+
+arrange(format(updated_peer_reviewed$year, "%Y"))

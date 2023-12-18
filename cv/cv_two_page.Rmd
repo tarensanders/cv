@@ -55,5 +55,5 @@ For a full list of publications see my full CV ([bit.ly/TarenSanders](https://bi
 ```{r publications}
 peer_reviewed_citations %>%
   dplyr::filter(short_cv) %>%
-  arrange(desc(issued))
+  arrange(order)
 ```
