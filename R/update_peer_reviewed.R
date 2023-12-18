@@ -49,8 +49,3 @@ replace_x <- function(x, replacement = NA_character_) {
     x
   }
 }
-
-
-updated_peer_reviewed %>% mutate(order = row_number(format(year, "%Y"), impact_factor))
-
-arrange(format(updated_peer_reviewed$year, "%Y"))
