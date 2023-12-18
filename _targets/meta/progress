@@ -6,7 +6,8 @@ gscholar_profile|stem|gscholar_profile|0|built
 topfive_cv_pubs|stem|topfive_cv_pubs|0|skipped
 modified_date|stem|modified_date|0|started
 modified_date|stem|modified_date|0|built
-peer_reviewed_file|stem|peer_reviewed_file|0|skipped
+peer_reviewed_file|stem|peer_reviewed_file|0|started
+peer_reviewed_file|stem|peer_reviewed_file|0|built
 conferences_file|stem|conferences_file|0|skipped
 short_cv_pubs|stem|short_cv_pubs|0|skipped
 book_chapters|stem|book_chapters|0|skipped
@@ -19,7 +20,8 @@ software|stem|software|0|skipped
 teaching|stem|teaching|0|skipped
 invited_talks|stem|invited_talks|0|skipped
 service|stem|service|0|skipped
-peer_reviewed|stem|peer_reviewed|0|skipped
+peer_reviewed|stem|peer_reviewed|0|started
+peer_reviewed|stem|peer_reviewed|0|built
 conferences|stem|conferences|0|skipped
 incites_data|stem|incites_data|0|started
 incites_data|stem|incites_data|0|built
