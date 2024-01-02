@@ -1,43 +1,43 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-.Random.seed|object|45e5df7f188eb33f|||||||||||||||
+.Random.seed|object|accad6ad7545a06f|||||||||||||||
 auth_datasources|function|c32bd322116893ab|||||||||||||||
-awards|stem|ec397357a7a68f81|bddd621a96490855|0ae69bafdbc27610|1136075915||t19722.5468404409s|65e62fac1a4ffe81|495|rds|local|vector|||0.269||
-book_chapters|stem|51fdfef32b4ae45f|b2d6987699c5078b|8b8d1ffa3d452b87|-959914274||t19722.5468404409s|cfacb085c76e6c04|1168|rds|local|vector|||0.052||
-book_chapters_file|stem|176289c825caa79b|819f9d1dfbf7bf1a|ef46db3751d8e999|-1773355765|cv/bibs/Book Chapters.bib|t19722.5468262743s|f955294fa9fabdc5|1661|file|local|vector|||0.001||
-conferences|stem|76924b20006f122b|674d24c5746939dc|2b6ce0a71656f5ab|-97561633||t19722.5468404409s|ffb4af43dc842843|1239|rds|local|vector|||0.047||
-conferences_file|stem|9f027577c53022e7|6eb1ad9d18958e5d|ef46db3751d8e999|-1932319785|cv/bibs/Conference Presentations.bib|t19722.5468262743s|b73cdc3cc84b4a97|2581|file|local|vector|||0||
-cv|stem|8765ef16d14e5cbd|ee637053c40d81e9|1402209e843a2f97|1220682208|cv/CV - Dr Taren Sanders.pdf*cv/cv.Rmd|t19722.5470916432s|192f12ba9dbef29e|99857|file|local|vector|||3.792||
-cv_five_page|stem|146a3ad5f95f9f4b|5b93de9e6bcc4faf|0ae49ce01cf8fa0f|-210654567|cv/CV - Dr Taren Sanders (5 page).pdf*cv/cv_five_page.Rmd|t19722.5470477082s|17328b84ed811689|88551|file|local|vector|||3.581||
-cv_sections|stem|9c5c661ff152c233|a5283c8d677e836b|88559740b2c6d4c9|2063372211|./cv/sections/awards.Rmd*./cv/sections/conferences.Rmd*./cv/sections/education.Rmd*./cv/sections/employment.Rmd*./cv/sections/funding.Rmd*./cv/sections/research_summary.Rmd*./cv/sections/self-development.Rmd*./cv/sections/service.Rmd*./cv/sections/software.Rmd*./cv/sections/students.Rmd*./cv/sections/talks.Rmd*./cv/sections/teaching.Rmd*./cv/sections/technical_skills.Rmd|t19722.5468264132s|fb0de9090be265e2|6547|file|local|vector|||0||
-cv_two_page|stem|e5f57f82257504ba|92cb5d1b7212e94d|3aa9bea3d0584ab7|-600570618|cv/CV - Dr Taren Sanders (Short).pdf*cv/cv_two_page.Rmd|t19722.5470061808s|7c0e3217cbb86480|62957|file|local|vector|||2.97||
-cv_two_page_full_pubs|stem|63c313293dca5f8d|2f414b626b2cf999|ca96f3d86cc7ed86|-1435657441|cv/CV - Dr Taren Sanders (2 page with publications).pdf*cv/cv_two_page_full_pubs.Rmd|t19722.5469716439s|e3885d127b21e418|89832|file|local|vector|||3.586||
+awards|stem|ec397357a7a68f81|bddd621a96490855|0ae69bafdbc27610|1136075915||t19724.547852007s|65e62fac1a4ffe81|495|rds|local|vector|||0.269||
+book_chapters|stem|51fdfef32b4ae45f|b2d6987699c5078b|8b8d1ffa3d452b87|-959914274||t19724.547852007s|cfacb085c76e6c04|1168|rds|local|vector|||0.052||
+book_chapters_file|stem|176289c825caa79b|819f9d1dfbf7bf1a|ef46db3751d8e999|-1773355765|cv/bibs/Book Chapters.bib|t19724.5478363589s|f955294fa9fabdc5|1661|file|local|vector|||0.001||
+conferences|stem|76924b20006f122b|674d24c5746939dc|2b6ce0a71656f5ab|-97561633||t19724.547852007s|ffb4af43dc842843|1239|rds|local|vector|||0.047||
+conferences_file|stem|9f027577c53022e7|6eb1ad9d18958e5d|ef46db3751d8e999|-1932319785|cv/bibs/Conference Presentations.bib|t19724.5478363589s|b73cdc3cc84b4a97|2581|file|local|vector|||0||
+cv|stem|781a968927511a65|ee637053c40d81e9|21cb51f963180032|1220682208|cv/CV - Dr Taren Sanders.pdf*cv/cv.Rmd|t19724.5480982552s|cb1a7be79470b8dc|99855|file|local|vector|||3.781||
+cv_five_page|stem|1abacd6261747644|5b93de9e6bcc4faf|e57170173ad5aa19|-210654567|cv/CV - Dr Taren Sanders (5 page).pdf*cv/cv_five_page.Rmd|t19724.5480544592s|6ed0f1a4be54f14a|88549|file|local|vector|||3.577||
+cv_sections|stem|9c5c661ff152c233|a5283c8d677e836b|88559740b2c6d4c9|2063372211|./cv/sections/awards.Rmd*./cv/sections/conferences.Rmd*./cv/sections/education.Rmd*./cv/sections/employment.Rmd*./cv/sections/funding.Rmd*./cv/sections/research_summary.Rmd*./cv/sections/self-development.Rmd*./cv/sections/service.Rmd*./cv/sections/software.Rmd*./cv/sections/students.Rmd*./cv/sections/talks.Rmd*./cv/sections/teaching.Rmd*./cv/sections/technical_skills.Rmd|t19724.5478364515s|fb0de9090be265e2|6547|file|local|vector|||0||
+cv_two_page|stem|d2ea5366fe1a5820|92cb5d1b7212e94d|aef00d67e71351dd|-600570618|cv/CV - Dr Taren Sanders (Short).pdf*cv/cv_two_page.Rmd|t19724.548012978s|03a7ec792807af65|62921|file|local|vector|||2.939||
+cv_two_page_full_pubs|stem|b417784bab3241f2|2f414b626b2cf999|30b2741fa273d41b|-1435657441|cv/CV - Dr Taren Sanders (2 page with publications).pdf*cv/cv_two_page_full_pubs.Rmd|t19724.5479788116s|ef8463ba6ccc667f|89830|file|local|vector|||3.577||
 data_sheet|object|4f0a63f112d100ef|||||||||||||||
-development|stem|c5dfd98430d78726|c75a089b635db35d|0ae69bafdbc27610|-692858276||t19722.5468404409s|b81895e14878e86f|359|rds|local|vector|||0.313||
-funding|stem|85dc4b1c9b8ae1e5|775631c66acdcfd4|0ae69bafdbc27610|544957258||t19722.5468404409s|5d521c54c4b9868f|1097|rds|local|vector|||0.432||
+development|stem|c5dfd98430d78726|c75a089b635db35d|0ae69bafdbc27610|-692858276||t19724.547852007s|b81895e14878e86f|359|rds|local|vector|||0.313||
+funding|stem|85dc4b1c9b8ae1e5|775631c66acdcfd4|0ae69bafdbc27610|544957258||t19724.547852007s|5d521c54c4b9868f|1097|rds|local|vector|||0.432||
 get_date_modified|function|41b51638371f674b|||||||||||||||
 get_incites_data|function|139afd1595cc98cc|||||||||||||||
 get_sheet|function|49e529b5077f2e86|||||||||||||||
 get_sjr_data|function|5f7f58c33bc37b6b|||||||||||||||
-gscholar_profile|stem|c6a1a40038ad4ab0|b24df3f5a072ca40|c3b5fc02cdc369c1|-1071518097||t19722.5468897926s|0391ce27b14d9dbb|591|rds|local|vector|||0.358||
-incites_data|stem|44eeb93b7633c340|5569255992d2ff41|aadb945552403cee|-1417237684||t19722.5469301627s|f0f762d9713636b9|1951|rds|local|vector|||3.13|NAs introduced by coercion|
-invited_talks|stem|7e4d56b6c96ea063|3e3f795c9a17c7b6|0ae69bafdbc27610|-1807240934||t19722.5468404409s|97a26c45a1019e11|344|rds|local|vector|||0.271||
-jifs|stem|24ee23e4cc170392|caf78b3d9d6c1376|0ae69bafdbc27610|-17594908||t19722.5468404409s|c91a6b892b3e25c8|681|rds|local|vector|||0.788||
+gscholar_profile|stem|13c8adaedf35c886|b24df3f5a072ca40|c3b5fc02cdc369c1|-1071518097||t19724.5478989511s|0391ce27b14d9dbb|591|rds|local|vector|||0.37||
+incites_data|stem|44eeb93b7633c340|5569255992d2ff41|aadb945552403cee|-1417237684||t19724.547937423s|f0f762d9713636b9|1951|rds|local|vector|||2.941|NAs introduced by coercion|
+invited_talks|stem|7e4d56b6c96ea063|3e3f795c9a17c7b6|0ae69bafdbc27610|-1807240934||t19724.547852007s|97a26c45a1019e11|344|rds|local|vector|||0.271||
+jifs|stem|24ee23e4cc170392|caf78b3d9d6c1376|0ae69bafdbc27610|-17594908||t19724.547852007s|c91a6b892b3e25c8|681|rds|local|vector|||0.788||
 make_profile|function|5ebbf48a753c956f|||||||||||||||
-modified_date|stem|2c4f45a365cdae41|54cbcd4daae52167|42577201635eed7e|1422570322||t19722.5468935426s|abbdb7fe746336f0|76|rds|local|vector|||0.311||
-peer_reviewed|stem|494d6d7c8254b472|dff249f366f293ca|d13520f9c8ecea1e|-37254585||t19722.5468404409s|9824fa68a8f8a4ca|36065|rds|local|vector|||0.203||
-peer_reviewed_citations|stem|f038a09d1e3f2ea6|92515bf192e4cf3b|2bc0cbb38513f312|-1246156677||t19722.5468404409s|fa0b29fca4e18054|35299|rds|local|vector|||0.026||
-peer_reviewed_file|stem|9f3a4c8af2cb434b|6d9d9f216e25daae|ef46db3751d8e999|701219764|cv/bibs/Peer-reviewed.bib|t19722.5468262743s|2a3040d64a7df467|90305|file|local|vector|||0||
+modified_date|stem|2c4f45a365cdae41|54cbcd4daae52167|42577201635eed7e|1422570322||t19724.5479030251s|abbdb7fe746336f0|76|rds|local|vector|||0.34||
+peer_reviewed|stem|494d6d7c8254b472|dff249f366f293ca|d13520f9c8ecea1e|-37254585||t19724.547852007s|9824fa68a8f8a4ca|36065|rds|local|vector|||0.203||
+peer_reviewed_citations|stem|f038a09d1e3f2ea6|92515bf192e4cf3b|2bc0cbb38513f312|-1246156677||t19724.547852007s|fa0b29fca4e18054|35299|rds|local|vector|||0.026||
+peer_reviewed_file|stem|9f3a4c8af2cb434b|6d9d9f216e25daae|ef46db3751d8e999|701219764|cv/bibs/Peer-reviewed.bib|t19724.5478363589s|2a3040d64a7df467|90305|file|local|vector|||0||
 replace_x|function|596815836519d5d9|||||||||||||||
 reports|object|fd3d90b041b75994|||||||||||||||
-research_profile|stem|16d2cb0b495b7da6|e06d0fa5da824d8a|346bf0350b2b971d|2050113323||t19722.5469303015s|cba50785e7b11882|141|rds|local|vector|||0||
-service|stem|4887a3ac5efcf900|bde9d7ce7d060666|0ae69bafdbc27610|1006417622||t19722.5468404409s|063a55fcc7c5ee16|859|rds|local|vector|||0.298||
+research_profile|stem|7c5fade9f94b5c28|e06d0fa5da824d8a|24fa0f8ed1df6b4e|2050113323||t19724.5479375619s|cba50785e7b11882|141|rds|local|vector|||0.001||
+service|stem|4887a3ac5efcf900|bde9d7ce7d060666|0ae69bafdbc27610|1006417622||t19724.547852007s|063a55fcc7c5ee16|859|rds|local|vector|||0.298||
 sheet|object|4f0a63f112d100ef|||||||||||||||
-short_cv_pubs|stem|e27d56d5066e3376|bc71d70907d2a89f|e06d8294ebbcb875|-1886005167||t19722.5468404409s|8c237f5c678b0a48|160|rds|local|vector|||0||
+short_cv_pubs|stem|e27d56d5066e3376|bc71d70907d2a89f|e06d8294ebbcb875|-1886005167||t19724.547852007s|8c237f5c678b0a48|160|rds|local|vector|||0||
 short_pubs|object|77662c69ebbed2e1|||||||||||||||
 sjr_data|stem|4a84f23c2a44e5d8|022aabc81fccb8b5|c53305a402e7b8ae|503858555||t19605.0138481621s|ad82a2209f30bd03|1795591|rds|local|vector|||3.751||
-software|stem|ac3dd52fca6b79a7|d62efed009759414|0ae69bafdbc27610|-184351623||t19722.5468404872s|6318f75f0c574ef2|763|rds|local|vector|||0.303||
-students|stem|139e0e75da8e2fb1|08e0662799a2b065|0ae69bafdbc27610|-224143187||t19722.5468404872s|6e6b72c416bc55f8|635|rds|local|vector|||0.322||
-teaching|stem|6ea1f0481a6590e8|566fadd451564904|0ae69bafdbc27610|-736732964||t19722.5468404872s|8a230169169dd703|462|rds|local|vector|||0.307||
+software|stem|ac3dd52fca6b79a7|d62efed009759414|0ae69bafdbc27610|-184351623||t19724.5478520995s|6318f75f0c574ef2|763|rds|local|vector|||0.303||
+students|stem|139e0e75da8e2fb1|08e0662799a2b065|0ae69bafdbc27610|-224143187||t19724.5478520995s|6e6b72c416bc55f8|635|rds|local|vector|||0.322||
+teaching|stem|6ea1f0481a6590e8|566fadd451564904|0ae69bafdbc27610|-736732964||t19724.5478520995s|8a230169169dd703|462|rds|local|vector|||0.307||
 top_five|object|da84442bbbda2482|||||||||||||||
-topfive_cv_pubs|stem|f09446e5e6802b26|fa624c6fe61426f7|aeb579ecdbb4d806|-210807051||t19722.5468404872s|2247cb837b5b96db|124|rds|local|vector|||0.001||
+topfive_cv_pubs|stem|f09446e5e6802b26|fa624c6fe61426f7|aeb579ecdbb4d806|-210807051||t19724.5478520995s|2247cb837b5b96db|124|rds|local|vector|||0.001||
 update_peer_reviewed|function|a29b3f3b7c78ceff|||||||||||||||
