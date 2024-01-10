@@ -11,7 +11,7 @@ sheet <- "1eglf3B_N1yv-RH-48NBzriIslqSLkh30V2kxbxlWCfE"
 
 # Pubs to include in short CV
 short_pubs <- c(
-  "Accepted: 2023-09-02", # Sanders, NHB, 2023
+  "WOS:001104978600002", # Sanders, NHB, 2023
   "WOS:000892975800001", # Lubans, IJBNPA, 2022
   "WOS:000648645400006", # Lonsdale, JAMA Peds, 2021
   "WOS:000620749700001", # Noetel, RER, 2021
@@ -24,7 +24,7 @@ short_pubs <- c(
 )
 
 top_five <- c(
-  "Accepted: 2023-09-02", # Sanders, NHB, 2023
+  "WOS:001104978600002", # Sanders, NHB, 2023
   "WOS:000648645400006", # Lonsdale, JAMA Peds, 2021
   "WOS:000620749700001", # Noetel, RER, 2021
   "WOS:000667241100005", # Hartwig, BJSM, 2021
