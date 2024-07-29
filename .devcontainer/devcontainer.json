@@ -7,20 +7,42 @@
 		"context": "..",
 		// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
 		"dockerfile": "../Dockerfile"
-	}
-
+	},
 	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-
+	"features": {
+		"ghcr.io/rocker-org/devcontainer-features/renv-cache:latest": {}
+		// "ghcr.io/rocker-org/devcontainer-features/r-apt:0": {
+		// 	"vscodeRSupport": "full",
+		// 	"installDevTools": true,
+		// 	"installRMarkdown": true,
+		// 	"installRadian": true,
+		// 	"installVscDebugger": true,
+		// 	"useTests": true
+		// },
+	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
-
 	// Uncomment the next line to run commands after the container is created.
 	// "postCreateCommand": "cat /etc/os-release",
-
 	// Configure tool-specific properties.
-	// "customizations": {},
-
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-azuretools.vscode-docker", // Makes it easy to create, manage, and debug containerized applications
+				"yzhang.markdown-all-in-one", // All you need to write Markdown (keyboard shortcuts, table of contents, auto preview and more)
+				"tomoki1207.pdf", // Display pdf file in VSCode
+				"REditorSupport.r",
+				"REditorSupport.r-lsp", // R Extension for Visual Studio Code
+				"RDebugger.r-debugger", // R Debugger for VS Code
+				"christian-kohler.path-intellisense", // Visual Studio Code plugin that autocompletes filenames
+				"ionutvmi.path-autocomplete",
+				"GitHub.vscode-pull-request-github",
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"mechatroner.rainbow-csv"
+			]
+		}
+	}
 	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "devcontainer"
 }

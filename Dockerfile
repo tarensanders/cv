@@ -1,18 +1,30 @@
-FROM rocker/verse:4.3.0
+FROM rocker/r-ver:4.4.1
 
-ENV RENV_VERSION 0.17.3
+ENV RENV_VERSION 1.0.7
 RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))"
-RUN R -e "remotes::install_github('rstudio/renv@${RENV_VERSION}')"
+RUN R -e "remotes::install_github('rstudio/renv@v${RENV_VERSION}')"
 
-# These are all the latex packages that GitHub Actions tries to install
-RUN tlmgr update --self && \
-  tlmgr install enumitem ragged2e iftex fancyhdr xcolor xifthen ifmtarg etoolbox setspace euenc fontspec tipa xunicode unicode-math latex-amsmath-dev fontawesome academicons sourcesanspro tcolorbox fp ms pdftexcmds pgf environ trimspaces kvoptions ltxcmds kvsetkeys auxhook bigintcalc bitset etexcmds gettitlestring hycolor hyperref intcalc kvdefinekeys letltxmacro pdfescape refcount rerunfilecheck stringenc uniquecounter zapfding infwarerr booktabs tabu varwidth colortbl geometry tikzfill && \
-  apt-get autoremove -y && \
-  apt-get clean
+# Install apt dependencies
+RUN apt-get update 
 
-WORKDIR /cv
-COPY renv.lock renv.lock
+RUN apt-get install -y \
+  libcurl4-openssl-dev \
+  libfontconfig1-dev \
+  libssl-dev \
+  libxml2-dev \
+  python3-pip && \
+  pip3 install radian
 
-ENV RENV_PATHS_LIBRARY renv/library
+# renv::install(c("conflicted","commonmark","dotenv","dplyr","gargle","glue","googledrive","googlesheets4","here","knitr","kableExtra","rmarkdown","scales","scholar","targets","tarchetypes","vitae"))
+# # These are all the latex packages that GitHub Actions tries to install
+# RUN tlmgr update --self && \
+#   tlmgr install enumitem ragged2e iftex fancyhdr xcolor xifthen ifmtarg etoolbox setspace euenc fontspec tipa xunicode unicode-math latex-amsmath-dev fontawesome academicons sourcesanspro tcolorbox fp ms pdftexcmds pgf environ trimspaces kvoptions ltxcmds kvsetkeys auxhook bigintcalc bitset etexcmds gettitlestring hycolor hyperref intcalc kvdefinekeys letltxmacro pdfescape refcount rerunfilecheck stringenc uniquecounter zapfding infwarerr booktabs tabu varwidth colortbl geometry tikzfill && \
+#   apt-get autoremove -y && \
+#   apt-get clean
 
-RUN R -e "renv::restore()"
+# WORKDIR /cv
+# COPY renv.lock renv.lock
+
+# ENV RENV_PATHS_LIBRARY renv/library
+
+# RUN R -e "renv::restore()"
