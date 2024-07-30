@@ -14,6 +14,8 @@ RUN apt-get install -y \
   libglpk40 \
   libssl-dev \
   libxml2-dev \
+  pandoc \
+  pandoc-citeproc \
   python3-pip && \
   pip3 install radian
 
