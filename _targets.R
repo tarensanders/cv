@@ -9,26 +9,28 @@ googledrive::drive_deauth()
 
 sheet <- "1eglf3B_N1yv-RH-48NBzriIslqSLkh30V2kxbxlWCfE"
 
+sheet_last_updated <- get_date_modified(sheet)
+
 # Pubs to include in short CV
 short_pubs <- c(
-  "WOS:001104978600002", # Sanders, NHB, 2023
-  "WOS:000892975800001", # Lubans, IJBNPA, 2022
-  "WOS:000648645400006", # Lonsdale, JAMA Peds, 2021
-  "WOS:000620749700001", # Noetel, RER, 2021
-  "WOS:000712220800001", # Noetel, RER, 2021
-  "WOS:000627077400001", # Lee, RER, 2021
-  "WOS:000667241100005", # Hartwig, BJSM, 2021
-  "WOS:000660894000001", # Antczak, IJBNPA, 2021
-  "WOS:000501313400002", # Sanders, IJBNPA, 2020
-  "WOS:000530217600006" # Antczak, Sleep Med Rev, 2020
+  "001104978600002", # Sanders, NHB, 2023
+  "000892975800001", # Lubans, IJBNPA, 2022
+  "000648645400006", # Lonsdale, JAMA Peds, 2021
+  "000620749700001", # Noetel, RER, 2021
+  "000712220800001", # Noetel, RER, 2021
+  "000627077400001", # Lee, RER, 2021
+  "000667241100005", # Hartwig, BJSM, 2021
+  "000660894000001", # Antczak, IJBNPA, 2021
+  "000501313400002", # Sanders, IJBNPA, 2020
+  "000530217600006" # Antczak, Sleep Med Rev, 2020
 )
 
 top_five <- c(
-  "WOS:001104978600002", # Sanders, NHB, 2023
-  "WOS:000648645400006", # Lonsdale, JAMA Peds, 2021
-  "WOS:000620749700001", # Noetel, RER, 2021
-  "WOS:000667241100005", # Hartwig, BJSM, 2021
-  "WOS:000501313400002" # Sanders, IJBNPA, 2020
+  "001104978600002", # Sanders, NHB, 2023
+  "000648645400006", # Lonsdale, JAMA Peds, 2021
+  "000620749700001", # Noetel, RER, 2021
+  "000667241100005", # Hartwig, BJSM, 2021
+  "000501313400002" # Sanders, IJBNPA, 2020
 )
 
 tar_plan(
@@ -51,34 +53,8 @@ tar_plan(
   tar_target(peer_reviewed, bibliography_entries(peer_reviewed_file)),
   tar_target(book_chapters, bibliography_entries(book_chapters_file)),
   tar_target(conferences, bibliography_entries(conferences_file)),
-  # Profiles
-  tar_target(
-    gscholar_profile,
-    scholar::get_profile("8KNzhS4AAAAJ"),
-    cue = tar_cue(mode = "always")
-  ),
-  tar_target(
-    incites_data,
-    get_incites_data(peer_reviewed, jifs),
-    cue = tar_cue(mode = "always")
-  ),
-  tar_target(short_cv_pubs, short_pubs),
-  tar_target(topfive_cv_pubs, top_five),
-  tar_target(
-    peer_reviewed_citations,
-    update_peer_reviewed(
-      peer_reviewed, incites_data, short_cv_pubs, topfive_cv_pubs
-    )
-  ),
-  tar_target(
-    research_profile,
-    make_profile(gscholar_profile, incites_data, peer_reviewed_citations)
-  ),
-  # Google Sheets Files
-  tar_target(
-    modified_date, get_date_modified(sheet),
-    cue = tar_cue(mode = "always")
-  ),
+  # Google Sheets data
+  tar_target(modified_date, sheet_last_updated),
   tar_target(jifs, get_sheet(sheet, "JIFs", modified_date)),
   tar_target(funding, get_sheet(sheet, "Funding", modified_date)),
   tar_target(students, get_sheet(sheet, "Students", modified_date)),
@@ -88,6 +64,32 @@ tar_plan(
   tar_target(software, get_sheet(sheet, "Software", modified_date)),
   tar_target(invited_talks, get_sheet(sheet, "InvitedTalks", modified_date)),
   tar_target(teaching, get_sheet(sheet, "Teaching", modified_date)),
+  # CV Params
+  tar_target(short_cv_pubs, short_pubs),
+  tar_target(topfive_cv_pubs, top_five),
+  # Profiles
+  tar_age(
+    gscholar_profile,
+    scholar::get_profile("8KNzhS4AAAAJ"),
+    age = as.difftime(1, units = "weeks")
+  ),
+  tar_age(
+    gscholar_data,
+    scholar::get_publications("8KNzhS4AAAAJ"),
+    age = as.difftime(1, units = "weeks")
+  ),
+  # Tidy Up Data
+  tar_target(
+    peer_reviewed_citations,
+    update_peer_reviewed(
+      peer_reviewed, gscholar_data, jifs, short_cv_pubs, topfive_cv_pubs
+    )
+  ),
+  tar_target(
+    research_profile,
+    make_profile(gscholar_profile, peer_reviewed_citations)
+  ),
+  # Generate CVs
   tar_target(cv_sections, list.files("./cv/sections", full.names = TRUE),
     format = "file"
   ),
