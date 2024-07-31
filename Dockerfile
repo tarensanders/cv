@@ -1,33 +1,45 @@
 FROM rocker/r-ver:4.4.1
 
-ENV RENV_VERSION 1.0.7
-RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))"
-RUN R -e "remotes::install_github('rstudio/renv@v${RENV_VERSION}')"
-
 # Install apt dependencies
-RUN apt-get update 
-
-RUN apt-get install -y \
+RUN apt-get update && apt-get install -y \
+  ca-certificates \
+  cmake \
+  fftw3 \  
   git \
   libcurl4-openssl-dev \
   libfontconfig1-dev \
   libglpk40 \
   libssl-dev \
+  librsvg2-2 \
+  librsvg2-dev \
+  libsodium-dev \
+  libsecret-1-dev \
+  libpoppler-cpp-dev \
   libxml2-dev \
-  pandoc \
-  pandoc-citeproc \
+  libxt6 \
+  libzmq3-dev \
+  perl \
+  texinfo \
+  wget \
+  xclip \
   python3-pip && \
   pip3 install radian
 
-# # These are all the latex packages that GitHub Actions tries to install
-# RUN tlmgr update --self && \
-#   tlmgr install enumitem ragged2e iftex fancyhdr xcolor xifthen ifmtarg etoolbox setspace euenc fontspec tipa xunicode unicode-math latex-amsmath-dev fontawesome academicons sourcesanspro tcolorbox fp ms pdftexcmds pgf environ trimspaces kvoptions ltxcmds kvsetkeys auxhook bigintcalc bitset etexcmds gettitlestring hycolor hyperref intcalc kvdefinekeys letltxmacro pdfescape refcount rerunfilecheck stringenc uniquecounter zapfding infwarerr booktabs tabu varwidth colortbl geometry tikzfill && \
-#   apt-get autoremove -y && \
-#   apt-get clean
-
 WORKDIR /cv
-COPY renv.lock renv.lock
 
+# Install tex
+ENV CTAN_REPO="https://mirror.cse.unsw.edu.au/pub/CTAN/systems/texlive/tlnet"
+ENV PATH="$PATH:/usr/local/texlive/bin/linux"
+COPY install_tex.sh /cv/
+RUN chmod +x /cv/install_tex.sh && \
+  /cv/install_tex.sh
+
+# Install renv
+ENV RENV_VERSION 1.0.7
 ENV RENV_PATHS_LIBRARY renv/library
+RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))" && \
+  R -e "remotes::install_github('rstudio/renv@v${RENV_VERSION}')" 
 
+# Setup renv
+COPY renv.lock renv.lock
 RUN R -e "renv::restore()"
