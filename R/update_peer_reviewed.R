@@ -43,7 +43,7 @@ update_peer_reviewed <- function(
       ),
       order = dplyr::row_number()
     ) %>%
-    dplyr::select(DOI:issue, short_cv, top_five, order, impact_factor, cites)
+    dplyr::select(DOI:editor, short_cv, top_five, order, impact_factor, cites)
 
   updated_peer_reviewed$issued <-
     purrr::modify_depth(updated_peer_reviewed$issued, 1, replace_x)
