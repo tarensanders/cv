@@ -49,7 +49,7 @@ For a full list of publications see my full CV ([bit.ly/TarenSanders](https://bi
 \def\thefootnote{}\footnotetext{
   \textbf{Note}: In health and medicine the last author is considered the senior author.
 
-  Citations from Web of Science; JIF =  \href{http://help.prod-incites.com/inCites2Live/indicatorsGroup/aboutHandbook/usingCitationIndicatorsWisely/jif.html}{Journal Impact Factor}; CNCI = \href{http://help.prod-incites.com/inCites2Live/indicatorsGroup/aboutHandbook/usingCitationIndicatorsWisely/normalizedCitationImpact.html}{Category Normalised Citation Index}.
+  Citations from Google Scholar; JIF =  \href{http://help.prod-incites.com/inCites2Live/indicatorsGroup/aboutHandbook/usingCitationIndicatorsWisely/jif.html}{Journal Impact Factor}.
 }
 
 ```{r publications}
