@@ -30,16 +30,21 @@ WORKDIR /cv
 # Install tex
 ENV CTAN_REPO="https://mirror.cse.unsw.edu.au/pub/CTAN/systems/texlive/tlnet"
 ENV PATH="$PATH:/usr/local/texlive/bin/linux"
-COPY install_tex.sh /cv/
-RUN chmod +x /cv/install_tex.sh && \
-  /cv/install_tex.sh
+RUN /rocker_scripts/install_pandoc.sh
+RUN /rocker_scripts/install_texlive.sh
+
+# These are all the latex packages that GitHub Actions tries to install
+RUN tlmgr install academicons booktabs colortbl enumitem environ euenc fancyhdr \
+  fontawesome fontspec fp ifmtarg l3packages latex-amsmath-dev pgf ragged2e setspace \
+  sourcesanspro tabu tcolorbox tipa trimspaces unicode-math varwidth xifthen xunicode
 
 # Install renv
 ENV RENV_VERSION 1.0.7
-ENV RENV_PATHS_LIBRARY renv/library
 RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))" && \
   R -e "remotes::install_github('rstudio/renv@v${RENV_VERSION}')" 
 
 # Setup renv
 COPY renv.lock renv.lock
 RUN R -e "renv::restore()"
+# Install dev requirements that are seperate from the project
+RUN R -e "renv::install(c('languageserver', 'httpgd', 'conflicted', 'dotenv', 'devtools', 'milesmcbain/fnmate','milesmcbain/tflow'))"

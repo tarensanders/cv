@@ -1,10 +1,4 @@
-# For VS Code
-library(languageserver)
-library(httpgd)
-# Used packages
-library(conflicted)
 library(commonmark)
-library(dotenv)
 library(dplyr)
 library(gargle)
 library(glue)
@@ -13,6 +7,7 @@ library(googlesheets4)
 library(here)
 library(knitr)
 library(kableExtra)
+library(lubridate)
 library(rmarkdown)
 library(scales)
 library(scholar)
