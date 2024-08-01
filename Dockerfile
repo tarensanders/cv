@@ -1,18 +1,50 @@
-FROM rocker/verse:4.3.0
+FROM rocker/r-ver:4.4.1
 
-ENV RENV_VERSION 0.17.3
-RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))"
-RUN R -e "remotes::install_github('rstudio/renv@${RENV_VERSION}')"
-
-# These are all the latex packages that GitHub Actions tries to install
-RUN tlmgr update --self && \
-  tlmgr install enumitem ragged2e iftex fancyhdr xcolor xifthen ifmtarg etoolbox setspace euenc fontspec tipa xunicode unicode-math latex-amsmath-dev fontawesome academicons sourcesanspro tcolorbox fp ms pdftexcmds pgf environ trimspaces kvoptions ltxcmds kvsetkeys auxhook bigintcalc bitset etexcmds gettitlestring hycolor hyperref intcalc kvdefinekeys letltxmacro pdfescape refcount rerunfilecheck stringenc uniquecounter zapfding infwarerr booktabs tabu varwidth colortbl geometry tikzfill && \
-  apt-get autoremove -y && \
-  apt-get clean
+# Install apt dependencies
+RUN apt-get update && apt-get install -y \
+  ca-certificates \
+  cmake \
+  fftw3 \  
+  git \
+  libcurl4-openssl-dev \
+  libfontconfig1-dev \
+  libglpk40 \
+  libssl-dev \
+  librsvg2-2 \
+  librsvg2-dev \
+  libsodium-dev \
+  libsecret-1-dev \
+  libpoppler-cpp-dev \
+  libxml2-dev \
+  libxt6 \
+  libzmq3-dev \
+  perl \
+  texinfo \
+  wget \
+  xclip \
+  python3-pip && \
+  pip3 install radian
 
 WORKDIR /cv
+
+# Install tex
+ENV CTAN_REPO="https://mirror.cse.unsw.edu.au/pub/CTAN/systems/texlive/tlnet"
+ENV PATH="$PATH:/usr/local/texlive/bin/linux"
+RUN /rocker_scripts/install_pandoc.sh
+RUN /rocker_scripts/install_texlive.sh
+
+# These are all the latex packages that GitHub Actions tries to install
+RUN tlmgr install academicons booktabs colortbl enumitem environ euenc fancyhdr \
+  fontawesome fontspec fp ifmtarg l3packages latex-amsmath-dev pgf ragged2e setspace \
+  sourcesanspro tabu tcolorbox tipa trimspaces unicode-math varwidth xifthen xunicode
+
+# Install renv
+ENV RENV_VERSION 1.0.7
+RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))" && \
+  R -e "remotes::install_github('rstudio/renv@v${RENV_VERSION}')" 
+
+# Setup renv
 COPY renv.lock renv.lock
-
-ENV RENV_PATHS_LIBRARY renv/library
-
 RUN R -e "renv::restore()"
+# Install dev requirements that are seperate from the project
+RUN R -e "renv::install(c('languageserver', 'httpgd', 'conflicted', 'dotenv', 'devtools', 'milesmcbain/fnmate','milesmcbain/tflow'))"

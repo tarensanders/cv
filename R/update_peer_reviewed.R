@@ -4,36 +4,46 @@
 #'
 #' @title
 #' @param peer_reviewed
-#' @param incites_data
+#' @param gscholar_data
+#' @param jifs
 #' @param short_pubs
 #' @param top_five
 update_peer_reviewed <- function(
-    peer_reviewed, incites_data, short_pubs, top_five) {
+    peer_reviewed, gscholar_data, jifs, short_pubs, top_five) {
   updated_peer_reviewed <-
     peer_reviewed %>%
-    left_join(incites_data,
-      by = c("annote" = "ut", "container-title" = "container-title")
+    dplyr::mutate(
+      annote = gsub("\\_", "_", annote, fixed = TRUE),
+      annote = gsub("\\\n", "|", annote, fixed = TRUE),
+      wos_id = stringr::str_extract(annote, "(?<=WOS:)[^|]+"),
+      scopus_id = stringr::str_extract(annote, "(?<=scopus_id:)[^|]+"),
+      scholar_id = stringr::str_extract(annote, "(?<=scholar_id:)[^|]+"),
+      year = lubridate::year(as.Date(issued))
     ) %>%
-    arrange(desc(format(year, "%Y")), desc(impact_factor)) %>%
-    mutate(
-      short_cv = annote %in% short_pubs,
-      top_five = annote %in% top_five,
-      annote = case_when(
-        tot_cites > 0 & hot_paper ~
+    dplyr::left_join(
+      dplyr::select(gscholar_data, pubid, cites),
+      by = c("scholar_id" = "pubid")
+    ) %>%
+    dplyr::left_join(
+      dplyr::rename(jifs, impact_factor = "Impact Factor"),
+      by = c("container-title" = "Journal")
+    ) %>%
+    dplyr::arrange(desc(year), desc(impact_factor)) %>%
+    dplyr::mutate(
+      short_cv = wos_id %in% short_pubs,
+      top_five = wos_id %in% top_five,
+      annote = dplyr::case_when(
+        cites > 0 ~
           glue::glue(
-            "\\\ | Citations: {tot_cites}; JIF: {round(impact_factor,1)}; CNCI: {round(nci,1)}; WoS Hot Paper" # nolint
-          ),
-        tot_cites > 0 & !hot_paper ~
-          glue::glue(
-            "\\\ | Citations: {tot_cites}; JIF: {round(impact_factor,1)}; CNCI: {round(nci,1)}" # nolint
+            "\\\ | Citations: {cites}; JIF: {round(impact_factor,1)}"
           ),
         !is.na(impact_factor) ~
           glue::glue("\\\ | JIF: {round(impact_factor,1)}"),
         TRUE ~ paste0(" ", annote)
       ),
-      order = row_number()
+      order = dplyr::row_number()
     ) %>%
-    select(DOI:issue, short_cv, top_five, order)
+    dplyr::select(DOI:editor, short_cv, top_five, order, impact_factor, cites)
 
   updated_peer_reviewed$issued <-
     purrr::modify_depth(updated_peer_reviewed$issued, 1, replace_x)
