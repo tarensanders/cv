@@ -1,0 +1,25 @@
+\usepackage{tabu}
+\usepackage{colortbl}
+\usepackage{fontawesome}
+\arrayrulecolor{white}
+
+\newenvironment{cols}[1][]{}{}
+
+\newenvironment{col}[1]{\begin{minipage}{#1}\ignorespaces}{%
+\end{minipage}
+\ifhmode\unskip\fi
+\aftergroup\useignorespacesandallpars}
+
+\def\useignorespacesandallpars#1\ignorespaces\fi{%
+#1\fi\ignorespacesandallpars}
+
+\makeatletter
+\def\ignorespacesandallpars{%
+  \@ifnextchar\par
+    {\expandafter\ignorespacesandallpars\@gobble}%
+    {}%
+}
+
+% Added code to adjust the footnote formatting
+\renewcommand\@makefntext[1]{\leftskip=0em\parindent=0em #1}
+\makeatother

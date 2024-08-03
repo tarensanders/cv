@@ -1,0 +1,13 @@
+# Awards
+
+```{r awards}
+awards %>%
+  arrange(desc(Year)) %>%
+  brief_entries(
+    when = Year,
+    what = glue("\\textbf{<Award>} <Org>. <Details>",
+      .na = "", .open = "<", .close = ">"
+    ),
+    .protect = FALSE
+  )
+```
