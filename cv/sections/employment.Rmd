@@ -18,7 +18,7 @@ employment <-
     list(
       "Supported Program Leader to manage the research program"
     ),
-    "Research Fellow", "2016", "Current",
+    "Research Fellow/Senior Research Fellow", "2016", "Current",
     "Institute for Positive Psychology and Education, Australian Catholic University",
     list(
       "Conduct original, high-impact, and translational research in the areas of health, education, and psychology.",

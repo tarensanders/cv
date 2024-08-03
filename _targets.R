@@ -13,6 +13,7 @@ sheet_last_updated <- get_date_modified(sheet)
 
 # Pubs to include in short CV
 short_pubs <- c(
+  "001195817800009", # Noetel, BMJ, 2024
   "001104978600002", # Sanders, NHB, 2023
   "000892975800001", # Lubans, IJBNPA, 2022
   "000648645400006", # Lonsdale, JAMA Peds, 2021
@@ -20,17 +21,16 @@ short_pubs <- c(
   "000712220800001", # Noetel, RER, 2021
   "000627077400001", # Lee, RER, 2021
   "000667241100005", # Hartwig, BJSM, 2021
-  "000660894000001", # Antczak, IJBNPA, 2021
   "000501313400002", # Sanders, IJBNPA, 2020
   "000530217600006" # Antczak, Sleep Med Rev, 2020
 )
 
 top_five <- c(
+  "001195817800009", # Noetel, BMJ, 2024
   "001104978600002", # Sanders, NHB, 2023
   "000648645400006", # Lonsdale, JAMA Peds, 2021
   "000620749700001", # Noetel, RER, 2021
-  "000667241100005", # Hartwig, BJSM, 2021
-  "000501313400002" # Sanders, IJBNPA, 2020
+  "000667241100005" # Hartwig, BJSM, 2021
 )
 
 tar_plan(

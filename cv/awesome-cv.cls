@@ -700,7 +700,7 @@
 }{%
   \end{itemize}
   \end{justify}
-  % \vspace{1.0mm}
+  \vspace{1.0mm}
 }
 
 

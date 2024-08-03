@@ -16,8 +16,12 @@ output:
   vitae::awesomecv:
     pandoc_args: ["--lua-filter=strong.lua"] 
     keep_tex: false
+    page_total: true
     includes:
       in_header: header.tex
+header-includes:
+  - \usepackage{multicol}
+  - \usepackage{enumitem}
 ---
 
 ```{r setup, include=FALSE}

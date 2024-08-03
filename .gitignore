@@ -42,3 +42,6 @@ rsconnect/
 _targets
 
 .DS_Store
+
+cv/cover_letters/*
+!cv/cover_letters/cover_letter_template.Rmd

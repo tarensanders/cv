@@ -15,8 +15,8 @@ update_peer_reviewed <- function(
     dplyr::mutate(
       annote = gsub("\\_", "_", annote, fixed = TRUE),
       annote = gsub("\\\n", "|", annote, fixed = TRUE),
-      wos_id = stringr::str_extract(annote, "(?<=WOS:)[^|]+"),
-      scopus_id = stringr::str_extract(annote, "(?<=scopus_id:)[^|]+"),
+      wos_id = stringr::str_extract(annote, "(?<=WOS:)[^\n]+"),
+      scopus_id = stringr::str_extract(annote, "(?<=scopus_id:)[^\n]+"),
       scholar_id = stringr::str_extract(annote, "(?<=scholar_id:)[^|]+"),
       year = lubridate::year(as.Date(issued))
     ) %>%
@@ -33,12 +33,8 @@ update_peer_reviewed <- function(
       short_cv = wos_id %in% short_pubs,
       top_five = wos_id %in% top_five,
       annote = dplyr::case_when(
-        cites > 0 ~
-          glue::glue(
-            "\\\ | Citations: {cites}; JIF: {round(impact_factor,1)}"
-          ),
         !is.na(impact_factor) ~
-          glue::glue("\\\ | JIF: {round(impact_factor,1)}"),
+          glue::glue("{cites} citations | JIF: {round(impact_factor,1)}"),
         TRUE ~ paste0(" ", annote)
       ),
       order = dplyr::row_number()
