@@ -46,12 +46,13 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       LANG: en_US.UTF-8 # https://github.com/jgm/citeproc/issues/26
     steps:      
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           sparse-checkout: |
-            *
+            .
             !renv/
             !.Rprofile
+          sparse-checkout-cone-mode: false
 
       - name: Check if previous runs exists
         id: runs-exist
@@ -62,7 +63,7 @@ jobs:
 
       - name: Checkout previous run
         if: steps.runs-exist.outcome == 'success'
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: targets-runs
           fetch-depth: 0
