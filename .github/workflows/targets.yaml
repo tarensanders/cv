@@ -50,6 +50,7 @@ jobs:
         with:
           sparse-checkout: |
             .
+            /*
             !renv/
             !.Rprofile
           sparse-checkout-cone-mode: false
