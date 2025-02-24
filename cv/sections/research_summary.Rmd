@@ -4,7 +4,7 @@
 tribble(
   # nolint start
   ~Publications, ~Citations, ~"h-Index", ~"Mean Impact Factor", ~Funding,
-  research_profile$pubs, research_profile$cites, research_profile$h_index, research_profile$mean_jif, "> $1 million"
+  research_profile$pubs, research_profile$cites, research_profile$h_index, research_profile$mean_jif, "> $1.8 million"
   # nolint end
 ) %>%
   knitr::kable(format = "latex", align = rep("c", 5)) %>%
