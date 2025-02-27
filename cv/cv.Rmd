@@ -4,7 +4,7 @@ position: Academic Researcher & Data Scientist
 address: "Institute for Positive Psychology and Education, Australian Catholic University"
 phone: 0412 278 640
 #www: 
-email: Taren.Sanders@gmail.com
+email: Taren.Sanders@acu.edu.au
 twitter: tarensanders
 github: tarensanders
 orcid: "0000-0002-4504-6008"
@@ -20,6 +20,8 @@ output:
     includes:
       in_header: header.tex
 header-includes:
+  - \usepackage{makecell}
+  - \usepackage{longtable}
   - \usepackage{multicol}
   - \usepackage{enumitem}
 ---

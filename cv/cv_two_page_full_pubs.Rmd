@@ -20,6 +20,8 @@ output:
     includes:
       in_header: header.tex
 header-includes:
+  - \usepackage{makecell}
+  - \usepackage{longtable}
   - \usepackage{multicol}
   - \usepackage{enumitem}
 ---
@@ -44,7 +46,7 @@ tar_load(c(
 
 \newpage
 
-```{r, child=c("cv/sections/funding.Rmd", "cv/sections/awards.Rmd", "cv/sections/students.Rmd")}
+```{r, child=c("cv/sections/funding.Rmd", "cv/sections/awards.Rmd", "cv/sections/students_summary.Rmd")}
 ```
 
 \newpage

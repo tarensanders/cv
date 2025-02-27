@@ -2,16 +2,19 @@
 
 ```{r skills}
 tribble(
-  ~Category, ~Skill,
   # nolint start
-  "Programming Languages", "R, Python, Stata, Julia",
-  "Software Development", "R packages (including CRAN submission), Python packages",
-  "Statistical Methods", "Machine learning, multilevel modelling, intervention evaluation, meta-analyses",
-  "Research Methods", "Study design, intervention development, ethics and recruitment"
+  ~"Programming Languages", ~"Software Development", ~"Statistical Methods", ~"Research Methods",
+  "$\\boldsymbol{\\cdot}$ R\n$\\boldsymbol{\\cdot}$ Python\n$\\boldsymbol{\\cdot}$ Stata\n$\\boldsymbol{\\cdot}$ Julia",
+  "$\\boldsymbol{\\cdot}$ R packages\n$\\boldsymbol{\\cdot}$ Python packages",
+  "$\\boldsymbol{\\cdot}$ Machine learning\n$\\boldsymbol{\\cdot}$ Multilevel modelling\n$\\boldsymbol{\\cdot}$ Intervention evaluation\n$\\boldsymbol{\\cdot}$ Meta-analyses",
+  "$\\boldsymbol{\\cdot}$ Study design\n$\\boldsymbol{\\cdot}$ Intervention development\n$\\boldsymbol{\\cdot}$ Ethics and recruitment"
   # nolint end
 ) %>%
-  detailed_entries(
-    with = Category,
-    what = Skill
-  )
+  mutate_all(kableExtra::linebreak) %>%
+  knitr::kable(
+    format = "latex", escape = FALSE, longtable = TRUE, booktabs = TRUE,
+    bottomrule = "", toprule = "", midrule = ""
+  ) %>%
+  kableExtra::row_spec(0, bold = TRUE) %>%
+  kableExtra::kable_styling(latex_options = "hold_position", full_width = FALSE)
 ```

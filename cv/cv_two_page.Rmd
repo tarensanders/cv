@@ -20,6 +20,8 @@ output:
     includes:
       in_header: header.tex
 header-includes:
+  - \usepackage{makecell}
+  - \usepackage{longtable}
   - \usepackage{multicol}
   - \usepackage{enumitem}
 ---
