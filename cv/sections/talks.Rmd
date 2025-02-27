@@ -1,0 +1,12 @@
+# Invited Talks
+
+```{r}
+brief_entries(
+  invited_talks,
+  when = Year,
+  what = glue("\\textbf{<Org>}. <Talk>. <Location>",
+    .na = "", .open = "<", .close = ">"
+  ),
+  .protect = FALSE
+)
+```

@@ -1,0 +1,37 @@
+# Students
+
+## Doctor of Philosophy
+
+```{r students-phd}
+students %>%
+  dplyr::filter(Degree == "PhD") %>%
+  brief_entries(
+    what = Name,
+    when = glue("{Start}--{Finish}", .na = ""),
+    with = Role
+  )
+```
+
+## Master of Psychology
+
+```{r students-mpsyc}
+students %>%
+  dplyr::filter(Degree == "Master of Psychology") %>%
+  brief_entries(
+    what = Name,
+    when = glue("{Start}--{Finish}", .na = ""),
+    with = Role
+  )
+```
+
+## Honours
+
+```{r students-honours}
+students %>%
+  dplyr::filter(Degree == "Honours") %>%
+  brief_entries(
+    what = Name,
+    when = glue("{Start}--{Finish}", .na = ""),
+    with = Role
+  )
+```

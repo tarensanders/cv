@@ -1,0 +1,27 @@
+.targets-files
+_targets/meta/process
+_targets/meta/progress
+_targets/objects/awards
+_targets/objects/book_chapters
+_targets/objects/conferences
+_targets/objects/development
+_targets/objects/funding
+_targets/objects/gscholar_data
+_targets/objects/gscholar_profile
+_targets/objects/invited_talks
+_targets/objects/jifs
+_targets/objects/modified_date
+_targets/objects/peer_reviewed
+_targets/objects/peer_reviewed_citations
+_targets/objects/research_profile
+_targets/objects/service
+_targets/objects/short_cv_pubs
+_targets/objects/software
+_targets/objects/students
+_targets/objects/teaching
+_targets/objects/topfive_cv_pubs
+cv/CV - Assoc Prof Taren Sanders (2 page with publications).pdf
+cv/CV - Assoc Prof Taren Sanders (2 page).pdf
+cv/CV - Assoc Prof Taren Sanders (5 page).pdf
+cv/CV - Assoc Prof Taren Sanders.pdf
+_targets/meta/meta

@@ -1,0 +1,12 @@
+# Self-Development
+
+```{r development}
+brief_entries(
+  development,
+  when = Year,
+  what = glue("\\textbf{<Course>.} <Location>",
+    .na = "", .open = "<", .close = ">"
+  ),
+  .protect = FALSE
+)
+```

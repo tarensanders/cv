@@ -1,0 +1,49 @@
+# Employment History
+
+```{r employment}
+employment <-
+  tribble(
+    ~role, ~start, ~end, ~org, ~details,
+    # nolint start
+    "Associate Professor", "2025", "Current",
+    "Institute for Positive Psychology and Education, Australian Catholic University",
+    list(),
+    "Program Leader", "2021", "Current",
+    "Institute for Positive Psychology and Education, Australian Catholic University",
+    list(
+      "Drive the strategic direction and focus of the research program",
+      "Support academic and professional staff, as well as higher-degree students, within the program",
+      "Provide input as a member of the Institute Executive Management Committee on Institute priorities, and advocate for my research program",
+      "Developed and implemented new project management processes, including making agile management strategies standard practice."
+    ),
+    "Deputy Program Leader", "2017", "2021",
+    "Institute for Positive Psychology and Education, Australian Catholic University",
+    list(
+      "Supported Program Leader to manage the research program"
+    ),
+    "Senior Research Fellow", "2023", "2024",
+    "Institute for Positive Psychology and Education, Australian Catholic University",
+    list(
+      "Conduct original, high-impact, and translational research in the areas of health, education, and psychology.",
+      "Oversee the development, evaluation, and management of multiple large-scale school-based research projects (e.g., iPLAY; 180 schools).",
+      "Conduct analyses of primary and secondary data, and provided statistical support to colleagues including statistics workshops.",
+      "Work with industry partners (NSW Department of Education, NSW Health, Sport Australia) to provide project updates and seek input.",
+      "Author academic and non-academic outputs, including journal articles, grant applications, stakeholder reports, and data visualisations.",
+      "Mentor doctoral and honours students, including reviewing and evaluating their analyses and writing."
+    ),
+    "Research Fellow", "2020", "2022",
+    "Institute for Positive Psychology and Education, Australian Catholic University",
+    list(),
+    "Associate Research Fellow", "2016", "2020",
+    "Institute for Positive Psychology and Education, Australian Catholic University",
+    list(),
+    # nolint end
+  )
+
+detailed_entries(
+  employment,
+  what = org,
+  when = glue("{start}--{end}"),
+  with = role
+)
+```

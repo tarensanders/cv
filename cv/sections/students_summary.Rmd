@@ -1,0 +1,20 @@
+# Students
+
+```{r students-summary}
+students %>%
+  mutate(finished = !is.na(Finish)) %>%
+  group_by(Degree, Role) %>%
+  summarise(
+    Current = sum(!finished), Graduated = sum(finished), Total = n()
+  ) %>%
+  arrange(desc(Degree), desc(Role)) %>%
+  knitr::kable(
+    format = "latex", booktabs = TRUE,
+    bottomrule = "", toprule = "", midrule = ""
+  ) %>%
+  kableExtra::row_spec(0, bold = TRUE) %>%
+  kableExtra::kable_minimal(
+    latex_options = "hold_position", full_width = FALSE,
+    position = "left", font_size = 9
+  )
+```

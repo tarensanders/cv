@@ -1,0 +1,82 @@
+---
+name: Taren Sanders
+position: Academic Researcher & Data Scientist
+address: "Institute for Positive Psychology and Education, Australian Catholic University"
+phone: 0412 278 640
+#www: 
+email: Taren.Sanders@acu.edu.au
+twitter: tarensanders
+github: tarensanders
+orcid: "0000-0002-4504-6008"
+aboutme: ""
+date: "`r format(Sys.time(), '%B %Y')`"
+headcolor: "000000"
+csl: "apa-cv.csl"
+output: 
+  vitae::awesomecv:
+    pandoc_args: ["--lua-filter=strong.lua"] 
+    keep_tex: false
+    page_total: true
+    includes:
+      in_header: header.tex
+header-includes:
+  - \usepackage{makecell}
+  - \usepackage{longtable}
+  - \usepackage{multicol}
+  - \usepackage{enumitem}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+# target knits Rmds in their own session, so load libraries here.
+# source(here::here("packages.R")) # nolint
+# if you want access to the functions you've written
+# lapply(list.files(here::here("./R"), full.names = TRUE), source) # nolint
+```
+
+```{r load-targets, include=FALSE}
+tar_load(c(
+  funding, awards, book_chapters, peer_reviewed_citations,
+  research_profile, cv_sections
+))
+```
+
+```{r, child=c("cv/sections/education.Rmd", "cv/sections/employment.Rmd", "cv/sections/research_summary.Rmd", "cv/sections/technical_skills.Rmd")}
+```
+
+\newpage
+
+# Selected Publications
+
+## Top Five Publications
+
+\addtocounter{footnote}{-1}
+\def\thefootnote{}\footnotetext{
+  \textbf{Note}: In health and medicine the last author is considered the senior author.
+
+  Citations from Google Scholar; JIF =  \href{http://help.prod-incites.com/inCites2Live/indicatorsGroup/aboutHandbook/usingCitationIndicatorsWisely/jif.html}{Journal Impact Factor}.
+}
+
+```{r top-five-publications}
+peer_reviewed_citations %>%
+  dplyr::filter(top_five) %>%
+  arrange(order)
+```
+
+## Other Peer-Reviewed Publications
+
+```{r publications}
+peer_reviewed_citations %>%
+  dplyr::filter(!top_five) %>%
+  arrange(order)
+```
+
+## Book Chapters
+
+```{r bookchapters}
+book_chapters %>%
+  arrange(desc(issued))
+```
+
+```{r, child=c("cv/sections/funding.Rmd", "cv/sections/awards.Rmd")}
+```

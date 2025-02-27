@@ -1,0 +1,23 @@
+# Research Funding
+
+```{r funding}
+funding %>%
+  mutate(
+    Amount = gsub("$", "\\$", scales::dollar(Amount), fixed = TRUE),
+    Scheme = if_else(
+      !is.na(Scheme),
+      stringr::str_c("--- ", Scheme),
+      NA_character_
+    )
+  ) %>%
+  detailed_entries(
+    what = glue("{Role} {Scheme} {Details}",
+      "\\newline {Title}",
+      .na = ""
+    ),
+    when = glue("{Start}--{Finish}"),
+    with = Funder,
+    where = Amount,
+    .protect = FALSE
+  )
+```

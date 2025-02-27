@@ -1,0 +1,13 @@
+# Research Summary
+
+```{r}
+tribble(
+  # nolint start
+  ~Publications, ~Citations, ~"h-Index", ~"Mean Impact Factor", ~Funding,
+  research_profile$pubs, research_profile$cites, research_profile$h_index, research_profile$mean_jif, "> $1.8 million"
+  # nolint end
+) %>%
+  knitr::kable(format = "latex", align = rep("c", 5)) %>%
+  kableExtra::row_spec(0, bold = TRUE) %>%
+  kableExtra::kable_minimal(latex_options = "hold_position", full_width = TRUE)
+```

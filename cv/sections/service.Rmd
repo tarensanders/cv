@@ -1,0 +1,60 @@
+# Service
+
+```{r service, results='asis'}
+detailed_entries(
+  dplyr::filter(service, Type == "University Service"),
+  with = Type,
+  what = Desc,
+  why = Details
+)
+
+cat("\\vspace{-4.5mm}")
+
+journals <- service %>%
+  dplyr::filter(Type == "Guest Journal Reviewer") %>%
+  dplyr::mutate(Details = stringr::str_replace_all(Details, "\\&", "\\\\&")) %>%
+  dplyr::pull(Details)
+
+split_list_into_latex <- function(lst) {
+  n <- length(lst)
+  half_n <- ceiling(n / 2)
+
+  col1 <- lst[1:half_n]
+  col2 <- lst[(half_n + 1):n]
+
+  col1_latex <- paste0(
+    "\\begin{cvitems}",
+    paste(sapply(col1, function(x) paste0("\\item ", x)), collapse = ""),
+    "\\end{cvitems}"
+  )
+  col2_latex <- paste0(
+    "\\begin{cvitems}",
+    paste(sapply(col2, function(x) paste0("\\item ", x)), collapse = ""),
+    "\\end{cvitems}"
+  )
+
+  list(col1 = col1_latex, col2 = col2_latex)
+}
+
+latex_lists <- split_list_into_latex(journals)
+
+cat("
+\\begin{cventries}
+    \\cventry{Providing peer-review support for journals}{Guest Journal Reviewer}{}{}{
+\\vspace{-8.5mm} % Reduce space before the multicols environment
+\\begin{multicols}{2}
+", latex_lists$col1, "
+", latex_lists$col2, "
+\\end{multicols}
+    }
+\\vspace{-8.5mm} % Reduce space after the multicols environment
+\\end{cventries}
+")
+
+detailed_entries(
+  dplyr::filter(service, Type == "Invited Grant Reviewer"),
+  with = Type,
+  what = Desc,
+  why = Details
+)
+```
