@@ -47,7 +47,7 @@ tar_load(c(
 
 # Selected Publications
 
-For a full list of publications see my full CV ([bit.ly/TarenSanders](https://bit.ly/TarenSanders)).
+For a full list of publications see my full CV ([bit.ly/tarensanders](https://bit.ly/tarensanders)).
 
 ## Peer-Reviewed Publications
 

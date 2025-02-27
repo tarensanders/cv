@@ -1,4 +1,5 @@
 .targets-files
+.targets-runs/
 _targets/meta/process
 _targets/meta/progress
 _targets/objects/awards
@@ -20,8 +21,5 @@ _targets/objects/software
 _targets/objects/students
 _targets/objects/teaching
 _targets/objects/topfive_cv_pubs
-cv/CV - Assoc Prof Taren Sanders (2 page with publications).pdf
-cv/CV - Assoc Prof Taren Sanders (2 page).pdf
-cv/CV - Assoc Prof Taren Sanders (5 page).pdf
-cv/CV - Assoc Prof Taren Sanders.pdf
 _targets/meta/meta
+cv/CV - Assoc Prof Taren Sanders (2 page).pdf
