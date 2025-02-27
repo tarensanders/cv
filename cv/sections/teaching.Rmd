@@ -8,7 +8,6 @@ teaching %>%
   ) %>%
   detailed_entries(
     with = Role,
-    when = Year,
     what = Org,
     why = Units
   )
