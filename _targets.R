@@ -94,19 +94,19 @@ tar_plan(
     format = "file"
   ),
   tar_render(cv, here::here("cv", "cv.Rmd"),
-    output_file = here::here("cv", "CV - Dr Taren Sanders.pdf")
+    output_file = here::here("cv", "CV - Assoc Prof Taren Sanders.pdf")
   ),
   tar_render(cv_two_page, here::here("cv", "cv_two_page.Rmd"),
-    output_file = here::here("cv", "CV - Dr Taren Sanders (Short).pdf")
+    output_file = here::here("cv", "CV - Assoc Prof Taren Sanders (2 page).pdf")
   ),
   tar_render(cv_five_page, here::here("cv", "cv_five_page.Rmd"),
-    output_file = here::here("cv", "CV - Dr Taren Sanders (5 page).pdf")
+    output_file = here::here("cv", "CV - Assoc Prof Taren Sanders (5 page).pdf")
   ),
   tar_render(
     cv_two_page_full_pubs, here::here("cv", "cv_two_page_full_pubs.Rmd"),
     output_file = here::here(
       "cv",
-      "CV - Dr Taren Sanders (2 page with publications).pdf"
+      "CV - Assoc Prof Taren Sanders (2 page with publications).pdf"
     )
   )
 )
