@@ -137,13 +137,3 @@ jobs:
         with:
           name: ${{ runner.os }}-r${{ matrix.config.r }}-results
           path: .
-
-      - name: Send Teams alert
-        if: steps.update-cvs.outcome == 'success'
-        uses: skitionek/notify-microsoft-teams@master
-        with:
-          webhook_url: ${{ secrets.MSTEAMS_URL }}
-          overwrite: "{title: '[Beep boop] Automatically updated your CV'}"
-          job: ${{ toJson(job) }}
-          steps: ${{ toJson(steps) }}
-          needs: ${{ toJson(needs) }}
