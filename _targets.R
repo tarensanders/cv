@@ -70,12 +70,12 @@ tar_plan(
   # Profiles
   tar_age(
     gscholar_profile,
-    scholar::get_profile("8KNzhS4AAAAJ"),
+    get_gscholar_profile_robust("8KNzhS4AAAAJ"),
     age = as.difftime(1, units = "weeks")
   ),
   tar_age(
     gscholar_data,
-    scholar::get_publications("8KNzhS4AAAAJ"),
+    get_gscholar_data_robust("8KNzhS4AAAAJ"),
     age = as.difftime(1, units = "weeks")
   ),
   # Tidy Up Data
