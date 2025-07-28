@@ -32,6 +32,7 @@ update_peer_reviewed <- function(
     dplyr::mutate(
       short_cv = wos_id %in% short_pubs,
       top_five = wos_id %in% top_five,
+      cites = dplyr::if_else(is.na(cites), 0, cites),
       annote = dplyr::case_when(
         !is.na(impact_factor) ~
           glue::glue("{cites} citations | JIF: {round(impact_factor,1)}"),
