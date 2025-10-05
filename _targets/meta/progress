@@ -5,8 +5,7 @@ gscholar_profile|stem|gscholar_profile|0|skipped
 topfive_cv_pubs|stem|topfive_cv_pubs|0|skipped
 modified_date|stem|modified_date|0|skipped
 gscholar_data|stem|gscholar_data|0|skipped
-peer_reviewed_file|stem|peer_reviewed_file|0|dispatched
-peer_reviewed_file|stem|peer_reviewed_file|0|completed
+peer_reviewed_file|stem|peer_reviewed_file|0|skipped
 conferences_file|stem|conferences_file|0|skipped
 short_cv_pubs|stem|short_cv_pubs|0|skipped
 book_chapters|stem|book_chapters|0|skipped
@@ -19,11 +18,9 @@ teaching|stem|teaching|0|skipped
 invited_talks|stem|invited_talks|0|skipped
 service|stem|service|0|skipped
 jifs|stem|jifs|0|skipped
-peer_reviewed|stem|peer_reviewed|0|dispatched
-peer_reviewed|stem|peer_reviewed|0|completed
+peer_reviewed|stem|peer_reviewed|0|skipped
 conferences|stem|conferences|0|skipped
-peer_reviewed_citations|stem|peer_reviewed_citations|0|dispatched
-peer_reviewed_citations|stem|peer_reviewed_citations|0|completed
+peer_reviewed_citations|stem|peer_reviewed_citations|0|skipped
 research_profile|stem|research_profile|0|skipped
 cv_two_page_full_pubs|stem|cv_two_page_full_pubs|0|skipped
 cv_two_page|stem|cv_two_page|0|skipped
