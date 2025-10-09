@@ -68,8 +68,12 @@ tar_plan(
   tar_target(short_cv_pubs, short_pubs),
   tar_target(topfive_cv_pubs, top_five),
   # Profiles
-  tar_target(gscholar_profile, get_gscholar_profile_robust("8KNzhS4AAAAJ")),
-  tar_target(gscholar_data, get_gscholar_data_robust("8KNzhS4AAAAJ")),
+  tar_target(gscholar_profile, get_gscholar_profile_robust("8KNzhS4AAAAJ"),
+    cue = tar_cue("always")
+  ),
+  tar_target(gscholar_data, get_gscholar_data_robust("8KNzhS4AAAAJ"),
+    cue = tar_cue("always")
+  ),
   # Tidy Up Data
   tar_target(
     peer_reviewed_citations,
