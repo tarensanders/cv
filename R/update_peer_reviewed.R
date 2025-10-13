@@ -10,6 +10,9 @@
 #' @param top_five
 update_peer_reviewed <- function(
     peer_reviewed, gscholar_data, jifs, short_pubs, top_five) {
+  peer_reviewed$issued <-
+    purrr::modify_depth(peer_reviewed$issued, 1, replace_x)
+
   updated_peer_reviewed <-
     peer_reviewed %>%
     dplyr::mutate(
@@ -34,8 +37,11 @@ update_peer_reviewed <- function(
       top_five = wos_id %in% top_five,
       cites = dplyr::if_else(is.na(cites), 0, cites),
       annote = dplyr::case_when(
+        annote == "In Press" & !is.na(impact_factor) ~
+          glue::glue("In Press | JIF: {round(impact_factor, 1)}"),
         !is.na(impact_factor) ~
-          glue::glue("{cites} citations | JIF: {round(impact_factor,1)}"),
+          glue::glue("{cites} citations | JIF: {round(impact_factor, 1)}"),
+        is.na(annote) ~ "",
         TRUE ~ paste0(" ", annote)
       ),
       order = dplyr::row_number()
