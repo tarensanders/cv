@@ -60,15 +60,9 @@ RUN R -e "install.packages('remotes')" && \
 COPY renv.lock renv.lock
 RUN R -e "Sys.setenv(GITHUB_PAT = '${GITHUB_PAT}'); \
   renv::restore()"
-
-# Install the quarto R package (used by the website build).
-# Kept separate from the dev-requirements line below so it doesn't depend on
-# GITHUB_PAT — quarto is on CRAN, not GitHub.
-RUN R -e "renv::install('quarto')"
-
 # Install dev requirements that are seperate from the project
 RUN R -e "Sys.setenv(GITHUB_PAT = '${GITHUB_PAT}'); \
-  renv::install(c('languageserver', 'httpgd', 'conflicted', 'dotenv', 'devtools', 'milesmcbain/fnmate','milesmcbain/tflow'))"
+  renv::install(c('quarto', 'languageserver', 'httpgd', 'conflicted', 'dotenv', 'devtools', 'milesmcbain/fnmate','milesmcbain/tflow'))"
 
 # Setup the custom tex file for the CV to allow for cover letters
 COPY cv/awesome-cv.tex /usr/local/lib/R/site-library/vitae/rmarkdown/templates/awesomecv/resources/awesome-cv.tex
