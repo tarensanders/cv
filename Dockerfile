@@ -44,9 +44,11 @@ ENV QUARTO_VERSION="1.5.57"
 RUN /rocker_scripts/install_quarto.sh
 
 # These are all the latex packages that GitHub Actions tries to install
+# Note: sourcesanspro was withdrawn from CTAN; awesome-cv loads Source Sans
+# Pro via fontspec from system fonts, so the shim package is no longer needed.
 RUN tlmgr install academicons booktabs colortbl enumitem environ euenc fancyhdr \
   float fontawesome fontspec fp ifmtarg l3packages latex-amsmath-dev makecell multirow \
-  pdflscape pgf ragged2e setspace sourcesanspro tabu tcolorbox threeparttable threeparttablex \
+  pdflscape pgf ragged2e setspace tabu tcolorbox threeparttable threeparttablex \
   tipa trimspaces ulem unicode-math varwidth wrapfig xifthen xunicode
 
 # Install renv
