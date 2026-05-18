@@ -1,0 +1,15 @@
+---
+title: "Hello, world"
+description: "A new website, built the same way as the CV."
+date: 2026-05-18
+categories: [meta]
+---
+
+This site is now live. It's a Quarto website that shares a build pipeline
+with my CV: the same BibTeX files, Google Sheets, and Google Scholar cache
+feed both the PDFs and the pages here. That means my publications list,
+citation counts, and impact factors stay in sync without a separate
+maintenance burden.
+
+More writing to come. For now, the [publications](../../publications.html)
+and [projects](../../projects.html) pages are the main attractions.

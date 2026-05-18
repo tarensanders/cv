@@ -1,0 +1,23 @@
+---
+title: "Publications"
+page-layout: full
+listing:
+  contents: _data/publications.json
+  type: default
+  template: assets/pub-card.ejs
+  sort: ["date desc"]
+  categories: numbered
+  filter-ui: true
+  sort-ui: [date, cites, impact_factor]
+  page-size: 50
+  fields: [title, author, journal, year, doi, cites, impact_factor, abstract, wos_id, scopus_id, scholar_id]
+---
+
+```{r setup}
+#| include: false
+invisible(try(targets::tar_read(site_pubs_json), silent = TRUE))
+```
+
+Peer-reviewed journal articles, drawn from BibTeX and enriched with
+citation counts from Google Scholar and journal impact factors. Use the
+sidebar to filter by year.

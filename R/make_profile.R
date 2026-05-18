@@ -9,6 +9,7 @@ make_profile <- function(gscholar_profile, peer_reviewed_citations) {
   profile <- list()
   profile$pubs <- nrow(peer_reviewed_citations)
   profile$h_index <- gscholar_profile$h_index
+  profile$i10_index <- gscholar_profile$i10_index
   profile$cites <- gscholar_profile$total_cites
   profile$mean_jif <-
     round(mean(peer_reviewed_citations$impact_factor, na.rm = TRUE), 1)

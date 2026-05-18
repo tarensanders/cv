@@ -1,0 +1,25 @@
+<% for (const item of items) { %>
+<div class="pub-card">
+  <div class="pub-title">
+    <% if (item.path) { %><a href="<%= item.path %>"><%= item.title %></a><% } else { %><%= item.title %><% } %>
+  </div>
+  <div class="pub-authors"><%= item.author %></div>
+  <div class="pub-meta">
+    <% if (item.journal) { %><%= item.journal %><% } %><% if (item.year) { %> (<%= item.year %>)<% } %><% if (item.volume) { %>, <%= item.volume %><% if (item.issue) { %>(<%= item.issue %>)<% } %><% } %><% if (item.pages) { %>, <%= item.pages %><% } %>.
+  </div>
+  <div class="pub-links">
+    <% if (item.doi) { %><a href="https://doi.org/<%= item.doi %>" target="_blank" rel="noopener">DOI</a><% } %>
+    <% if (item.scholar_id) { %><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=8KNzhS4AAAAJ&citation_for_view=8KNzhS4AAAAJ:<%= item.scholar_id %>" target="_blank" rel="noopener">Scholar</a><% } %>
+    <% if (item.wos_id) { %><a href="https://www.webofscience.com/wos/woscc/full-record/WOS:<%= item.wos_id %>" target="_blank" rel="noopener">WOS</a><% } %>
+    <% if (item.scopus_id) { %><a href="https://www.scopus.com/record/display.uri?eid=2-s2.0-<%= item.scopus_id %>&origin=inward" target="_blank" rel="noopener">Scopus</a><% } %>
+    <% if (item.cites !== null && item.cites !== undefined) { %><span class="pub-badge"><%= item.cites %> cites</span><% } %>
+    <% if (item.impact_factor) { %><span class="pub-badge">JIF <%= item.impact_factor %></span><% } %>
+  </div>
+  <% if (item.abstract) { %>
+  <details>
+    <summary>Abstract</summary>
+    <p><%= item.abstract %></p>
+  </details>
+  <% } %>
+</div>
+<% } %>

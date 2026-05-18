@@ -1,0 +1,30 @@
+---
+title: "Curriculum Vitae"
+toc: false
+---
+
+Four versions of my CV are rebuilt weekly from the same data sources as
+this website. Pick whichever length suits your purpose.
+
+::: {.cv-downloads}
+<a class="cv-card" href="cv/CV - Assoc Prof Taren Sanders.pdf">
+  <span class="cv-name">Full CV</span>
+  <span class="cv-desc">Complete record — publications, funding, teaching, service.</span>
+</a>
+<a class="cv-card" href="cv/CV - Assoc Prof Taren Sanders (5 page).pdf">
+  <span class="cv-name">5-page CV</span>
+  <span class="cv-desc">Condensed version suitable for most applications.</span>
+</a>
+<a class="cv-card" href="cv/CV - Assoc Prof Taren Sanders (2 page).pdf">
+  <span class="cv-name">2-page CV</span>
+  <span class="cv-desc">Short form for quick introductions.</span>
+</a>
+<a class="cv-card" href="cv/CV - Assoc Prof Taren Sanders (2 page with publications).pdf">
+  <span class="cv-name">2-page + selected publications</span>
+  <span class="cv-desc">Short CV with a curated set of key papers.</span>
+</a>
+:::
+
+The build pipeline that produces these PDFs (and this website) is open
+source — see the [repository](https://github.com/tarensanders/cv) for the
+data sources and rendering code.

@@ -37,6 +37,9 @@ on:
 
 name: targets
 
+permissions:
+  contents: write
+
 jobs:
   targets:
     runs-on: ubuntu-latest
@@ -45,7 +48,7 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       LANG: en_US.UTF-8 # https://github.com/jgm/citeproc/issues/26
-    steps:      
+    steps:
       - uses: actions/checkout@v4
         with:
           sparse-checkout: |
@@ -54,6 +57,11 @@ jobs:
             !renv/
             !.Rprofile
           sparse-checkout-cone-mode: false
+
+      - name: Install Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.5.57
 
       - name: Check if previous runs exists
         id: runs-exist
@@ -79,6 +87,13 @@ jobs:
             if (file.exists(source)) file.rename(source, dest)
           }
         shell: Rscript {0}
+
+      - name: Ensure R quarto package is available
+        shell: Rscript {0}
+        run: |
+          if (!requireNamespace("quarto", quietly = TRUE)) {
+            install.packages("quarto", repos = "https://cloud.r-project.org")
+          }
 
       - name: Run targets pipeline
         shell: Rscript {0}
@@ -113,19 +128,36 @@ jobs:
           git commit -am "Run pipeline"
           git push origin targets-runs
           
-      - name: Update CVs in main
+      - name: Update CVs and site data in main
         id: update-cvs
         if: github.event_name != 'pull_request'
         run: |
           git config --global user.name 'GitHub Action'
           git config --global user.email 'action@github.com'
-          git fetch                         
+          git fetch
           git checkout main
-          git checkout targets-runs -- "cv/CV"* # copy files from the source branch
+          git checkout targets-runs -- "cv/CV"* # CV PDFs
+          git checkout targets-runs -- "_data/" # website data sidecars
           git add -A
-          git diff-index --quiet HEAD ||  git commit -am "[Beep boop] Update CVs"
+          git diff-index --quiet HEAD || git commit -am "[Beep boop] Update CVs and site data"
           git pull origin main
           git push origin main
+
+      - name: Restore site build for deploy
+        if: github.event_name != 'pull_request'
+        run: |
+          git checkout targets-runs -- _site
+        continue-on-error: true
+
+      - name: Deploy site to GitHub Pages
+        if: github.event_name != 'pull_request'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages
+          keep_files: false
+          enable_jekyll: false
 
       - name: Prepare failure artifact
         if: failure()

@@ -1,0 +1,55 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - publications.qmd
+    - projects.qmd
+    - cv.qmd
+    - blog/index.qmd
+    - blog/**/*.qmd
+  resources:
+    - cv/CV*.pdf
+    - _data/**
+    - assets/**
+    - .nojekyll
+
+website:
+  title: "Taren Sanders"
+  site-url: "https://tarensanders.github.io/cv/"
+  description: "Associate Professor — academic CV, publications, and writing."
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: publications.qmd
+        text: Publications
+      - href: projects.qmd
+        text: Projects
+      - href: blog/index.qmd
+        text: Blog
+      - href: cv.qmd
+        text: CV
+    right:
+      - icon: github
+        href: https://github.com/tarensanders
+        aria-label: GitHub
+      - text: "{{< iconify simple-icons:googlescholar >}}"
+        href: https://scholar.google.com/citations?user=8KNzhS4AAAAJ
+        aria-label: Google Scholar
+      - text: "{{< iconify simple-icons:orcid >}}"
+        href: https://orcid.org/0000-0002-4504-6008
+        aria-label: ORCID
+  page-footer:
+    left: "© Taren Sanders"
+    right: "Built with [Quarto](https://quarto.org) — [source](https://github.com/tarensanders/cv)"
+
+format:
+  html:
+    theme:
+      - cosmo
+      - assets/custom.scss
+    toc: true
+    link-external-newwindow: true
+    anchor-sections: true
+    smooth-scroll: true

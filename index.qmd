@@ -1,0 +1,81 @@
+---
+title: "Taren Sanders"
+pagetitle: "Taren Sanders"
+toc: false
+page-layout: full
+listing:
+  - id: recent-pubs
+    contents: _data/publications.json
+    type: default
+    template: assets/pub-card.ejs
+    max-items: 5
+    sort: ["date desc"]
+    fields: [title, author, journal, year, doi, cites, impact_factor, abstract, wos_id, scopus_id, scholar_id]
+  - id: recent-posts
+    contents: "blog/*/index.qmd"
+    type: default
+    max-items: 3
+    sort: ["date desc"]
+    fields: [date, title, description, reading-time]
+---
+
+```{r setup}
+#| include: false
+profile <- jsonlite::read_json("_data/profile.json")
+# Declare dependencies so tar_quarto re-renders when these change.
+invisible(try(targets::tar_read(site_profile_json), silent = TRUE))
+invisible(try(targets::tar_read(site_pubs_json), silent = TRUE))
+```
+
+::: {.hero}
+![](assets/profile.svg){.avatar fig-alt="Photo of Taren Sanders"}
+
+::: {.hero-text}
+# Taren Sanders
+
+::: {.tagline}
+Associate Professor at the Institute for Positive Psychology and Education,
+Australian Catholic University. I research physical activity, sleep, and
+wellbeing across the lifespan, with a focus on rigorous methods and open
+science.
+:::
+:::
+:::
+
+::: {.badges}
+[![ORCID](https://img.shields.io/badge/ORCID-0000--0002--4504--6008-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0000-0002-4504-6008)
+[![Google Scholar](https://img.shields.io/badge/Scholar-Profile-4285F4?logo=googlescholar&logoColor=white)](https://scholar.google.com/citations?user=8KNzhS4AAAAJ)
+[![GitHub](https://img.shields.io/badge/GitHub-tarensanders-181717?logo=github)](https://github.com/tarensanders)
+[![ACU](https://img.shields.io/badge/Affiliation-ACU%20IPPE-660066)](https://www.acu.edu.au/research/our-research-institutes/institute-for-positive-psychology-and-education)
+:::
+
+```{r metrics, echo=FALSE, results='asis'}
+fmt <- function(x) if (is.null(x) || is.na(x)) "—" else format(x, big.mark = ",")
+cat(sprintf(
+'<div class="metrics">
+  <div class="metric"><span class="value">%s</span><span class="label">Citations</span></div>
+  <div class="metric"><span class="value">%s</span><span class="label">h-index</span></div>
+  <div class="metric"><span class="value">%s</span><span class="label">i10-index</span></div>
+  <div class="metric"><span class="value">%s</span><span class="label">Publications</span></div>
+</div>',
+fmt(profile$cites), fmt(profile$h_index), fmt(profile$i10_index), fmt(profile$pubs)
+))
+```
+
+::: {.text-muted style="font-size: 0.85rem;"}
+Metrics updated `r profile$updated`.
+:::
+
+## Recent publications
+
+::: {#recent-pubs}
+:::
+
+[See all publications →](publications.qmd)
+
+## Recent writing
+
+::: {#recent-posts}
+:::
+
+[All posts →](blog/index.qmd)

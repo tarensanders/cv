@@ -1,0 +1,172 @@
+/*-- scss:defaults --*/
+
+$primary: #2c5282;
+$body-bg: #ffffff;
+$body-color: #1a202c;
+$link-color: $primary;
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, sans-serif;
+$headings-font-weight: 600;
+
+/*-- scss:rules --*/
+
+main.content {
+  max-width: 880px;
+}
+
+.hero {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-block: 1.5rem 2rem;
+
+  img.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .hero-text {
+    flex: 1;
+
+    h1 {
+      margin-block-start: 0;
+      margin-block-end: 0.25rem;
+    }
+
+    .tagline {
+      color: #4a5568;
+      font-size: 1.05rem;
+    }
+  }
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-block: 0.75rem 1rem;
+
+  img {
+    height: 22px;
+  }
+}
+
+.metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-block: 1.5rem;
+
+  .metric {
+    flex: 1 1 120px;
+    padding: 0.85rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #f7fafc;
+    text-align: center;
+
+    .value {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: $primary;
+    }
+
+    .label {
+      display: block;
+      font-size: 0.85rem;
+      color: #4a5568;
+      margin-block-start: 0.15rem;
+    }
+  }
+}
+
+.pub-card {
+  padding: 0.85rem 0;
+  border-block-end: 1px solid #edf2f7;
+
+  &:last-child {
+    border-block-end: none;
+  }
+
+  .pub-title {
+    font-weight: 600;
+    margin-block-end: 0.2rem;
+  }
+
+  .pub-authors {
+    color: #4a5568;
+    font-size: 0.95rem;
+  }
+
+  .pub-meta {
+    color: #4a5568;
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+
+  .pub-links {
+    margin-block-start: 0.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+
+    a {
+      font-size: 0.8rem;
+      padding: 0.15rem 0.55rem;
+      border: 1px solid #cbd5e0;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #2d3748;
+
+      &:hover {
+        background: #edf2f7;
+      }
+    }
+  }
+
+  details {
+    margin-block-start: 0.5rem;
+    font-size: 0.92rem;
+
+    summary {
+      cursor: pointer;
+      color: $primary;
+      font-size: 0.85rem;
+    }
+  }
+}
+
+.cv-downloads {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-block: 1.5rem;
+
+  a.cv-card {
+    display: block;
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    text-decoration: none;
+    color: $body-color;
+
+    &:hover {
+      border-color: $primary;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    }
+
+    .cv-name {
+      font-weight: 600;
+      color: $primary;
+    }
+
+    .cv-desc {
+      font-size: 0.9rem;
+      color: #4a5568;
+      margin-block-start: 0.25rem;
+    }
+  }
+}

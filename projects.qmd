@@ -1,0 +1,23 @@
+---
+title: "Projects & Software"
+page-layout: full
+listing:
+  contents: _data/software.json
+  type: table
+  sort: ["title asc"]
+  categories: true
+  filter-ui: true
+  fields: [title, description, language]
+  field-display-names:
+    title: "Package"
+    description: "Description"
+    language: "Language"
+---
+
+```{r setup}
+#| include: false
+invisible(try(targets::tar_read(site_software_json), silent = TRUE))
+```
+
+Open-source tools and packages I have developed or maintain. For the
+complete picture, see my [GitHub profile](https://github.com/tarensanders).

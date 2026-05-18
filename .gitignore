@@ -41,6 +41,10 @@ rsconnect/
 # Targets
 _targets
 
+# Quarto
+/_site/
+/.quarto/
+
 .DS_Store
 
 cv/cover_letters/*

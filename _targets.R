@@ -104,5 +104,23 @@ tar_plan(
       "cv",
       "CV - Assoc Prof Taren Sanders (2 page with publications).pdf"
     )
-  )
+  ),
+  # Website data
+  tar_target(
+    site_pubs_json,
+    emit_publications_json(peer_reviewed_citations, "_data/publications.json"),
+    format = "file"
+  ),
+  tar_target(
+    site_profile_json,
+    emit_profile_json(research_profile, gscholar_profile, "_data/profile.json"),
+    format = "file"
+  ),
+  tar_target(
+    site_software_json,
+    emit_software_json(software, "_data/software.json"),
+    format = "file"
+  ),
+  # Website
+  tar_quarto(site, path = ".", quiet = FALSE)
 )
