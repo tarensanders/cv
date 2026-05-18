@@ -63,6 +63,43 @@ Inspect the dependency graph:
 R -e 'targets::tar_visnetwork()'
 ```
 
+## Running locally (devcontainer)
+
+The `.devcontainer/` setup builds on the same Docker image used in CI and
+layers on the Quarto CLI, the `quarto` R package, and the Quarto VS Code
+extension. Open the repo in VS Code → *Reopen in Container*, then:
+
+1. **Generate the website data sidecars** (and CV PDFs):
+   ```bash
+   Rscript -e 'targets::tar_make()'
+   ```
+   First run will hit Google Sheets/Scholar — read-only, no auth needed.
+   Re-runs are incremental thanks to `targets`.
+
+2. **Preview the site** (auto-reloads on change):
+   ```bash
+   quarto preview
+   ```
+   Port 4848 is forwarded by the devcontainer; VS Code will offer to open
+   the preview in a browser tab.
+
+3. **Rebuild just the site data** (skips PDF renders, ~seconds):
+   ```bash
+   Rscript -e 'targets::tar_make(c(site_pubs_json, site_profile_json, site_software_json))'
+   ```
+
+4. **Render once without preview** (matches what CI produces):
+   ```bash
+   quarto render
+   # or, via the full pipeline:
+   Rscript -e 'targets::tar_make(site)'
+   ```
+
+Outputs:
+- `_site/` — rendered website (gitignored)
+- `cv/CV*.pdf` — four CV variants
+- `_data/*.json` — sidecars consumed by the listing pages
+
 ## Layout
 
 ```

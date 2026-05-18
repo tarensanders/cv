@@ -15,22 +15,22 @@
 	// "remoteEnv": {
 	// 	"GITHUB_PAT": "${localEnv:GITHUB_PAT}"
 	// },
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {
-	// 	"ghcr.io/rocker-org/devcontainer-features/renv-cache:latest": {}
-	// 	// "ghcr.io/rocker-org/devcontainer-features/r-apt:0": {
-	// 	// 	"vscodeRSupport": "full",
-	// 	// 	"installDevTools": true,
-	// 	// 	"installRMarkdown": true,
-	// 	// 	"installRadian": true,
-	// 	// 	"installVscDebugger": true,
-	// 	// 	"useTests": true
-	// 	// },
-	// },
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-	// Uncomment the next line to run commands after the container is created.
-	// "postCreateCommand": "cat /etc/os-release",
+	"features": {
+		"ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {
+			"version": "1.5.57",
+			"installTinyTex": false,
+			"installChromium": false
+		}
+	},
+	// Quarto preview's default port
+	"forwardPorts": [4848],
+	"portsAttributes": {
+		"4848": {
+			"label": "Quarto preview",
+			"onAutoForward": "openPreview"
+		}
+	},
+	"postCreateCommand": "Rscript -e 'if (!requireNamespace(\"quarto\", quietly = TRUE)) install.packages(\"quarto\", repos = \"https://cloud.r-project.org\"); if (!requireNamespace(\"jsonlite\", quietly = TRUE)) install.packages(\"jsonlite\", repos = \"https://cloud.r-project.org\")'",
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
@@ -46,7 +46,8 @@
 				"GitHub.vscode-pull-request-github",
 				"GitHub.copilot",
 				"GitHub.copilot-chat",
-				"mechatroner.rainbow-csv"
+				"mechatroner.rainbow-csv",
+				"quarto.quarto" // Quarto authoring + preview
 			]
 		}
 	}
