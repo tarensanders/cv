@@ -39,6 +39,10 @@ ENV PATH="$PATH:/usr/local/texlive/bin/linux"
 RUN /rocker_scripts/install_pandoc.sh
 RUN /rocker_scripts/install_texlive.sh
 
+# Install Quarto (used by the website build via tarchetypes::tar_quarto)
+ENV QUARTO_VERSION="1.5.57"
+RUN /rocker_scripts/install_quarto.sh
+
 # These are all the latex packages that GitHub Actions tries to install
 RUN tlmgr install academicons booktabs colortbl enumitem environ euenc fancyhdr \
   float fontawesome fontspec fp ifmtarg l3packages latex-amsmath-dev makecell multirow \
@@ -56,7 +60,7 @@ RUN R -e "Sys.setenv(GITHUB_PAT = '${GITHUB_PAT}'); \
   renv::restore()"
 # Install dev requirements that are seperate from the project
 RUN R -e "Sys.setenv(GITHUB_PAT = '${GITHUB_PAT}'); \
-  renv::install(c('languageserver', 'httpgd', 'conflicted', 'dotenv', 'devtools', 'milesmcbain/fnmate','milesmcbain/tflow'))"
+  renv::install(c('quarto', 'languageserver', 'httpgd', 'conflicted', 'dotenv', 'devtools', 'milesmcbain/fnmate','milesmcbain/tflow'))"
 
 # Setup the custom tex file for the CV to allow for cover letters
 COPY cv/awesome-cv.tex /usr/local/lib/R/site-library/vitae/rmarkdown/templates/awesomecv/resources/awesome-cv.tex

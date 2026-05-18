@@ -58,11 +58,6 @@ jobs:
             !.Rprofile
           sparse-checkout-cone-mode: false
 
-      - name: Install Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          version: 1.5.57
-
       - name: Check if previous runs exists
         id: runs-exist
         run: |
@@ -87,13 +82,6 @@ jobs:
             if (file.exists(source)) file.rename(source, dest)
           }
         shell: Rscript {0}
-
-      - name: Ensure R quarto package is available
-        shell: Rscript {0}
-        run: |
-          if (!requireNamespace("quarto", quietly = TRUE)) {
-            install.packages("quarto", repos = "https://cloud.r-project.org")
-          }
 
       - name: Run targets pipeline
         shell: Rscript {0}
