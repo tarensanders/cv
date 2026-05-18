@@ -62,7 +62,7 @@ RUN R -e "Sys.setenv(GITHUB_PAT = '${GITHUB_PAT}'); \
   renv::restore()"
 # Install dev requirements that are seperate from the project
 RUN R -e "Sys.setenv(GITHUB_PAT = '${GITHUB_PAT}'); \
-  renv::install(c('quarto', 'languageserver', 'httpgd', 'conflicted', 'dotenv', 'devtools', 'milesmcbain/fnmate','milesmcbain/tflow'))"
+  renv::install(c('quarto', 'languageserver', 'eddelbuettel/asioheaders', 'nx10/httpgd', 'nx10/unigd', 'conflicted', 'dotenv', 'devtools', 'milesmcbain/fnmate','milesmcbain/tflow'))"
 
 # Setup the custom tex file for the CV to allow for cover letters
 COPY cv/awesome-cv.tex /usr/local/lib/R/site-library/vitae/rmarkdown/templates/awesomecv/resources/awesome-cv.tex
