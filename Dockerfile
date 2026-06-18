@@ -42,7 +42,7 @@ RUN /rocker_scripts/install_texlive.sh
 # These are all the latex packages that GitHub Actions tries to install
 RUN tlmgr install academicons booktabs colortbl enumitem environ euenc fancyhdr \
   float fontawesome fontspec fp ifmtarg l3packages latex-amsmath-dev makecell multirow \
-  pdflscape pgf ragged2e setspace sourcesanspro tabu tcolorbox threeparttable threeparttablex \
+  pdflscape pgf ragged2e setspace sourcesans tabu tcolorbox threeparttable threeparttablex \
   tipa trimspaces ulem unicode-math varwidth wrapfig xifthen xunicode
 
 # Install renv
@@ -55,8 +55,8 @@ COPY renv.lock renv.lock
 RUN R -e "Sys.setenv(GITHUB_PAT = '${GITHUB_PAT}'); \
   renv::restore()"
 # Install dev requirements that are seperate from the project
-RUN R -e "Sys.setenv(GITHUB_PAT = '${GITHUB_PAT}'); \
-  renv::install(c('languageserver', 'httpgd', 'conflicted', 'dotenv', 'devtools', 'milesmcbain/fnmate','milesmcbain/tflow'))"
+# RUN R -e "Sys.setenv(GITHUB_PAT = '${GITHUB_PAT}'); \
+#   renv::install(c('languageserver', 'httpgd', 'conflicted', 'dotenv', 'devtools', 'milesmcbain/fnmate','milesmcbain/tflow'))"
 
 # Setup the custom tex file for the CV to allow for cover letters
 COPY cv/awesome-cv.tex /usr/local/lib/R/site-library/vitae/rmarkdown/templates/awesomecv/resources/awesome-cv.tex
