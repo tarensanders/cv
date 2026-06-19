@@ -1,62 +1,54 @@
-FROM rocker/r-ver:4.4.2
+# syntax=docker/dockerfile:1
+# Thin CV image built on top of the shared base image.
+# r-base already provides R 4.5.x, pandoc and radian; here we add the system
+# libraries the project packages need, the pinned renv library, TeX Live, and
+# the custom CV template. Built and pushed to ghcr.io by .github/workflows/build-image.yaml.
+FROM ghcr.io/tarensanders/r-base:latest
 
-ARG GITHUB_PAT
+USER root
 
-# Install radian dependencies
-RUN apt-get update -qq && apt-get install -y \
-  git \
-  pipx \
-  python3-dev \
-  wget && \
-  pipx ensurepath && \
-  pipx install radian
-
-# Install apt dependencies
-RUN apt-get install -y \
+# System libraries required by the project's R packages. r-base relies on the
+# devcontainer r-packages feature for these, so we install them explicitly here.
+RUN apt-get update -qq && apt-get install -y --no-install-recommends \
   ca-certificates \
   cmake \
   libcurl4-openssl-dev \
-  libfontconfig1-dev \
-  libglpk40 \
   libssl-dev \
-  librsvg2-2 \
-  librsvg2-dev \
+  libxml2-dev \
+  libfontconfig1-dev \
   libsodium-dev \
   libsecret-1-dev \
   libpoppler-cpp-dev \
-  libxml2-dev \
+  librsvg2-2 \
+  librsvg2-dev \
+  libglpk40 \
   libxt6 \
-  libzmq3-dev \
   perl \
-  texinfo \
-  xclip
+  && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /cv
+# Restore the exact pinned library from renv.lock into the system library so
+# plain library() calls resolve at runtime (CI runs targets without activating renv).
+# P3M binaries (R 4.5.x matches the lockfile) make this fast; kableExtra is a
+# GitHub source, so a GITHUB_PAT is supplied via a BuildKit secret mount (never
+# baked into a layer/history) to avoid GitHub API rate limits.
+COPY renv.lock /tmp/renv.lock
+RUN --mount=type=secret,id=github_pat \
+  export GITHUB_PAT="$(cat /run/secrets/github_pat 2>/dev/null || true)"; \
+  R -e "if (!requireNamespace('renv', quietly = TRUE)) install.packages('renv')" \
+  && R -e "renv::restore(lockfile = '/tmp/renv.lock', library = '/usr/local/lib/R/site-library', prompt = FALSE)"
 
-# Install tex
-ENV CTAN_REPO="https://mirror.aarnet.edu.au/pub/CTAN/systems/texlive/tlnet"
-ENV PATH="$PATH:/usr/local/texlive/bin/linux"
-RUN /rocker_scripts/install_pandoc.sh
-RUN /rocker_scripts/install_texlive.sh
-
-# These are all the latex packages that GitHub Actions tries to install
-RUN tlmgr install academicons booktabs colortbl enumitem environ euenc fancyhdr \
+# TeX Live via TinyTeX (the tinytex R package was just restored above), installed
+# system-wide so it is on PATH for any runtime user, plus the LaTeX packages the
+# awesome-cv template needs.
+ENV PATH="/opt/TinyTeX/bin/x86_64-linux:${PATH}"
+RUN R -e "tinytex::install_tinytex(dir = '/opt/TinyTeX', force = TRUE)" \
+  && tlmgr path add \
+  && tlmgr install \
+  academicons booktabs colortbl enumitem environ euenc fancyhdr \
   float fontawesome fontspec fp ifmtarg l3packages latex-amsmath-dev makecell multirow \
-  pdflscape pgf ragged2e setspace sourcesans tabu tcolorbox threeparttable threeparttablex \
-  tipa trimspaces ulem unicode-math varwidth wrapfig xifthen xunicode
+  pdflscape pgf ragged2e setspace sourcesans xltabular tcolorbox threeparttable \
+  threeparttablex tipa trimspaces ulem unicode-math varwidth wrapfig xifthen xunicode \
+  && tlmgr path add
 
-# Install renv
-ENV RENV_VERSION="1.0.7"
-RUN R -e "install.packages('remotes')" && \
-  R -e "remotes::install_github('rstudio/renv@v${RENV_VERSION}')" 
-
-# Setup renv
-COPY renv.lock renv.lock
-RUN R -e "Sys.setenv(GITHUB_PAT = '${GITHUB_PAT}'); \
-  renv::restore()"
-# Install dev requirements that are seperate from the project
-# RUN R -e "Sys.setenv(GITHUB_PAT = '${GITHUB_PAT}'); \
-#   renv::install(c('languageserver', 'httpgd', 'conflicted', 'dotenv', 'devtools', 'milesmcbain/fnmate','milesmcbain/tflow'))"
-
-# Setup the custom tex file for the CV to allow for cover letters
+# Custom template that adds cover-letter support to vitae's awesomecv.
 COPY cv/awesome-cv.tex /usr/local/lib/R/site-library/vitae/rmarkdown/templates/awesomecv/resources/awesome-cv.tex

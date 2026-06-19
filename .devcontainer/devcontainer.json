@@ -1,55 +1,25 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
 {
-	"name": "Existing Dockerfile",
-	"image": "tarensanders/cv:latest",
-	// "build": {
-	// 	// Sets the run context to one level up instead of the .devcontainer folder.
-	// 	"context": "..",
-	// 	// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
-	// 	"dockerfile": "../Dockerfile",
-	// 	"args": {
-	// 		"GITHUB_PAT": "${localEnv:GITHUB_PAT}"
-	// 	}
-	// },
-	// "remoteEnv": {
-	// 	"GITHUB_PAT": "${localEnv:GITHUB_PAT}"
-	// },
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {
-	// 	"ghcr.io/rocker-org/devcontainer-features/renv-cache:latest": {}
-	// 	// "ghcr.io/rocker-org/devcontainer-features/r-apt:0": {
-	// 	// 	"vscodeRSupport": "full",
-	// 	// 	"installDevTools": true,
-	// 	// 	"installRMarkdown": true,
-	// 	// 	"installRadian": true,
-	// 	// 	"installVscDebugger": true,
-	// 	// 	"useTests": true
-	// 	// },
-	// },
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-	// Uncomment the next line to run commands after the container is created.
-	// "postCreateCommand": "cat /etc/os-release",
-	// Configure tool-specific properties.
+	"name": "CV",
+	// Same image CI uses (built by .github/workflows/build-image.yaml) so local
+	// dev matches the pipeline environment. The renv library, TeX and the custom
+	// template are all baked in, so no r-packages feature is needed here.
+	"image": "ghcr.io/tarensanders/cv:latest",
+	"mounts": [
+		"source=claude-code-config-${devcontainerId},target=/home/rstudio/.claude,type=volume" // This creates a named volume for the .claude directory to persist across container restarts
+	],
+	"postCreateCommand": "sudo chown -R rstudio:rstudio /home/rstudio/.claude", // Ensures ownership of the .claude directory, allowing it to read and write configuration files without permission issues
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"ms-azuretools.vscode-docker", // Makes it easy to create, manage, and debug containerized applications
-				"yzhang.markdown-all-in-one", // All you need to write Markdown (keyboard shortcuts, table of contents, auto preview and more)
-				"tomoki1207.pdf", // Display pdf file in VSCode
-				"REditorSupport.r",
-				"REditorSupport.r-lsp", // R Extension for Visual Studio Code
-				"RDebugger.r-debugger", // R Debugger for VS Code
-				"christian-kohler.path-intellisense", // Visual Studio Code plugin that autocompletes filenames
-				"ionutvmi.path-autocomplete",
-				"GitHub.vscode-pull-request-github",
-				"GitHub.copilot",
-				"GitHub.copilot-chat",
-				"mechatroner.rainbow-csv"
-			]
+				"Posit.air-vscode",
+				"REditorSupport.r"
+			],
+			"settings": {
+				"[r]": {
+					"editor.defaultFormatter": "Posit.air-vscode",
+					"editor.formatOnSave": true
+				}
+			}
 		}
 	}
-	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "vscode"
 }
