@@ -40,8 +40,14 @@ name: targets
 jobs:
   targets:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: read
     container:
-      image: tarensanders/cv:latest
+      image: ghcr.io/tarensanders/cv:latest
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       LANG: en_US.UTF-8 # https://github.com/jgm/citeproc/issues/26
