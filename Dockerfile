@@ -1,10 +1,9 @@
+# syntax=docker/dockerfile:1
 # Thin CV image built on top of the shared base image.
 # r-base already provides R 4.5.x, pandoc and radian; here we add the system
 # libraries the project packages need, the pinned renv library, TeX Live, and
 # the custom CV template. Built and pushed to ghcr.io by .github/workflows/build-image.yaml.
 FROM ghcr.io/tarensanders/r-base:latest
-
-ARG GITHUB_PAT
 
 USER root
 
@@ -30,11 +29,13 @@ RUN apt-get update -qq && apt-get install -y --no-install-recommends \
 # Restore the exact pinned library from renv.lock into the system library so
 # plain library() calls resolve at runtime (CI runs targets without activating renv).
 # P3M binaries (R 4.5.x matches the lockfile) make this fast; kableExtra is a
-# GitHub source and needs GITHUB_PAT.
+# GitHub source, so a GITHUB_PAT is supplied via a BuildKit secret mount (never
+# baked into a layer/history) to avoid GitHub API rate limits.
 COPY renv.lock /tmp/renv.lock
-RUN R -e "if (!requireNamespace('renv', quietly = TRUE)) install.packages('renv')" \
-  && R -e "Sys.setenv(GITHUB_PAT = '${GITHUB_PAT}'); \
-  renv::restore(lockfile = '/tmp/renv.lock', library = '/usr/local/lib/R/site-library', prompt = FALSE)"
+RUN --mount=type=secret,id=github_pat \
+  export GITHUB_PAT="$(cat /run/secrets/github_pat 2>/dev/null || true)"; \
+  R -e "if (!requireNamespace('renv', quietly = TRUE)) install.packages('renv')" \
+  && R -e "renv::restore(lockfile = '/tmp/renv.lock', library = '/usr/local/lib/R/site-library', prompt = FALSE)"
 
 # TeX Live via TinyTeX (the tinytex R package was just restored above), installed
 # system-wide so it is on PATH for any runtime user, plus the LaTeX packages the

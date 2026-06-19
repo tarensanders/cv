@@ -10,5 +10,6 @@
 IMAGE="ghcr.io/tarensanders/cv:latest"
 
 echo "$GITHUB_PAT" | docker login ghcr.io -u tarensanders --password-stdin
-docker build --build-arg GITHUB_PAT="$GITHUB_PAT" -t "$IMAGE" .
+# Pass the PAT as a BuildKit secret (never stored in the image/history/cache).
+DOCKER_BUILDKIT=1 docker build --secret id=github_pat,env=GITHUB_PAT -t "$IMAGE" .
 docker push "$IMAGE"

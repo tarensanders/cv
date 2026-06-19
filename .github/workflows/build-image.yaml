@@ -41,8 +41,8 @@ jobs:
         with:
           context: .
           push: true
-          build-args: |
-            GITHUB_PAT=${{ secrets.GITHUB_TOKEN }}
+          secrets: |
+            github_pat=${{ secrets.GITHUB_TOKEN }}
           tags: |
             ${{ env.IMAGE }}:latest
             ${{ env.IMAGE }}:${{ github.sha }}
