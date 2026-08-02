@@ -2,8 +2,8 @@ This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded forma
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**"/__w/cv/cv/cv/CV - Assoc Prof Taren Sanders.tex"
-(/__w/cv/cv/cv/CV - Assoc Prof Taren Sanders.tex
+**"/__w/cv/cv/cv/CV - Assoc Prof Taren Sanders (2 page).tex"
+(/__w/cv/cv/cv/CV - Assoc Prof Taren Sanders (2 page).tex
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
 (./awesome-cv.cls
@@ -862,8 +862,8 @@ Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
 \csllabelwidth=\skip97
 LaTeX Font Info:    Font shape `TU/SourceSans3(0)/m/n' will be
 (Font)              scaled to size 10.95pt on input line 159.
-(./CV - Assoc Prof Taren Sanders.aux)
-\openout1 = `"CV - Assoc Prof Taren Sanders.aux"'.
+(./CV - Assoc Prof Taren Sanders (2 page).aux)
+\openout1 = `"CV - Assoc Prof Taren Sanders (2 page).aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 159.
 LaTeX Font Info:    ... okay on input line 159.
@@ -954,9 +954,9 @@ LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/cmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 159.
 Package hyperref Info: Link coloring OFF on input line 159.
-(./CV - Assoc Prof Taren Sanders.out) (./CV - Assoc Prof Taren Sanders.out)
+(./CV - Assoc Prof Taren Sanders (2 page).out) (./CV - Assoc Prof Taren Sanders (2 page).out)
 \@outlinefile=\write4
-\openout4 = `"CV - Assoc Prof Taren Sanders.out"'.
+\openout4 = `"CV - Assoc Prof Taren Sanders (2 page).out"'.
 
 \headertextwidth=\skip98
 \headerphotowidth=\skip99
@@ -1035,53 +1035,33 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
 
 ]
 LaTeX Font Info:    Font shape `TU/SourceSans3(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 230.
+(Font)              scaled to size 12.0pt on input line 233.
 LaTeX Font Info:    Font shape `TU/SourceSans3(1)/m/sc' will be
-(Font)              scaled to size 12.0pt on input line 230.
+(Font)              scaled to size 12.0pt on input line 233.
 LaTeX Font Info:    Font shape `TU/SourceSans3(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 237.
+(Font)              scaled to size 9.0pt on input line 240.
 
-Package hyperref Warning: Ignoring empty anchor on input line 237.
+Package hyperref Warning: Ignoring empty anchor on input line 240.
 
 LaTeX Font Info:    Font shape `TU/SourceSans3(0)/b/n' will be
-(Font)              scaled to size 9.0pt on input line 237.
+(Font)              scaled to size 9.0pt on input line 240.
 LaTeX Font Info:    Font shape `TU/SourceSans3(0)/m/it' will be
-(Font)              scaled to size 10.95pt on input line 245.
-[2] [3] [4]
-Overfull \hbox (15.99016pt too wide) in paragraph at lines 592--601
-\TU/SourceSans3(0)/m/n/10.95 physical-activity/screen-time trajectories during early childhood: Socio-demographic predictors and consequences
- []
-
-
-Overfull \hbox (13.0872pt too wide) in paragraph at lines 631--637
-\TU/SourceSans3(0)/m/n/10.95 activity intensity and well-being in adolescents. \TU/SourceSans3(0)/m/it/10.95 Preventive Medicine\TU/SourceSans3(0)/m/n/10.95 , \TU/SourceSans3(0)/m/it/10.95 125\TU/SourceSans3(0)/m/n/10.95 , 55–61. DOI: []10.1016/j.ypmed.2019.05.009[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 631--637
-
- []
-
-[5]
-LaTeX Font Info:    Font shape `TU/SourceSans3(1)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 768.
-LaTeX Font Info:    Font shape `TU/SourceSans3(1)/b/n' will be
-(Font)              scaled to size 9.0pt on input line 768.
-[6] [7] [8] [9] [10] (./CV - Assoc Prof Taren Sanders.aux)
+(Font)              scaled to size 10.95pt on input line 250.
+[2] (./CV - Assoc Prof Taren Sanders (2 page).aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
  ***********
-Package rerunfilecheck Info: File `"CV - Assoc Prof Taren Sanders".out' has not changed.
+Package rerunfilecheck Info: File `"CV - Assoc Prof Taren Sanders (2 page)".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 33833 strings out of 469837
- 685756 string characters out of 5470151
- 1277721 words of memory out of 5000000
- 62198 multiletter control sequences out of 15000+600000
+ 33761 strings out of 469837
+ 683403 string characters out of 5470151
+ 1274282 words of memory out of 5000000
+ 62126 multiletter control sequences out of 15000+600000
  633594 words of font info for 147 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 131i,17n,136p,766b,652s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 131i,17n,136p,654b,652s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on CV - Assoc Prof Taren Sanders.pdf (10 pages).
+Output written on CV - Assoc Prof Taren Sanders (2 page).pdf (2 pages).
