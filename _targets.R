@@ -13,13 +13,13 @@ sheet_last_updated <- get_date_modified(sheet)
 
 # Pubs to include in short CV
 short_pubs <- c(
+  "001505032700003", # Vasconcellos, Psych Bull, 2025
+  "001381636600001", # Gaba, Sports Med, 2025
   "001195817800009", # Noetel, BMJ, 2024
   "001104978600002", # Sanders, NHB, 2023
   "000892975800001", # Lubans, IJBNPA, 2022
   "000648645400006", # Lonsdale, JAMA Peds, 2021
-  "000620749700001", # Noetel, RER, 2021
   "000712220800001", # Noetel, RER, 2021
-  "000627077400001", # Lee, RER, 2021
   "000667241100005", # Hartwig, BJSM, 2021
   "000501313400002", # Sanders, IJBNPA, 2020
   "000530217600006" # Antczak, Sleep Med Rev, 2020
@@ -68,17 +68,25 @@ tar_plan(
   tar_target(short_cv_pubs, short_pubs),
   tar_target(topfive_cv_pubs, top_five),
   # Profiles
-  tar_target(gscholar_profile, get_gscholar_profile_robust("8KNzhS4AAAAJ"),
+  tar_target(
+    gscholar_profile,
+    get_gscholar_profile_robust("8KNzhS4AAAAJ"),
     cue = tar_cue("always")
   ),
-  tar_target(gscholar_data, get_gscholar_data_robust("8KNzhS4AAAAJ"),
+  tar_target(
+    gscholar_data,
+    get_gscholar_data_robust("8KNzhS4AAAAJ"),
     cue = tar_cue("always")
   ),
   # Tidy Up Data
   tar_target(
     peer_reviewed_citations,
     update_peer_reviewed(
-      peer_reviewed, gscholar_data, jifs, short_cv_pubs, topfive_cv_pubs
+      peer_reviewed,
+      gscholar_data,
+      jifs,
+      short_cv_pubs,
+      topfive_cv_pubs
     )
   ),
   tar_target(
@@ -86,20 +94,29 @@ tar_plan(
     make_profile(gscholar_profile, peer_reviewed_citations)
   ),
   # Generate CVs
-  tar_target(cv_sections, list.files("./cv/sections", full.names = TRUE),
+  tar_target(
+    cv_sections,
+    list.files("./cv/sections", full.names = TRUE),
     format = "file"
   ),
-  tar_render(cv, here::here("cv", "cv.Rmd"),
+  tar_render(
+    cv,
+    here::here("cv", "cv.Rmd"),
     output_file = here::here("cv", "CV - Assoc Prof Taren Sanders.pdf")
   ),
-  tar_render(cv_two_page, here::here("cv", "cv_two_page.Rmd"),
+  tar_render(
+    cv_two_page,
+    here::here("cv", "cv_two_page.Rmd"),
     output_file = here::here("cv", "CV - Assoc Prof Taren Sanders (2 page).pdf")
   ),
-  tar_render(cv_five_page, here::here("cv", "cv_five_page.Rmd"),
+  tar_render(
+    cv_five_page,
+    here::here("cv", "cv_five_page.Rmd"),
     output_file = here::here("cv", "CV - Assoc Prof Taren Sanders (5 page).pdf")
   ),
   tar_render(
-    cv_two_page_full_pubs, here::here("cv", "cv_two_page_full_pubs.Rmd"),
+    cv_two_page_full_pubs,
+    here::here("cv", "cv_two_page_full_pubs.Rmd"),
     output_file = here::here(
       "cv",
       "CV - Assoc Prof Taren Sanders (2 page with publications).pdf"
