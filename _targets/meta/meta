@@ -28,7 +28,7 @@ cv|stem|7dafc46035874564|15da93eb84375d5c|741f2af9b93edf4c|-1098474922|cv/CV - D
 get_gscholar_data_robust|function|29318849d4cbc8d8
 short_pubs|object|d4598644bab3e788
 replace_x|function|09fc4e9481f43ebc
-sheet_last_updated|object|72ac6982bdfdcc68
+sheet_last_updated|object|c90f26ded4dd263d
 top_five|object|1d5155446a54f3d4
 make_profile|function|e5a72416286f9bf9
 get_sheet|function|a1c12db68ca30098
@@ -37,5 +37,5 @@ get_date_modified|function|db048b2355e01810
 sheet|object|f0ae57fe26a4fbf0
 get_sjr_data|function|9ef2279880cc4cce
 update_peer_reviewed|function|791ec94918d44bf4
-gscholar_profile|stem|8ddc4dcef537ff11|aab949334bb80821|2bfde9f1bfbf6f0e|-1679176933||t20734.7786597771s|s606b|606|rds|local|vector|||2.972||
-gscholar_data|stem|5d8fdac8a3cac466|8596fdc93f471627|4b012b3152b72eac|2032413180||t20734.7786673727s|s9375b|9375|rds|local|vector|||0.595||
+gscholar_profile|stem|9adf78065608aa84|aab949334bb80821|2bfde9f1bfbf6f0e|-1679176933||t20742.791955245s|s607b|607|rds|local|vector|||3.15||
+gscholar_data|stem|49440dc97bd73e72|8596fdc93f471627|4b012b3152b72eac|2032413180||t20742.7919637057s|s9346b|9346|rds|local|vector|||0.664||
