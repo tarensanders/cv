@@ -1,7 +1,7 @@
 name: build-image
 
 # Builds the CV container (Dockerfile -> ghcr.io/tarensanders/cv) and pushes it.
-# Only runs when the image inputs change, so the targets workflow can just pull.
+# Runs when the image inputs change, plus weekly
 on:
   push:
     branches:
@@ -12,6 +12,8 @@ on:
       - renv.lock
       - cv/awesome-cv.tex
       - .github/workflows/build-image.yaml
+  schedule:
+    - cron: "0 6 * * 1"
   workflow_dispatch:
 
 env:
@@ -41,6 +43,10 @@ jobs:
         with:
           context: .
           push: true
+          # Always re-resolve the FROM base from the registry; otherwise the
+          # gha cache can serve a stale r-base layer and the weekly rebuild is a
+          # no-op.
+          pull: true
           secrets: |
             github_pat=${{ secrets.GITHUB_TOKEN }}
           tags: |
