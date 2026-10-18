@@ -7,7 +7,7 @@
 	"mounts": [
 		"source=claude-code-config-${devcontainerId},target=/home/rstudio/.claude,type=volume" // This creates a named volume for the .claude directory to persist across container restarts
 	],
-	"postCreateCommand": "sudo chown -R rstudio:rstudio /home/rstudio/.claude", // Ensures ownership of the .claude directory, allowing it to read and write configuration files without permission issues
+	"postCreateCommand": "sudo chown -R rstudio:rstudio /home/rstudio/.claude && git config --local diff.pdf.textconv ./pdf-textconv.sh && git config --local diff.pdf.cachetextconv true", // Ensures ownership of the .claude directory, and enables text diffs for PDFs (see .gitattributes / pdf-textconv.sh)
 	"customizations": {
 		"vscode": {
 			"extensions": [

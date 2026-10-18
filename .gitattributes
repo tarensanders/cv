@@ -1,0 +1,5 @@
+# Diff PDFs by their extracted text 
+# Wired up automatically in the devcontainer (.devcontainer/devcontainer.json).
+# Outside the devcontainer, enable it once per clone with:
+#   git config diff.pdf.textconv ./pdf-textconv.sh
+*.pdf diff=pdf

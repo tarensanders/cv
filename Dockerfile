@@ -24,6 +24,7 @@ RUN apt-get update -qq && apt-get install -y --no-install-recommends \
   libglpk40 \
   libxt6 \
   perl \
+  poppler-utils \
   && rm -rf /var/lib/apt/lists/*
 
 # Restore the exact pinned library from renv.lock into the system library so
@@ -46,8 +47,8 @@ RUN R -e "tinytex::install_tinytex(dir = '/opt/TinyTeX', force = TRUE)" \
   && tlmgr install \
   academicons booktabs colortbl enumitem environ euenc fancyhdr \
   float fontawesome fontspec fp ifmtarg l3packages latex-amsmath-dev makecell multirow \
-  pdflscape pgf ragged2e setspace sourcesans xltabular tcolorbox threeparttable \
-  threeparttablex tipa trimspaces ulem unicode-math varwidth wrapfig xifthen xunicode \
+  pdflscape pgf parskip ragged2e setspace sourcesans xltabular tcolorbox threeparttable \
+  threeparttablex tikzfill tipa trimspaces ulem unicode-math varwidth wrapfig xifthen xunicode \
   && tlmgr path add
 
 # Custom template that adds cover-letter support to vitae's awesomecv.
