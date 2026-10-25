@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.10.18)  18 OCT 2026 21:25
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.10.19)  25 OCT 2026 17:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -161,8 +161,8 @@ Package: fontspec-xetex 2026/08/11 v2.9h Font selection for XeLaTeX and LuaLaTeX
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 ) (/opt/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/opt/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (/opt/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2026-09-09 L3 programming layer (loader) 
-(/opt/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
-File: l3backend-xetex.def 2026-02-18 L3 backend support: XeTeX
+(/opt/TinyTeX/texmf-dist/tex/latex/l3kernel/l3backend-xetex.def
+File: l3backend-xetex.def 2026-09-09 L3 backend support: XeTeX
 \g__graphics_track_int=\count301
 \g__pdfannot_backend_int=\count302
 \g__pdfannot_backend_link_int=\count303
@@ -1039,37 +1039,37 @@ LaTeX Font Info:    Font shape `TU/SourceSans3(1)/m/n' will be
 LaTeX Font Info:    Font shape `TU/SourceSans3(1)/m/sc' will be
 (Font)              scaled to size 12.0pt on input line 230.
 LaTeX Font Info:    Font shape `TU/SourceSans3(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 237.
+(Font)              scaled to size 9.0pt on input line 239.
 
-Package hyperref Warning: Ignoring empty anchor on input line 237.
+Package hyperref Warning: Ignoring empty anchor on input line 239.
 
 LaTeX Font Info:    Font shape `TU/SourceSans3(0)/b/n' will be
-(Font)              scaled to size 9.0pt on input line 237.
+(Font)              scaled to size 9.0pt on input line 239.
 LaTeX Font Info:    Font shape `TU/SourceSans3(0)/m/it' will be
-(Font)              scaled to size 10.95pt on input line 248.
+(Font)              scaled to size 10.95pt on input line 250.
 [2] [3] [4]
-Overfull \hbox (15.99016pt too wide) in paragraph at lines 632--641
+Overfull \hbox (15.99016pt too wide) in paragraph at lines 634--643
 \TU/SourceSans3(0)/m/n/10.95 physical-activity/screen-time trajectories during early childhood: Socio-demographic predictors and consequences
  []
 
 
-Overfull \hbox (13.0872pt too wide) in paragraph at lines 671--677
+Overfull \hbox (13.0872pt too wide) in paragraph at lines 673--679
 \TU/SourceSans3(0)/m/n/10.95 activity intensity and well-being in adolescents. \TU/SourceSans3(0)/m/it/10.95 Preventive Medicine\TU/SourceSans3(0)/m/n/10.95 , \TU/SourceSans3(0)/m/it/10.95 125\TU/SourceSans3(0)/m/n/10.95 , 55–61. DOI: []10.1016/j.ypmed.2019.05.009[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 671--677
+Underfull \hbox (badness 10000) in paragraph at lines 673--679
 
  []
 
 [5]
 LaTeX Font Info:    Font shape `TU/SourceSans3(1)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 808.
+(Font)              scaled to size 9.0pt on input line 810.
 LaTeX Font Info:    Font shape `TU/SourceSans3(1)/b/n' will be
-(Font)              scaled to size 9.0pt on input line 808.
+(Font)              scaled to size 9.0pt on input line 810.
 [6] [7] [8]
 LaTeX Font Info:    Font shape `TU/SourceSans3(0)/m/n' will be
-(Font)              scaled to size 16.0pt on input line 997.
+(Font)              scaled to size 16.0pt on input line 999.
 [9] [10] (./CV - Assoc Prof Taren Sanders.aux)
  ***********
 LaTeX2e <2026-06-01>
@@ -1079,10 +1079,10 @@ Package rerunfilecheck Info: File `"CV - Assoc Prof Taren Sanders".out' has not 
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 34019 strings out of 469719
- 691620 string characters out of 5467000
- 1281397 words of memory out of 5000000
- 62502 multiletter control sequences out of 15000+600000
+ 34029 strings out of 469719
+ 691914 string characters out of 5466181
+ 1281393 words of memory out of 5000000
+ 62511 multiletter control sequences out of 15000+600000
  634362 words of font info for 147 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  131i,17n,136p,766b,652s stack positions out of 10000i,1000n,20000p,200000b,200000s

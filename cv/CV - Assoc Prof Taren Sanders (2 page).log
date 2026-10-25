@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.10.18)  18 OCT 2026 21:25
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.10.19)  25 OCT 2026 17:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -161,8 +161,8 @@ Package: fontspec-xetex 2026/08/11 v2.9h Font selection for XeLaTeX and LuaLaTeX
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 ) (/opt/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/opt/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (/opt/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2026-09-09 L3 programming layer (loader) 
-(/opt/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
-File: l3backend-xetex.def 2026-02-18 L3 backend support: XeTeX
+(/opt/TinyTeX/texmf-dist/tex/latex/l3kernel/l3backend-xetex.def
+File: l3backend-xetex.def 2026-09-09 L3 backend support: XeTeX
 \g__graphics_track_int=\count301
 \g__pdfannot_backend_int=\count302
 \g__pdfannot_backend_link_int=\count303
@@ -1039,14 +1039,14 @@ LaTeX Font Info:    Font shape `TU/SourceSans3(1)/m/n' will be
 LaTeX Font Info:    Font shape `TU/SourceSans3(1)/m/sc' will be
 (Font)              scaled to size 12.0pt on input line 233.
 LaTeX Font Info:    Font shape `TU/SourceSans3(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 240.
+(Font)              scaled to size 9.0pt on input line 242.
 
-Package hyperref Warning: Ignoring empty anchor on input line 240.
+Package hyperref Warning: Ignoring empty anchor on input line 242.
 
 LaTeX Font Info:    Font shape `TU/SourceSans3(0)/b/n' will be
-(Font)              scaled to size 9.0pt on input line 240.
+(Font)              scaled to size 9.0pt on input line 242.
 LaTeX Font Info:    Font shape `TU/SourceSans3(0)/m/it' will be
-(Font)              scaled to size 10.95pt on input line 250.
+(Font)              scaled to size 10.95pt on input line 252.
 [2] [3] (./CV - Assoc Prof Taren Sanders (2 page).aux)
  ***********
 LaTeX2e <2026-06-01>
@@ -1056,10 +1056,10 @@ Package rerunfilecheck Info: File `"CV - Assoc Prof Taren Sanders (2 page)".out'
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 33941 strings out of 469719
- 689029 string characters out of 5467000
- 1277643 words of memory out of 5000000
- 62424 multiletter control sequences out of 15000+600000
+ 33951 strings out of 469719
+ 689323 string characters out of 5466181
+ 1277639 words of memory out of 5000000
+ 62433 multiletter control sequences out of 15000+600000
  634362 words of font info for 147 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  131i,17n,136p,654b,652s stack positions out of 10000i,1000n,20000p,200000b,200000s
