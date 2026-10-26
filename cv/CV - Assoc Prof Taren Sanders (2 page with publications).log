@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.10.19)  25 OCT 2026 17:00
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.10.21)  26 OCT 2026 22:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1066,17 +1066,17 @@ Package hyperref Warning: Ignoring empty anchor on input line 286.
 LaTeX Font Info:    Font shape `TU/SourceSans3(0)/m/it' will be
 (Font)              scaled to size 10.95pt on input line 297.
 [4] [5] [6]
-Overfull \hbox (15.99016pt too wide) in paragraph at lines 681--690
+Overfull \hbox (15.99016pt too wide) in paragraph at lines 682--691
 \TU/SourceSans3(0)/m/n/10.95 physical-activity/screen-time trajectories during early childhood: Socio-demographic predictors and consequences
  []
 
 
-Overfull \hbox (13.0872pt too wide) in paragraph at lines 720--726
+Overfull \hbox (13.0872pt too wide) in paragraph at lines 721--727
 \TU/SourceSans3(0)/m/n/10.95 activity intensity and well-being in adolescents. \TU/SourceSans3(0)/m/it/10.95 Preventive Medicine\TU/SourceSans3(0)/m/n/10.95 , \TU/SourceSans3(0)/m/it/10.95 125\TU/SourceSans3(0)/m/n/10.95 , 55–61. DOI: []10.1016/j.ypmed.2019.05.009[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 720--726
+Underfull \hbox (badness 10000) in paragraph at lines 721--727
 
  []
 
@@ -1090,8 +1090,8 @@ Package rerunfilecheck Info: File `"CV - Assoc Prof Taren Sanders (2 page with p
  ) 
 Here is how much of TeX's memory you used:
  34030 strings out of 469719
- 692810 string characters out of 5466181
- 1280755 words of memory out of 5000000
+ 692811 string characters out of 5466181
+ 1280756 words of memory out of 5000000
  62502 multiletter control sequences out of 15000+600000
  635660 words of font info for 158 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191

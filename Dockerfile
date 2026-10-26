@@ -44,6 +44,7 @@ RUN --mount=type=secret,id=github_pat \
 ENV PATH="/opt/TinyTeX/bin/x86_64-linux:${PATH}"
 RUN R -e "tinytex::install_tinytex(dir = '/opt/TinyTeX', force = TRUE)" \
   && tlmgr path add \
+  && tlmgr update --self \
   && tlmgr install \
   academicons booktabs colortbl enumitem environ euenc fancyhdr \
   float fontawesome fontspec fp ifmtarg l3packages latex-amsmath-dev makecell multirow \
