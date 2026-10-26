@@ -110,6 +110,9 @@ jobs:
         run: |
           git config --local user.name "GitHub Actions"
           git config --local user.email "actions@github.com"
+          # checkout@v6+ scopes its credentials to the original .git path, so
+          # they don't survive moving .targets-runs/.git into place.
+          git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/${{ github.repository }}.git"
           rm -r .gitignore .github/workflows
           git add --all -- ':!renv'
           for file in $(git ls-files -mo --exclude=renv)
