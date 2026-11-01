@@ -23,3 +23,16 @@
 % Added code to adjust the footnote formatting
 \renewcommand\@makefntext[1]{\leftskip=0em\parindent=0em #1}
 \makeatother
+% Bibliography tweaks (the template defines these after the header, so
+% override them at the start of the document):
+% - widen the hanging indent so the boxed reference number (see strong.lua)
+%   fits two digits plus a gap
+% - \nobreak before \hfill so LaTeX can't break the line at the fill glue,
+%   which left the \break alone on an empty line (as \newline does)
+% - emergency stretch so long unbreakable DOIs wrap instead of overflowing
+%   the margin (pandoc's default template does the same)
+\setlength{\emergencystretch}{3em}
+\AtBeginDocument{%
+  \setlength{\cslhangindent}{2em}%
+  \renewcommand{\CSLBlock}[1]{\unskip\nobreak\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}%
+}
