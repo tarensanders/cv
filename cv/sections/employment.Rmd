@@ -5,6 +5,9 @@ employment <-
   tribble(
     ~role, ~start, ~end, ~org, ~details,
     # nolint start
+    "Acting Deputy Director", "2026", "Current",
+    "Institute for Positive Psychology and Education, Australian Catholic University",
+    list(),
     "Associate Professor", "2025", "Current",
     "Institute for Positive Psychology and Education, Australian Catholic University",
     list(),
