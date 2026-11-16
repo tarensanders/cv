@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.10.21)  15 NOV 2026 19:18
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.10.21)  16 NOV 2026 02:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1048,15 +1048,15 @@ LaTeX Font Info:    Font shape `TU/SourceSans3(0)/b/n' will be
 LaTeX Font Info:    Font shape `TU/SourceSans3(0)/m/it' will be
 (Font)              scaled to size 10.95pt on input line 263.
 [2] [3] [4]
-Underfull \hbox (badness 1092) in paragraph at lines 721--727
+Underfull \hbox (badness 1092) in paragraph at lines 730--736
 \TU/SourceSans3(0)/m/n/10.95 tween physical activity intensity and well-being in adolescents. \TU/SourceSans3(0)/m/it/10.95 Preventive Medicine\TU/SourceSans3(0)/m/n/10.95 , \TU/SourceSans3(0)/m/it/10.95 125\TU/SourceSans3(0)/m/n/10.95 , 55–61. DOI:
  []
 
 [5] [6]
 LaTeX Font Info:    Font shape `TU/SourceSans3(1)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 881.
+(Font)              scaled to size 9.0pt on input line 890.
 LaTeX Font Info:    Font shape `TU/SourceSans3(1)/b/n' will be
-(Font)              scaled to size 9.0pt on input line 881.
+(Font)              scaled to size 9.0pt on input line 890.
 [7] [8] (./CV - Assoc Prof Taren Sanders (5 page).aux)
  ***********
 LaTeX2e <2026-06-01>
@@ -1066,10 +1066,10 @@ Package rerunfilecheck Info: File `"CV - Assoc Prof Taren Sanders (5 page)".out'
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 34009 strings out of 469719
- 691620 string characters out of 5466181
- 1282821 words of memory out of 5000000
- 62491 multiletter control sequences out of 15000+600000
+ 34010 strings out of 469719
+ 691668 string characters out of 5466181
+ 1282888 words of memory out of 5000000
+ 62492 multiletter control sequences out of 15000+600000
  634362 words of font info for 147 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  131i,17n,136p,654b,650s stack positions out of 10000i,1000n,20000p,200000b,200000s
